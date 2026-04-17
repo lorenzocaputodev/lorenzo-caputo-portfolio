@@ -1,0 +1,16 @@
+{
+  "name": "Lorenzo Caputo Portfolio",
+  "short_name": "Lorenzo Portfolio",
+  "description": "Personal portfolio for Lorenzo Caputo, Junior Developer in Training.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b1016",
+  "theme_color": "#0b1016",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
