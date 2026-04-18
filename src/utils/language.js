@@ -7,20 +7,15 @@ function normalizeLang(value, supportedLanguages) {
   return supportedLanguages.includes(normalized) ? normalized : null
 }
 
-export function getInitialLang(supportedLanguages, fallback = 'en') {
+export function getInitialLang(supportedLanguages, fallback = 'it') {
   if (typeof window === 'undefined') return fallback
 
   try {
     const stored = normalizeLang(localStorage.getItem(LANG_KEY), supportedLanguages)
     if (stored) return stored
   } catch {
-    // Ignore storage access failures and fall back to browser language detection.
+    // Ignore storage access failures and fall back to the configured default language.
   }
 
-  for (const locale of [...(navigator.languages ?? []), navigator.language]) {
-    const resolved = normalizeLang(locale, supportedLanguages)
-    if (resolved) return resolved
-  }
-
-  return fallback
+  return supportedLanguages.includes(fallback) ? fallback : supportedLanguages[0] ?? 'it'
 }

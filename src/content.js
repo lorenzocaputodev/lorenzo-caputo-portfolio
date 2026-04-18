@@ -235,12 +235,12 @@ export const content = {
 
   it: {
     meta: {
-      title: 'Lorenzo Caputo | Junior Developer in Formazione',
-      description: 'Portfolio di Lorenzo Caputo — junior developer in formazione all\'ITS Academy, costruisce solide basi tecniche con metodo e curiosità.',
-      ogTitle: 'Lorenzo Caputo | Junior Developer in Formazione',
-      ogDescription: 'Junior developer in formazione — basi tecniche solide, metodo, curiosità.',
-      twitterTitle: 'Lorenzo Caputo | Junior Developer in Formazione',
-      twitterDescription: 'Junior developer in formazione. Metodo, cura, crescita costante.',
+      title: 'Lorenzo Caputo — Portfolio',
+      description: 'Junior Developer in formazione con una forte passione per software, hardware e problem solving pratico.',
+      ogTitle: 'Lorenzo Caputo — Portfolio',
+      ogDescription: 'Junior Developer in formazione con una forte passione per software, hardware e problem solving pratico.',
+      twitterTitle: 'Lorenzo Caputo — Portfolio',
+      twitterDescription: 'Junior Developer in formazione con una forte passione per software, hardware e problem solving pratico.',
       ogLocale: 'it_IT',
     },
     ui: {
