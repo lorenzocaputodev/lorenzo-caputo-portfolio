@@ -1,3 +1,4 @@
+// ===== Test end-to-end del portfolio =====
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
@@ -7,9 +8,8 @@ test.describe('portfolio', () => {
   test.beforeEach(async ({ page }) => {
     page.errors = []
     page.on('pageerror', (error) => page.errors.push(error.message))
-    // React reports hydration mismatches between prerendered HTML and the client render as console errors.
     page.on('console', (message) => {
-      if (message.type() === 'error' && /hydrat/i.test(message.text())) page.errors.push(message.text())
+      if (message.type() === 'error' && /hydrat|Content Security Policy/i.test(message.text())) page.errors.push(message.text())
     })
   })
 
@@ -39,7 +39,6 @@ test.describe('portfolio', () => {
     await expect(page.locator('html')).toHaveAttribute('lang', 'en')
     await expect(page.locator('h1')).toContainText('I build software with care')
 
-    // The explicit choice sends the visitor back to /en/ when opening the root again.
     await page.goto('./')
     await expect(page).toHaveURL(/\/en\/$/)
 
@@ -79,7 +78,6 @@ test.describe('portfolio', () => {
       await expect.poll(() => image.evaluate((img) => img.complete && img.naturalWidth > 0)).toBe(true)
     }
 
-    // The CV is offered both in the hero and in the contact section.
     const cvLinks = page.locator('a[download]')
     await expect(cvLinks).toHaveCount(2)
     for (const cvLink of await cvLinks.all()) {
@@ -108,23 +106,32 @@ test.describe('portfolio', () => {
     const nav = page.getByRole('navigation', { name: 'Principale' })
     await expect(nav.locator('[aria-current]')).toHaveCount(0)
 
-    // Every item, including the very tall project section and the last one (contact).
     for (const label of await nav.getByRole('link').allTextContents()) {
       await nav.getByRole('link', { name: label }).click()
       await expect(nav.locator('[aria-current="location"]')).toHaveText(label)
     }
 
-    // Plain scrolling (no clicks) reaches the last section too.
     await page.evaluate(() => window.scrollTo(0, 0))
     await expect(nav.locator('[aria-current]')).toHaveCount(0)
     await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
     await expect(nav.locator('[aria-current="location"]')).toHaveText('Contatti')
   })
 
+  test('copies the email address', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+    await page.goto('./')
+
+    const button = page.locator('.contact__copy')
+    await expect(button).toHaveText('Copia email')
+    await button.click()
+    await expect(button).toHaveText('Email copiata')
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('lorenzocaputo2002.lc@gmail.com')
+    await expect(button).toHaveText('Copia email', { timeout: 4000 })
+  })
+
   test('scroll reveal shows every animated element', async ({ page }) => {
     await page.goto('./')
 
-    // Scroll through the page like a reader would, element by element.
     for (const element of await page.locator('[data-reveal]').all()) {
       await element.scrollIntoViewIfNeeded()
     }
@@ -143,6 +150,18 @@ test.describe('prerendered pages', () => {
 
     await page.goto('./')
     await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', 'it_IT')
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /social-preview-it\.jpg$/)
+  })
+
+  test('ship a Content Security Policy and a generated sitemap', async ({ page, request }) => {
+    await page.goto('./')
+    const csp = await page.locator('meta[http-equiv="Content-Security-Policy"]').getAttribute('content')
+    expect(csp).toContain("script-src 'self' 'sha256-")
+    expect(csp).toContain("object-src 'none'")
+
+    const sitemap = await (await request.get('./sitemap.xml')).text()
+    expect(sitemap).toContain('<loc>https://lorenzocaputo.is-a.dev/en/</loc>')
+    expect(sitemap).toMatch(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/)
   })
 
   test.describe('without JavaScript', () => {

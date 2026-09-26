@@ -48,7 +48,7 @@ Applicazione sviluppata per il tracciamento quotidiano di prodotti e utilizzi, c
 
 ### 🛠 Tech Stack
 
-- **React** + **Vite**, con HTML pre-generato in fase di build per ogni lingua (`/` italiano, `/en/` inglese)
+- **Preact** (compatibile con React) + **Vite**, con HTML pre-generato in fase di build per ogni lingua (`/` italiano, `/en/` inglese)
 - **JavaScript**
 - **Custom CSS** con font self-hosted (Fontsource)
 - **Playwright** + **axe** per i test end-to-end e di accessibilità
@@ -65,6 +65,7 @@ npm run dev      # server di sviluppo (http://localhost:5173/ e /en/)
 npm run check    # lint + build di produzione con le pagine pre-generate
 npm run preview  # anteprima della build in dist/
 npm run test:e2e # test end-to-end Playwright (desktop + mobile)
+npm run social-preview # rigenera le immagini di anteprima social (IT ed EN)
 ```
 
 La prima volta che lanci i test serve il browser: `npx playwright install chromium`.
@@ -90,9 +91,10 @@ src/
 ├── utils/                  # helper (lingua, reveal, media query)
 ├── styles/                 # CSS diviso per livello, importato da styles/index.css
 └── assets/                 # immagini (con varianti 360px per srcset) e CV
-scripts/prerender.js        # genera dist/index.html e dist/en/index.html
+scripts/prerender.js        # genera le pagine per lingua, la CSP e la sitemap
+scripts/social-preview/     # generatore delle immagini di anteprima social
 tests/                      # test end-to-end Playwright
-public/                     # favicon, icone PWA, manifest, robots.txt, sitemap.xml, 404, anteprima social
+public/                     # favicon, icone PWA, manifest, robots.txt, pagina 404, anteprime social
 ```
 
 Per modificare i testi basta intervenire in `src/content/en.js` e `src/content/it.js`, mantenendo la stessa struttura in entrambe le lingue.
@@ -175,7 +177,7 @@ An app for daily tracking of products and usage, focused on **practicality, clea
 
 ### 🛠 Tech Stack
 
-- **React** + **Vite**, with HTML prerendered at build time for each language (`/` Italian, `/en/` English)
+- **Preact** (React-compatible) + **Vite**, with HTML prerendered at build time for each language (`/` Italian, `/en/` English)
 - **JavaScript**
 - **Custom CSS** with self-hosted fonts (Fontsource)
 - **Playwright** + **axe** for end-to-end and accessibility tests
@@ -192,6 +194,7 @@ npm run dev      # dev server (http://localhost:5173/ and /en/)
 npm run check    # lint + production build with prerendered pages
 npm run preview  # preview the build in dist/
 npm run test:e2e # Playwright end-to-end tests (desktop + mobile)
+npm run social-preview # regenerate the social preview images (IT and EN)
 ```
 
 The first time you run the tests you need the browser: `npx playwright install chromium`.

@@ -1,3 +1,4 @@
+/* ===== Sfondo ===== */
 .site-shell {
   position: relative;
   overflow-x: clip;
@@ -39,6 +40,7 @@ html.is-scrolling .site-grain {
   opacity: 0;
 }
 
+/* ===== Cursore personalizzato ===== */
 .cursor-dot,
 .cursor-trail {
   position: fixed;
@@ -131,6 +133,7 @@ html.is-scrolling .cursor-trail {
   opacity: 0 !important;
 }
 
+/* ===== Comparsa degli elementi allo scroll ===== */
 [data-reveal] {
   --reveal-x: 0px;
   --reveal-y: 26px;
@@ -139,7 +142,6 @@ html.is-scrolling .cursor-trail {
   --reveal-scale-from: 1;
 }
 
-/* Hidden only when JS runs (html.js is set in index.html): without JS the prerendered content stays visible. */
 .js [data-reveal] {
   opacity: 0;
   transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale-from));
@@ -177,6 +179,7 @@ html.is-scrolling .cursor-trail {
   will-change: auto;
 }
 
+/* ===== Comparsa della sezione iniziale ===== */
 .hero-reveal {
   --hero-reveal-y: 26px;
   --hero-reveal-duration: 980ms;

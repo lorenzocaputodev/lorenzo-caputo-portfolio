@@ -1,3 +1,4 @@
+// ===== Configurazione dei test Playwright =====
 import { defineConfig, devices } from '@playwright/test'
 
 const PORT = 4173
@@ -9,7 +10,6 @@ export default defineConfig({
   reporter: process.env.CI ? 'github' : 'list',
   use: {
     baseURL: `http://localhost:${PORT}/`,
-    // Optional: reuse a preinstalled Chromium instead of `npx playwright install`.
     launchOptions: process.env.PW_CHROMIUM_PATH
       ? { executablePath: process.env.PW_CHROMIUM_PATH }
       : {},
@@ -19,7 +19,6 @@ export default defineConfig({
     { name: 'mobile', use: { ...devices['Pixel 7'], locale: 'it-IT' } },
   ],
   webServer: {
-    // In CI `npm run check` has already produced dist/, so only the preview server is started.
     command: `${process.env.CI ? '' : 'npm run build && '}npm run preview -- --port ${PORT} --strictPort`,
     url: `http://localhost:${PORT}/`,
     reuseExistingServer: !process.env.CI,

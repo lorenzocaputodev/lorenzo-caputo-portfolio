@@ -1,9 +1,8 @@
+// ===== Comportamento del menu mobile =====
 import { useEffect } from 'react'
 
-// Keep in sync with the mobile breakpoint in styles/05-responsive.css.
 const MOBILE_BREAKPOINT = 760
 
-/** While the mobile menu is open: lock page scroll and close it on Escape, outside click or desktop resize. */
 export function useMobileMenuBehavior(mobileMenuOpen, closeMenu, mobileNavRef) {
   useEffect(() => {
     if (!mobileMenuOpen) return

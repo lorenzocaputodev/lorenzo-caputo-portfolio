@@ -1,3 +1,4 @@
+// ===== Sezione Percorso: formazione, esperienza e certificazioni =====
 import { memo } from 'react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { revealProps } from '../../utils/reveal'
@@ -29,7 +30,6 @@ function Timeline({ label, items, delay }) {
   )
 }
 
-/** Education, work experience and certifications in a single "journey" section. */
 function JourneySectionComponent({ journey }) {
   return (
     <section className="section" id="journey" aria-labelledby="journey-title">

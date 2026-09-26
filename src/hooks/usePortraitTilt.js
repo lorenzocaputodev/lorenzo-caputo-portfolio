@@ -1,7 +1,7 @@
+// ===== Effetto 3D sul ritratto =====
 import { useEffect } from 'react'
 import { canUsePointerEffects } from '../utils/media'
 
-// Custom properties driven by the pointer; their neutral values live in the .portrait-card CSS rule.
 const TILT_PROPERTIES = [
   'transform',
   '--gx',

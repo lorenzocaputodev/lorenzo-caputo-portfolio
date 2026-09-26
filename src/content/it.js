@@ -1,3 +1,4 @@
+// ===== Testi in italiano =====
 import {
   buildContactLinks,
   buildNavItems,
@@ -15,6 +16,8 @@ export const it = {
     twitterTitle: 'Lorenzo Caputo — Portfolio',
     twitterDescription: 'Junior developer in formazione: software curato, dall’interfaccia al sistema.',
     ogLocale: 'it_IT',
+    image: '/social-preview-it.jpg',
+    imageAlt: 'Anteprima del portfolio di Lorenzo Caputo',
   },
   ui: {
     skipToContentLabel: 'Salta al contenuto',
@@ -152,6 +155,9 @@ export const it = {
     titleAccent: 'passo serio',
     titleTrail: 'nel software.',
     lead: 'Aperto a opportunità, collaborazioni e confronti: scrivimi, rispondo volentieri.',
+    copyEmail: 'Copia email',
+    emailCopied: 'Email copiata',
+    copyFailed: 'Copia non riuscita',
     links: buildContactLinks({ github: 'GitHub', linkedin: 'LinkedIn', cv: 'Scarica CV' }),
   },
   footer: { closing: 'Costruito con cura. Altro in arrivo.' },

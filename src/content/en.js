@@ -1,3 +1,4 @@
+// ===== Testi in inglese =====
 import {
   buildContactLinks,
   buildNavItems,
@@ -15,6 +16,8 @@ export const en = {
     twitterTitle: 'Lorenzo Caputo | Junior Developer in Training',
     twitterDescription: 'Junior developer in training: carefully built software, from interface to system.',
     ogLocale: 'en_US',
+    image: '/social-preview-en.jpg',
+    imageAlt: 'Lorenzo Caputo portfolio preview',
   },
   ui: {
     skipToContentLabel: 'Skip to content',
@@ -152,6 +155,9 @@ export const en = {
     titleAccent: 'serious next step',
     titleTrail: 'in software.',
     lead: 'Open to opportunities, collaborations and conversations: write to me, I’m happy to reply.',
+    copyEmail: 'Copy email',
+    emailCopied: 'Email copied',
+    copyFailed: 'Copy failed',
     links: buildContactLinks({ github: 'GitHub', linkedin: 'LinkedIn', cv: 'Download CV' }),
   },
   footer: { closing: 'Built with care. More coming.' },

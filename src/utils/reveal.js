@@ -1,9 +1,6 @@
+// ===== Proprietà per la comparsa allo scroll =====
 export const REVEAL_SELECTOR = '[data-reveal]'
 
-/**
- * Props for a scroll-revealed element. Per-element tweaks are passed as CSS
- * custom properties, while the `kind` selects the preset defined in CSS.
- */
 export function revealProps(delay = 0, { kind, x, y, scale } = {}) {
   const style = {}
   if (delay) style['--reveal-delay'] = `${delay}ms`

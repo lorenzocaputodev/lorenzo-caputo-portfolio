@@ -1,3 +1,4 @@
+/* ===== Tablet e schermi medi (fino a 1080px) ===== */
 @media (max-width: 1080px) {
   .topbar__inner {
     gap: 0.62rem;
@@ -58,7 +59,7 @@
   }
 }
 
-/* Short desktop screens (e.g. 1366×768 laptops): keep the hero buttons above the fold. */
+/* ===== Schermi desktop bassi ===== */
 @media (min-width: 1081px) and (max-height: 820px) {
   .hero {
     padding-top: 4.4rem;
@@ -74,6 +75,7 @@
   }
 }
 
+/* ===== Mobile (fino a 760px) ===== */
 @media (max-width: 760px) {
   .hero,
   .section {
@@ -274,7 +276,6 @@
     grid-template-columns: 1fr;
   }
 
-  /* Screenshots become a horizontal swipe carousel: the next one peeks in to invite scrolling. */
   .project__shot-list {
     display: flex;
     gap: 0.8rem;
@@ -341,6 +342,7 @@
   }
 }
 
+/* ===== Mobile piccolo (fino a 580px) ===== */
 @media (max-width: 580px) {
   .hero__eyebrow {
     gap: 0.38rem;
@@ -425,6 +427,7 @@
   }
 }
 
+/* ===== Movimento ridotto ===== */
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal {
     opacity: 1;

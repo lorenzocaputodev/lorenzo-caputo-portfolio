@@ -1,0 +1,159 @@
+/* ===== Stampa e salvataggio in PDF ===== */
+@page {
+  margin: 14mm;
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  body * {
+    color: #111 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .site-bg,
+  .site-grain,
+  .cursor-dot,
+  .cursor-trail,
+  .topbar,
+  .skip-link,
+  .hero__actions,
+  .contact__copy,
+  .project__links,
+  .project__shots-hint,
+  .contact__actions a[download],
+  .hero::before,
+  .section--project::before,
+  .project::after {
+    display: none !important;
+  }
+
+  .js [data-reveal],
+  .hero-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .eyebrow,
+  .journey__label,
+  .timeline__year,
+  .certification-card__date,
+  .project__detail-label,
+  .skill-row__index,
+  .project__release-badge {
+    color: #0b6b7a !important;
+  }
+
+  .hero,
+  .section {
+    padding: 0 0 1.4rem;
+  }
+
+  .hero__grid,
+  .project__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .portrait-card {
+    width: 180px;
+    padding: 0;
+    border: 0;
+    transform: none !important;
+  }
+
+  .surface-card,
+  .project,
+  .project-proof,
+  .project__shots,
+  .skill-tag {
+    border-color: #ccc !important;
+  }
+
+  .project {
+    overflow: visible;
+    padding: 0;
+    border: 0;
+  }
+
+  .portrait-card__meta {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .portrait-card__meta span {
+    text-align: left;
+  }
+
+  .section-heading,
+  .journey__label,
+  .project__detail-label {
+    break-after: avoid;
+  }
+
+  .section-heading {
+    break-inside: avoid;
+  }
+
+  .project__shots {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    border: 0;
+  }
+
+  .project__shot-list {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    height: auto;
+    overflow: visible;
+  }
+
+  .project__shot-list > li {
+    flex: none;
+  }
+
+  .project-shot,
+  .project-shot img {
+    height: auto;
+  }
+
+  .project-list li::before,
+  .timeline__dot {
+    background: #0b6b7a !important;
+  }
+
+  .surface-card,
+  .timeline__item,
+  .skill-row,
+  .project-proof,
+  .project__shots,
+  .contact__panel {
+    break-inside: avoid;
+  }
+
+  .contact__actions a[href^='http']::after {
+    content: '\00a0(' attr(href) ')';
+    font-weight: 400;
+  }
+
+  .contact__actions .button {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+  }
+}

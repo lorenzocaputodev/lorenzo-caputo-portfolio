@@ -1,7 +1,8 @@
+// ===== Configurazione di Vite =====
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import preact from '@preact/preset-vite'
 
-// Fonts used above the fold: preloading them avoids the layout shift caused by the late font swap.
+// ===== Preload dei font visibili al primo caricamento =====
 const PRELOAD_FONTS = [/sora-latin-400-normal-.*\.woff2$/, /sora-latin-700-normal-.*\.woff2$/, /cormorant-garamond-latin-600-italic-.*\.woff2$/]
 
 function preloadFonts() {
@@ -23,7 +24,7 @@ function preloadFonts() {
   }
 }
 
-// Dev server only: fill the <head> placeholder like scripts/prerender.js does for the production pages.
+// ===== <head> della pagina in sviluppo =====
 function devHead() {
   return {
     name: 'dev-head',
@@ -36,8 +37,8 @@ function devHead() {
   }
 }
 
+// ===== Configurazione =====
 export default defineConfig({
-  // Absolute base: the English page lives at /en/ and must load the same /assets/.
   base: '/',
-  plugins: [react(), preloadFonts(), devHead()],
+  plugins: [preact(), preloadFonts(), devHead()],
 })

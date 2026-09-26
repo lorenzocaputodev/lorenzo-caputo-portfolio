@@ -1,3 +1,4 @@
+// ===== Lingue e indirizzi delle pagine =====
 import { en } from './en'
 import { it } from './it'
 
@@ -9,7 +10,6 @@ export const content = { en, it }
 
 export const supportedLanguages = Object.keys(content)
 
-/** Every language has its own prerendered page: Italian at the root, the others under /<lang>/. */
 export const languagePath = (language) => (language === DEFAULT_LANGUAGE ? '/' : `/${language}/`)
 
 export const languageFromPath = (pathname) => {

@@ -1,3 +1,4 @@
+// ===== Configurazione di ESLint =====
 import js from '@eslint/js'
 import globals from 'globals'
 import react from 'eslint-plugin-react'
@@ -15,7 +16,6 @@ export default [
     },
   },
   {
-    // Playwright tests run in Node, but callbacks passed to evaluate() run in the browser.
     files: ['tests/**/*.js'],
     languageOptions: {
       globals: { ...globals.node, ...globals.browser },
@@ -34,13 +34,12 @@ export default [
       'react-hooks': reactHooks,
     },
     settings: {
-      react: { version: 'detect' },
+      react: { version: '18.3' },
     },
     rules: {
       ...react.configs.flat.recommended.rules,
       ...react.configs.flat['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
-      // Content is a static, trusted object: prop-types add noise without catching real bugs here.
       'react/prop-types': 'off',
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },

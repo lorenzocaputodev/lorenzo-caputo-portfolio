@@ -1,7 +1,7 @@
+// ===== Selettore di lingua =====
 import { languagePath, supportedLanguages } from '../../content'
 import { storeLang } from '../../utils/language'
 
-/** Each language lives at its own URL, so switching is a plain link to the other prerendered page. */
 export function LanguageSwitch({ language, ariaLabel, className = '' }) {
   return (
     <div className={`lang-switch ${className}`.trim()} role="group" aria-label={ariaLabel}>

@@ -1,3 +1,4 @@
+// ===== Dati comuni a tutte le lingue =====
 import portrait from '../assets/images/lorenzo-portrait.webp'
 import dashboardOverview from '../assets/images/dashboard_overview.webp'
 import historyAnalytics from '../assets/images/history_analytics.webp'
@@ -8,12 +9,6 @@ import historyAnalyticsSmall from '../assets/images/history_analytics-360.webp'
 import reductionPlanSmall from '../assets/images/reduction_plan-360.webp'
 import settingsOverviewSmall from '../assets/images/settings_overview-360.webp'
 import cvFile from '../assets/files/cv-caputo-lorenzo.pdf'
-
-/**
- * Language-independent data shared by every locale.
- * Each locale file (en.js, it.js) must expose the same shape so that
- * section components can stay presentation-only.
- */
 
 export const sharedProfile = {
   name: 'Lorenzo Caputo',
@@ -29,6 +24,7 @@ export const sharedProfile = {
   cvDownloadName: 'Lorenzo-Caputo-CV.pdf',
 }
 
+// ===== Navigazione e contatti =====
 const navSections = ['about', 'journey', 'skills', 'project', 'contact']
 
 export const buildNavItems = (labels) =>
@@ -40,7 +36,7 @@ export const buildContactLinks = ({ github, linkedin, cv }) => [
   { label: cv, href: cvFile, download: sharedProfile.cvDownloadName },
 ]
 
-// `image` is the 718px original, `imageSmall` a 360px variant used through srcset.
+// ===== Screenshot del progetto =====
 const projectScreenshots = [
   { title: { en: 'Daily dashboard', it: 'Dashboard giornaliera' }, image: dashboardOverview, imageSmall: dashboardOverviewSmall, width: 718, height: 1591 },
   { title: { en: 'History & analytics', it: 'Storico e analisi' }, image: historyAnalytics, imageSmall: historyAnalyticsSmall, width: 718, height: 1591 },
@@ -50,6 +46,7 @@ const projectScreenshots = [
 
 export const buildScreenshots = (lang) => projectScreenshots.map((shot) => ({ ...shot, title: shot.title[lang] }))
 
+// ===== Certificazioni =====
 export const certifications = {
   en: [
     { title: 'Exploring in AI', issuer: 'IBM SkillsBuild', date: 'Mar 2026' },

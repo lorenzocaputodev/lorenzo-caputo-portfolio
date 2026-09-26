@@ -1,3 +1,4 @@
+/* ===== Colori, font e stili di base ===== */
 :root {
   color-scheme: dark;
   --bg: #090e14;
@@ -74,6 +75,7 @@ button {
   .menu-toggle,
   .button,
   .contact__email,
+  .contact__copy,
   .lang-switch__button
 ):focus-visible {
   outline: none;
@@ -94,6 +96,7 @@ main {
   scroll-margin-top: 6.4rem;
 }
 
+/* ===== Link "Salta al contenuto" ===== */
 .skip-link {
   position: fixed;
   top: 1rem;
