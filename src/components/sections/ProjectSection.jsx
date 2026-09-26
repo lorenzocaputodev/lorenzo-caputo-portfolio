@@ -1,21 +1,16 @@
 import { memo, useEffect, useRef } from 'react'
-import { ExternalLink } from './ExternalLink'
-import { SectionHeading } from './SectionHeading'
-import { revealProps } from '../utils/reveal'
+import { ExternalLink } from '../ui/ExternalLink'
+import { SectionHeading } from '../ui/SectionHeading'
+import { prefersReducedMotion } from '../../utils/media'
+import { revealProps } from '../../utils/reveal'
 
 function ProjectSectionComponent({ project, profile, ui }) {
   const projectRef = useRef(null)
 
+  // One-shot glow the first time the project card scrolls into view.
   useEffect(() => {
     const projectElement = projectRef.current
-
-    if (!projectElement) {
-      return undefined
-    }
-
-    const activateGlow = () => {
-      projectElement.classList.add('project--glow-active')
-    }
+    if (!projectElement || prefersReducedMotion()) return
 
     const handleAnimationEnd = (event) => {
       if (event.animationName === 'project-glow') {
@@ -23,41 +18,16 @@ function ProjectSectionComponent({ project, profile, ui }) {
       }
     }
 
-    projectElement.addEventListener('animationend', handleAnimationEnd)
-    let frameId = 0
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return () => {
-        projectElement.removeEventListener('animationend', handleAnimationEnd)
-      }
-    }
-
-    if (typeof IntersectionObserver === 'undefined') {
-      frameId = requestAnimationFrame(activateGlow)
-
-      return () => {
-        cancelAnimationFrame(frameId)
-        projectElement.removeEventListener('animationend', handleAnimationEnd)
-      }
-    }
-
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleEntry = entries.find((entry) => entry.isIntersecting)
-
-        if (!visibleEntry) {
-          return
-        }
-
-        activateGlow()
+        if (!entries.some((entry) => entry.isIntersecting)) return
+        projectElement.classList.add('project--glow-active')
         observer.disconnect()
       },
-      {
-        threshold: 0.22,
-        rootMargin: '0px 0px -10% 0px',
-      },
+      { threshold: 0.22, rootMargin: '0px 0px -10% 0px' },
     )
 
+    projectElement.addEventListener('animationend', handleAnimationEnd)
     observer.observe(projectElement)
 
     return () => {
@@ -137,10 +107,7 @@ function ProjectSectionComponent({ project, profile, ui }) {
             </div>
           </div>
 
-          <section
-            className="project__shots"
-            aria-label={project.screenshotsAria}
-          >
+          <section className="project__shots" aria-label={project.screenshotsAria}>
             {project.screenshotColumns.map((column, columnIndex) => (
               <ul key={columnIndex} className="project__shot-column">
                 {column.map((shot, shotIndex) => (
@@ -164,7 +131,6 @@ function ProjectSectionComponent({ project, profile, ui }) {
                         height={shot.height}
                         loading="lazy"
                         decoding="async"
-                        sizes="(max-width: 760px) 100vw, (max-width: 1080px) 46vw, 22vw"
                       />
                     </figure>
                   </li>

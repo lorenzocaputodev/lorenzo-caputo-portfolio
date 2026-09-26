@@ -1,4 +1,4 @@
-import { revealProps } from '../utils/reveal'
+import { revealProps } from '../../utils/reveal'
 
 export function SectionHeading({
   eyebrow,

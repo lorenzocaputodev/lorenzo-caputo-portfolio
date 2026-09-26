@@ -65,6 +65,43 @@ Applicazione sviluppata per il tracciamento quotidiano di prodotti e utilizzi, c
 
 ---
 
+## 🧑‍💻 Sviluppo locale
+
+Requisiti: Node.js 20+ (la CI usa Node 22).
+
+```bash
+npm install
+npm run dev      # server di sviluppo
+npm run check    # lint + build di produzione (lo stesso controllo della CI)
+npm run preview  # anteprima della build in dist/
+```
+
+Il deploy su GitHub Pages parte automaticamente a ogni push su `main`; sulle pull request la CI esegue solo lint e build.
+
+## 🗂 Struttura del progetto
+
+```
+src/
+├── App.jsx                 # composizione della pagina e stato globale (lingua, menu)
+├── main.jsx                # entry point
+├── content/                # testi e dati del sito
+│   ├── shared.js           # dati comuni (profilo, link, screenshot, certificazioni)
+│   ├── en.js / it.js       # contenuti localizzati, stessa struttura
+│   └── index.js            # lingue supportate e lingua di default
+├── components/
+│   ├── layout/             # Topbar, LanguageSwitch, SkipLink, SiteDecor
+│   ├── sections/           # una sezione della pagina per file
+│   └── ui/                 # componenti riutilizzabili (SectionHeading, ExternalLink…)
+├── hooks/                  # effetti: smooth scroll, reveal, cursore, tilt, meta tag…
+├── utils/                  # helper (lingua, reveal, media query)
+├── styles/                 # CSS diviso per livello, importato da styles/index.css
+└── assets/                 # immagini e CV
+```
+
+Per modificare i testi basta intervenire in `src/content/en.js` e `src/content/it.js`, mantenendo la stessa struttura in entrambe le lingue.
+
+---
+
 ## 🎨 Frontend / Design Notes
 
 Questo progetto è stato costruito con attenzione particolare a:

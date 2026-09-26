@@ -64,7 +64,7 @@
 }
 
 .accent-serif {
-  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
   color: #f2fbff;
@@ -215,10 +215,6 @@
   line-height: 1.76;
 }
 
-.surface-card h3 {
-  margin: 0;
-}
-
 .surface-card__index {
   display: inline-flex;
   margin-bottom: 0.85rem;
@@ -235,11 +231,6 @@
 
 .card-grid--three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.card-grid--compact {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
 }
 
 .about__grid {
@@ -259,12 +250,6 @@
 .about__heading {
   max-width: 37rem;
   margin-bottom: 0;
-}
-
-.about__editorial h2 {
-  font-size: clamp(1.9rem, 3.8vw, 3rem);
-  letter-spacing: -0.04em;
-  text-wrap: balance;
 }
 
 .about__copy {
@@ -380,10 +365,6 @@
 .experience__heading {
   max-width: 39rem;
   margin-bottom: 1.95rem;
-}
-
-.experience .card-grid--three {
-  gap: 1rem;
 }
 
 .experience-card {
@@ -810,13 +791,8 @@ html.is-scrolling .project::after {
 }
 
 .footer {
-  padding: 0 0 2.2rem;
-}
-
-.footer--contact {
   width: min(100%, 780px);
   margin: 1rem auto 0;
-  padding: 0;
 }
 
 .footer__inner {
@@ -856,3 +832,4 @@ html.is-scrolling .project::after {
   max-width: 20rem;
   text-align: right;
 }
+

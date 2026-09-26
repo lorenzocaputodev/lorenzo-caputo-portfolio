@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import { SectionHeading } from './SectionHeading'
-import { revealProps } from '../utils/reveal'
+import { SectionHeading } from '../ui/SectionHeading'
+import { revealProps } from '../../utils/reveal'
 
 function ExperienceSectionComponent({ experience }) {
   return (

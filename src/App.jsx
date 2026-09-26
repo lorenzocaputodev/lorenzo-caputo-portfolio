@@ -1,26 +1,26 @@
-import { useRef, useState } from 'react'
-import { content, supportedLanguages } from './content'
-import { AboutSection } from './components/AboutSection'
-import { CertificationsSection } from './components/CertificationsSection'
-import { ContactSection } from './components/ContactSection'
-import { GrowthSection } from './components/GrowthSection'
-import { HeroSection } from './components/HeroSection'
-import { ProjectSection } from './components/ProjectSection'
-import { SiteDecor } from './components/SiteDecor'
-import { SkipLink } from './components/SkipLink'
-import { SkillsSection } from './components/SkillsSection'
-import { Topbar } from './components/Topbar'
-import { ExperienceSection } from './components/ExperienceSection'
+import { useCallback, useRef, useState } from 'react'
+import { content, DEFAULT_LANGUAGE, supportedLanguages } from './content'
+import { SiteDecor } from './components/layout/SiteDecor'
+import { SkipLink } from './components/layout/SkipLink'
+import { Topbar } from './components/layout/Topbar'
+import { AboutSection } from './components/sections/AboutSection'
+import { CertificationsSection } from './components/sections/CertificationsSection'
+import { ContactSection } from './components/sections/ContactSection'
+import { ExperienceSection } from './components/sections/ExperienceSection'
+import { GrowthSection } from './components/sections/GrowthSection'
+import { HeroSection } from './components/sections/HeroSection'
+import { ProjectSection } from './components/sections/ProjectSection'
+import { SkillsSection } from './components/sections/SkillsSection'
 import { useCustomCursor } from './hooks/useCustomCursor'
 import { useLenisScroll } from './hooks/useLenisScroll'
 import { useMobileMenuBehavior } from './hooks/useMobileMenuBehavior'
-import { usePortraitTilt } from './hooks/usePortraitTilt'
 import { usePortfolioMeta } from './hooks/usePortfolioMeta'
+import { usePortraitTilt } from './hooks/usePortraitTilt'
 import { useScrollReveal } from './hooks/useScrollReveal'
 import { getInitialLang } from './utils/language'
 
 export default function App() {
-  const [language, setLanguage] = useState(() => getInitialLang(supportedLanguages))
+  const [language, setLanguage] = useState(() => getInitialLang(supportedLanguages, DEFAULT_LANGUAGE))
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const mobileNavRef = useRef(null)
@@ -28,7 +28,10 @@ export default function App() {
   const cursorTrailRefs = useRef([])
   const portraitRef = useRef(null)
 
-  const data = content[language] ?? content.en
+  // Stable callbacks keep the memoized Topbar from re-rendering on every App render.
+  const closeMenu = useCallback(() => setMobileMenuOpen(false), [])
+  const toggleMenu = useCallback(() => setMobileMenuOpen((open) => !open), [])
+
   const {
     about,
     certifications,
@@ -42,12 +45,12 @@ export default function App() {
     project,
     skills,
     ui,
-  } = data
+  } = content[language]
 
   usePortfolioMeta(language, meta)
   useLenisScroll()
   useScrollReveal(language)
-  useMobileMenuBehavior(mobileMenuOpen, setMobileMenuOpen, mobileNavRef)
+  useMobileMenuBehavior(mobileMenuOpen, closeMenu, mobileNavRef)
   useCustomCursor(cursorDotRef, cursorTrailRefs)
   usePortraitTilt(portraitRef)
 
@@ -61,9 +64,9 @@ export default function App() {
         mobileMenuOpen={mobileMenuOpen}
         mobileNavRef={mobileNavRef}
         navItems={navItems}
-        onCloseMenu={() => setMobileMenuOpen(false)}
+        onCloseMenu={closeMenu}
         onLanguageChange={setLanguage}
-        onToggleMenu={() => setMobileMenuOpen((value) => !value)}
+        onToggleMenu={toggleMenu}
         profile={profile}
         ui={ui}
       />

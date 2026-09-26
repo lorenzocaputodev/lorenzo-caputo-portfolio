@@ -1,21 +1,21 @@
 import { useEffect } from 'react'
+import { canUsePointerEffects } from '../utils/media'
 
 const CURSOR_IDLE_MS = 2000
 const CURSOR_SETTLE_EPSILON = 0.05
 const CURSOR_TRAIL_LERPS = [0.24, 0.19, 0.15, 0.12, 0.1]
-const CURSOR_TRAIL_COUNT = CURSOR_TRAIL_LERPS.length
+export const CURSOR_TRAIL_COUNT = CURSOR_TRAIL_LERPS.length
 
 export function useCustomCursor(cursorDotRef, cursorTrailRefs) {
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+    if (!canUsePointerEffects()) return
 
     const root = document.documentElement
     const dot = cursorDotRef.current
     const trails = cursorTrailRefs.current.filter(Boolean)
     if (!dot || trails.length !== CURSOR_TRAIL_COUNT) return
 
-    document.documentElement.classList.add('has-custom-cursor')
+    root.classList.add('has-custom-cursor')
 
     let raf = 0
     let idleTimer = 0
@@ -142,7 +142,7 @@ export function useCustomCursor(cursorDotRef, cursorTrailRefs) {
     document.addEventListener('visibilitychange', onVisibilityChange)
 
     return () => {
-      document.documentElement.classList.remove('has-custom-cursor')
+      root.classList.remove('has-custom-cursor')
       cancelAnimationFrame(raf)
       clearTimeout(idleTimer)
       window.removeEventListener('pointermove', onMove)
