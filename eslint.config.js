@@ -5,13 +5,20 @@ import reactHooks from 'eslint-plugin-react-hooks'
 
 export default [
   {
-    ignores: ['dist/**', 'playwright-report/**', 'test-results/**'],
+    ignores: ['dist/**', 'dist-ssr/**', 'playwright-report/**', 'test-results/**'],
   },
   js.configs.recommended,
   {
-    files: ['*.config.js'],
+    files: ['*.config.js', 'scripts/**/*.js'],
     languageOptions: {
       globals: globals.node,
+    },
+  },
+  {
+    // Playwright tests run in Node, but callbacks passed to evaluate() run in the browser.
+    files: ['tests/**/*.js'],
+    languageOptions: {
+      globals: { ...globals.node, ...globals.browser },
     },
   },
   {

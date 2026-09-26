@@ -10,7 +10,6 @@ function TopbarComponent({
   mobileNavRef,
   navItems,
   onCloseMenu,
-  onLanguageChange,
   onToggleMenu,
   profile,
   ui,
@@ -44,7 +43,6 @@ function TopbarComponent({
           <div className="topbar__actions">
             <LanguageSwitch
               language={language}
-              onChange={onLanguageChange}
               ariaLabel={ui.languageSwitcherAria}
               className="lang-switch--topbar"
             />
@@ -89,10 +87,6 @@ function TopbarComponent({
 
             <LanguageSwitch
               language={language}
-              onChange={(nextLanguage) => {
-                onLanguageChange(nextLanguage)
-                onCloseMenu()
-              }}
               ariaLabel={ui.languageSwitcherAria}
               className="lang-switch--mobile"
             />

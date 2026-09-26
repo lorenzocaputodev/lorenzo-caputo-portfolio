@@ -3,6 +3,16 @@ import { it } from './it'
 
 export const DEFAULT_LANGUAGE = 'it'
 
+export const SITE_URL = 'https://lorenzocaputo.is-a.dev'
+
 export const content = { en, it }
 
 export const supportedLanguages = Object.keys(content)
+
+/** Every language has its own prerendered page: Italian at the root, the others under /<lang>/. */
+export const languagePath = (language) => (language === DEFAULT_LANGUAGE ? '/' : `/${language}/`)
+
+export const languageFromPath = (pathname) => {
+  const [firstSegment] = pathname.split('/').filter(Boolean)
+  return supportedLanguages.includes(firstSegment) ? firstSegment : DEFAULT_LANGUAGE
+}

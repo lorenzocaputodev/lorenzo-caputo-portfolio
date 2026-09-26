@@ -7,10 +7,14 @@ test.describe('portfolio', () => {
   test.beforeEach(async ({ page }) => {
     page.errors = []
     page.on('pageerror', (error) => page.errors.push(error.message))
+    // React reports hydration mismatches between prerendered HTML and the client render as console errors.
+    page.on('console', (message) => {
+      if (message.type() === 'error' && /hydrat/i.test(message.text())) page.errors.push(message.text())
+    })
   })
 
   test.afterEach(async ({ page }) => {
-    expect(page.errors, 'uncaught page errors').toEqual([])
+    expect(page.errors, 'uncaught page errors or hydration mismatches').toEqual([])
   })
 
   test('renders every section in Italian by default', async ({ page }) => {
@@ -25,17 +29,25 @@ test.describe('portfolio', () => {
     }
   })
 
-  test('switches language and remembers the choice', async ({ page, isMobile }) => {
+  test('switches language by URL and remembers an explicit choice', async ({ page, isMobile }) => {
     await page.goto('./')
 
     if (isMobile) await page.getByRole('button', { name: 'Apri o chiudi il menu' }).click()
-    await page.locator('.lang-switch:visible').getByRole('button', { name: 'EN' }).click()
+    await page.locator('.lang-switch:visible').getByRole('link', { name: 'EN' }).click()
 
+    await expect(page).toHaveURL(/\/en\/$/)
     await expect(page.locator('html')).toHaveAttribute('lang', 'en')
     await expect(page.locator('h1')).toContainText('Learning to build software')
 
-    await page.reload()
-    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+    // The explicit choice sends the visitor back to /en/ when opening the root again.
+    await page.goto('./')
+    await expect(page).toHaveURL(/\/en\/$/)
+
+    if (isMobile) await page.getByRole('button', { name: 'Toggle navigation menu' }).click()
+    await page.locator('.lang-switch:visible').getByRole('link', { name: 'IT' }).click()
+    await expect(page).toHaveURL(/\/$/)
+    await page.goto('./')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'it')
   })
 
   test('mobile menu opens, navigates and closes with Escape', async ({ page, isMobile }) => {
@@ -108,11 +120,38 @@ test.describe('portfolio', () => {
   })
 })
 
-test.describe('browser language detection', () => {
-  test.use({ locale: 'en-US' })
-
-  test('uses English for English-speaking browsers', async ({ page }) => {
-    await page.goto('./')
+test.describe('prerendered pages', () => {
+  test('serve localized content and metadata at / and /en/', async ({ page }) => {
+    await page.goto('./en/')
     await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+    await expect(page).toHaveTitle('Lorenzo Caputo | Junior Developer in Training')
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://lorenzocaputo.is-a.dev/en/')
+    await expect(page.locator('link[hreflang="it"]')).toHaveAttribute('href', 'https://lorenzocaputo.is-a.dev/')
+
+    await page.goto('./')
+    await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', 'it_IT')
+  })
+
+  test.describe('without JavaScript', () => {
+    test.use({ javaScriptEnabled: false })
+
+    test('shows the full content', async ({ page }) => {
+      await page.goto('./')
+      await expect(page.locator('h1')).toContainText('Sto imparando a sviluppare')
+
+      const hidden = await page.locator('[data-reveal]').evaluateAll(
+        (elements) => elements.filter((element) => getComputedStyle(element).opacity !== '1').length,
+      )
+      expect(hidden).toBe(0)
+    })
+  })
+
+  test.describe('English-speaking browser', () => {
+    test.use({ locale: 'en-US' })
+
+    test('is not redirected away from the Italian page (safe for search engines)', async ({ page }) => {
+      await page.goto('./')
+      await expect(page.locator('html')).toHaveAttribute('lang', 'it')
+    })
   })
 })
