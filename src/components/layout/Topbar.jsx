@@ -21,7 +21,7 @@ function TopbarComponent({
     <header className="topbar">
       <div className="container topbar__stack" ref={mobileNavRef}>
         <div className="topbar__inner">
-          <a className="brand" href="#hero" aria-label={ui.backToTopAria}>
+          <a className="brand" href="#hero" aria-label={`LC – ${ui.backToTopAria}`}>
             <span className="brand__mark">LC</span>
           </a>
 
@@ -34,7 +34,7 @@ function TopbarComponent({
               <a
                 key={item.href}
                 href={item.href}
-                aria-current={activeSection === item.href ? 'page' : undefined}
+                aria-current={activeSection === item.href ? 'location' : undefined}
               >
                 {item.label}
               </a>
@@ -78,7 +78,7 @@ function TopbarComponent({
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    aria-current={activeSection === item.href ? 'page' : undefined}
+                    aria-current={activeSection === item.href ? 'location' : undefined}
                     onClick={onCloseMenu}
                   >
                     {item.label}

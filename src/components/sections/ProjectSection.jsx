@@ -7,7 +7,7 @@ import { revealProps } from '../../utils/reveal'
 // Rendered width of one screenshot column at each breakpoint (see .project__shots in CSS).
 const SCREENSHOT_SIZES = '(max-width: 760px) calc(100vw - 4rem), (max-width: 1080px) 340px, 270px'
 
-function ProjectSectionComponent({ project, profile, ui }) {
+function ProjectSectionComponent({ project, profile }) {
   const projectRef = useRef(null)
 
   // One-shot glow the first time the project card scrolls into view.
@@ -100,11 +100,7 @@ function ProjectSectionComponent({ project, profile, ui }) {
               <ExternalLink className="button button--project" href={profile.projectRepo}>
                 {project.links.repository}
               </ExternalLink>
-              <ExternalLink
-                className="button button--ghost"
-                href={profile.projectRelease}
-                aria-label={ui.openReleaseAria}
-              >
+              <ExternalLink className="button button--ghost" href={profile.projectRelease}>
                 {project.links.release}
               </ExternalLink>
             </div>

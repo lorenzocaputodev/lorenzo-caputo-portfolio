@@ -1,3 +1,4 @@
+import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
 const SECTION_IDS = ['about', 'growth', 'experience', 'skills', 'project', 'certifications', 'contact']
@@ -71,6 +72,28 @@ test.describe('portfolio', () => {
     const response = await request.get(await cvLink.getAttribute('href'))
     expect(response.ok()).toBe(true)
     expect(response.headers()['content-type']).toContain('pdf')
+  })
+
+  test('has no detectable accessibility violations', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('./')
+
+    const { violations } = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice'])
+      .analyze()
+
+    expect(violations.map(({ id, nodes }) => `${id}: ${nodes.map((node) => node.target).join(', ')}`)).toEqual([])
+  })
+
+  test('highlights no nav item in the hero, then the section in view', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'desktop navigation')
+    await page.goto('./')
+
+    const nav = page.getByRole('navigation', { name: 'Principale' })
+    await expect(nav.locator('[aria-current]')).toHaveCount(0)
+
+    await page.locator('#skills').scrollIntoViewIfNeeded()
+    await expect(nav.locator('[aria-current="location"]')).toHaveText('Competenze')
   })
 
   test('scroll reveal shows every animated element', async ({ page }) => {

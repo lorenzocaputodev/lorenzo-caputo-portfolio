@@ -22,8 +22,7 @@ export const it = {
     primaryNavAria: 'Principale',
     mobileNavAria: 'Mobile',
     menuToggleAria: 'Apri o chiudi il menu',
-    openGitHubAria: 'Apri il repository GitHub',
-    openReleaseAria: 'Apri la pagina della release',
+    openGitHubAria: 'Profilo GitHub',
     languageSwitcherAria: 'Seleziona la lingua',
   },
   profile: {

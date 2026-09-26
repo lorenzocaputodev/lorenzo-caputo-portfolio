@@ -19,7 +19,8 @@ export default defineConfig({
     { name: 'mobile', use: { ...devices['Pixel 7'], locale: 'it-IT' } },
   ],
   webServer: {
-    command: `npm run build && npm run preview -- --port ${PORT} --strictPort`,
+    // In CI `npm run check` has already produced dist/, so only the preview server is started.
+    command: `${process.env.CI ? '' : 'npm run build && '}npm run preview -- --port ${PORT} --strictPort`,
     url: `http://localhost:${PORT}/`,
     reuseExistingServer: !process.env.CI,
   },
