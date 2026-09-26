@@ -133,6 +133,9 @@ html.is-scrolling .topbar__inner {
 }
 
 .lang-switch__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 2.35rem;
   padding: 0.46rem 0.6rem;
   border: 0;

@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react'
-import { content, DEFAULT_LANGUAGE, supportedLanguages } from './content'
+import { content } from './content'
 import { SiteDecor } from './components/layout/SiteDecor'
 import { SkipLink } from './components/layout/SkipLink'
 import { Topbar } from './components/layout/Topbar'
@@ -14,13 +14,11 @@ import { SkillsSection } from './components/sections/SkillsSection'
 import { useCustomCursor } from './hooks/useCustomCursor'
 import { useLenisScroll } from './hooks/useLenisScroll'
 import { useMobileMenuBehavior } from './hooks/useMobileMenuBehavior'
-import { usePortfolioMeta } from './hooks/usePortfolioMeta'
 import { usePortraitTilt } from './hooks/usePortraitTilt'
 import { useScrollReveal } from './hooks/useScrollReveal'
-import { getInitialLang, storeLang } from './utils/language'
 
-export default function App() {
-  const [language, setLanguage] = useState(() => getInitialLang(supportedLanguages, DEFAULT_LANGUAGE))
+/** The language comes from the URL (/ or /en/): each language is a separate prerendered page. */
+export default function App({ language }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const mobileNavRef = useRef(null)
@@ -31,10 +29,6 @@ export default function App() {
   // Stable callbacks keep the memoized Topbar from re-rendering on every App render.
   const closeMenu = useCallback(() => setMobileMenuOpen(false), [])
   const toggleMenu = useCallback(() => setMobileMenuOpen((open) => !open), [])
-  const changeLanguage = useCallback((nextLanguage) => {
-    setLanguage(nextLanguage)
-    storeLang(nextLanguage)
-  }, [])
 
   const {
     about,
@@ -43,7 +37,6 @@ export default function App() {
     experience,
     footer,
     growth,
-    meta,
     navItems,
     profile,
     project,
@@ -51,7 +44,6 @@ export default function App() {
     ui,
   } = content[language]
 
-  usePortfolioMeta(language, meta)
   useLenisScroll()
   useScrollReveal(language)
   useMobileMenuBehavior(mobileMenuOpen, closeMenu, mobileNavRef)
@@ -69,7 +61,6 @@ export default function App() {
         mobileNavRef={mobileNavRef}
         navItems={navItems}
         onCloseMenu={closeMenu}
-        onLanguageChange={changeLanguage}
         onToggleMenu={toggleMenu}
         profile={profile}
         ui={ui}

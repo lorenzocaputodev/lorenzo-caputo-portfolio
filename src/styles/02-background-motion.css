@@ -137,6 +137,10 @@ html.is-scrolling .cursor-trail {
   --reveal-delay: 0ms;
   --reveal-duration: 820ms;
   --reveal-scale-from: 1;
+}
+
+/* Hidden only when JS runs (html.js is set in index.html): without JS the prerendered content stays visible. */
+.js [data-reveal] {
   opacity: 0;
   transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale-from));
   transition:
@@ -167,7 +171,7 @@ html.is-scrolling .cursor-trail {
   --reveal-scale-from: 0.985;
 }
 
-[data-reveal].is-visible {
+.js [data-reveal].is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
   will-change: auto;
