@@ -54,10 +54,8 @@ function ProjectSectionComponent({ project, profile }) {
             <div {...revealProps(60, { kind: 'card', y: 24 })}>
               <article className="project__intro surface-card">
                 <div className="project__release">
-                  <span className="project__release-version">{project.release.version}</span>
-                  <span className="project__release-copy">
-                    {project.release.label} &middot; {project.release.date}
-                  </span>
+                  <span className="project__release-badge">{project.release.badge}</span>
+                  <span className="project__release-copy">{project.release.label}</span>
                 </div>
                 <p className="project__journey">{project.journey}</p>
               </article>

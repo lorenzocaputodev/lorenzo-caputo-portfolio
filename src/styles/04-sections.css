@@ -547,7 +547,7 @@ html.is-scrolling .project::after {
   margin-bottom: 1rem;
 }
 
-.project__release-version {
+.project__release-badge {
   display: inline-flex;
   align-items: center;
   padding: 0.36rem 0.76rem;

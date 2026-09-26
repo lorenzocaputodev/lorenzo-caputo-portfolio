@@ -97,15 +97,24 @@ test.describe('portfolio', () => {
     expect(violations.map(({ id, nodes }) => `${id}: ${nodes.map((node) => node.target).join(', ')}`)).toEqual([])
   })
 
-  test('highlights no nav item in the hero, then the section in view', async ({ page, isMobile }) => {
+  test('highlights the right nav item, from the hero to the last section', async ({ page, isMobile }) => {
     test.skip(isMobile, 'desktop navigation')
     await page.goto('./')
 
     const nav = page.getByRole('navigation', { name: 'Principale' })
     await expect(nav.locator('[aria-current]')).toHaveCount(0)
 
-    await page.locator('#skills').scrollIntoViewIfNeeded()
-    await expect(nav.locator('[aria-current="location"]')).toHaveText('Competenze')
+    // Every item, including the very tall project section and the last one (contact).
+    for (const label of await nav.getByRole('link').allTextContents()) {
+      await nav.getByRole('link', { name: label }).click()
+      await expect(nav.locator('[aria-current="location"]')).toHaveText(label)
+    }
+
+    // Plain scrolling (no clicks) reaches the last section too.
+    await page.evaluate(() => window.scrollTo(0, 0))
+    await expect(nav.locator('[aria-current]')).toHaveCount(0)
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
+    await expect(nav.locator('[aria-current="location"]')).toHaveText('Contatti')
   })
 
   test('scroll reveal shows every animated element', async ({ page }) => {
