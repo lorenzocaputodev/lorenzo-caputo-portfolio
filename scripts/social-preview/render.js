@@ -23,6 +23,16 @@ const previews = {
   },
 }
 
+// ===== Competenze chiave mostrate nell'immagine =====
+const skills = [
+  ['Java', 'java.png'],
+  ['JavaScript', 'javascript.svg'],
+  ['React', 'react.svg'],
+  ['Flutter', 'flutter.svg'],
+  ['Spring', 'spring.svg'],
+  ['SQL', 'sql.png'],
+]
+
 // ===== Risorse: sfondo e font =====
 const dataUrl = async (path, type) => `data:${type};base64,${(await readFile(resolve(root, path))).toString('base64')}`
 
@@ -32,6 +42,12 @@ const assets = {
   inter600: await dataUrl('node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2', 'font/woff2'),
   mono: await dataUrl('node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2', 'font/woff2'),
 }
+
+const icons = Object.fromEntries(
+  await Promise.all(
+    skills.map(async ([, file]) => [file, await dataUrl(`scripts/social-preview/icons/${file}`, file.endsWith('.svg') ? 'image/svg+xml' : 'image/png')]),
+  ),
+)
 
 // ===== Impaginazione (coordinate dell'immagine sorgente 1774×887) =====
 const page = ({ headline, subtitle, tagline }) => `<!doctype html>
@@ -59,6 +75,27 @@ const page = ({ headline, subtitle, tagline }) => `<!doctype html>
       .subtitle.second { top: 499px; }
       .tagline { left: 123px; top: 740px; font: 400 24.8px/1 Mono, monospace; color: #f4f3f3; }
       .tagline span { color: #01eef6; }
+      .skills { left: 93px; top: 596px; display: flex; gap: 13px; }
+      .skill {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-sizing: border-box;
+        height: 66px;
+        padding: 0 14px;
+        border: 2px solid rgb(8, 178, 172);
+        border-radius: 12px;
+        background: rgba(1, 7, 15, 0.82);
+        font: 500 21px/1 Inter, sans-serif;
+        color: #fff;
+      }
+      .skill i {
+        width: 28px;
+        height: 33px;
+        background: #01f4fd;
+        -webkit-mask: var(--icon) center / contain no-repeat;
+        mask: var(--icon) center / contain no-repeat;
+      }
     </style>
   </head>
   <body>
@@ -67,6 +104,9 @@ const page = ({ headline, subtitle, tagline }) => `<!doctype html>
       <p class="headline second">${headline[1]}</p>
       <p class="subtitle first">${subtitle[0]}</p>
       <p class="subtitle second">${subtitle[1]}</p>
+      <div class="skills">
+        ${skills.map(([label, file]) => `<span class="skill"><i style="--icon: url('${icons[file]}')"></i>${label}</span>`).join('')}
+      </div>
       <p class="tagline">${tagline[0]}&nbsp; <span>${tagline[1]}</span>&nbsp; ${tagline[2]}</p>
     </div>
   </body>
