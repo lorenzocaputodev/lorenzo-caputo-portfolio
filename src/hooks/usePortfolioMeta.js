@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { storeLang } from '../utils/language'
 
 const META_SELECTORS = {
   description: 'meta[name="description"]',
@@ -12,8 +11,6 @@ const META_SELECTORS = {
 
 export function usePortfolioMeta(language, meta) {
   useEffect(() => {
-    storeLang(language)
-
     document.documentElement.lang = language
     document.title = meta.title
 

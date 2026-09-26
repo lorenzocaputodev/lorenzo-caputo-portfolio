@@ -3,6 +3,10 @@ import dashboardOverview from '../assets/images/dashboard_overview.webp'
 import historyAnalytics from '../assets/images/history_analytics.webp'
 import reductionPlan from '../assets/images/reduction_plan.webp'
 import settingsOverview from '../assets/images/settings_overview.webp'
+import dashboardOverviewSmall from '../assets/images/dashboard_overview-360.webp'
+import historyAnalyticsSmall from '../assets/images/history_analytics-360.webp'
+import reductionPlanSmall from '../assets/images/reduction_plan-360.webp'
+import settingsOverviewSmall from '../assets/images/settings_overview-360.webp'
 import cvFile from '../assets/files/cv-caputo-lorenzo.pdf'
 
 /**
@@ -34,14 +38,15 @@ export const buildContactLinks = ({ github, linkedin, cv }) => [
   { label: cv, href: cvFile, download: 'Lorenzo-Caputo-CV.pdf' },
 ]
 
+// `image` is the 718px original, `imageSmall` a 360px variant used through srcset.
 const projectScreenshots = [
   [
-    { title: { en: 'Daily dashboard', it: 'Dashboard giornaliera' }, image: dashboardOverview, width: 718, height: 1591 },
-    { title: { en: 'Reduction planning', it: 'Piano di riduzione' }, image: reductionPlan, width: 718, height: 1590 },
+    { title: { en: 'Daily dashboard', it: 'Dashboard giornaliera' }, image: dashboardOverview, imageSmall: dashboardOverviewSmall, width: 718, height: 1591 },
+    { title: { en: 'Reduction planning', it: 'Piano di riduzione' }, image: reductionPlan, imageSmall: reductionPlanSmall, width: 718, height: 1590 },
   ],
   [
-    { title: { en: 'History & analytics', it: 'Storico e analisi' }, image: historyAnalytics, width: 718, height: 1591 },
-    { title: { en: 'Configuration', it: 'Impostazioni' }, image: settingsOverview, width: 718, height: 1591 },
+    { title: { en: 'History & analytics', it: 'Storico e analisi' }, image: historyAnalytics, imageSmall: historyAnalyticsSmall, width: 718, height: 1591 },
+    { title: { en: 'Configuration', it: 'Impostazioni' }, image: settingsOverview, imageSmall: settingsOverviewSmall, width: 718, height: 1591 },
   ],
 ]
 

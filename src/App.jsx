@@ -17,7 +17,7 @@ import { useMobileMenuBehavior } from './hooks/useMobileMenuBehavior'
 import { usePortfolioMeta } from './hooks/usePortfolioMeta'
 import { usePortraitTilt } from './hooks/usePortraitTilt'
 import { useScrollReveal } from './hooks/useScrollReveal'
-import { getInitialLang } from './utils/language'
+import { getInitialLang, storeLang } from './utils/language'
 
 export default function App() {
   const [language, setLanguage] = useState(() => getInitialLang(supportedLanguages, DEFAULT_LANGUAGE))
@@ -31,6 +31,10 @@ export default function App() {
   // Stable callbacks keep the memoized Topbar from re-rendering on every App render.
   const closeMenu = useCallback(() => setMobileMenuOpen(false), [])
   const toggleMenu = useCallback(() => setMobileMenuOpen((open) => !open), [])
+  const changeLanguage = useCallback((nextLanguage) => {
+    setLanguage(nextLanguage)
+    storeLang(nextLanguage)
+  }, [])
 
   const {
     about,
@@ -65,7 +69,7 @@ export default function App() {
         mobileNavRef={mobileNavRef}
         navItems={navItems}
         onCloseMenu={closeMenu}
-        onLanguageChange={setLanguage}
+        onLanguageChange={changeLanguage}
         onToggleMenu={toggleMenu}
         profile={profile}
         ui={ui}

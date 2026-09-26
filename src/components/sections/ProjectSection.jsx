@@ -4,6 +4,9 @@ import { SectionHeading } from '../ui/SectionHeading'
 import { prefersReducedMotion } from '../../utils/media'
 import { revealProps } from '../../utils/reveal'
 
+// Rendered width of one screenshot column at each breakpoint (see .project__shots in CSS).
+const SCREENSHOT_SIZES = '(max-width: 760px) calc(100vw - 4rem), (max-width: 1080px) 340px, 270px'
+
 function ProjectSectionComponent({ project, profile, ui }) {
   const projectRef = useRef(null)
 
@@ -126,6 +129,8 @@ function ProjectSectionComponent({ project, profile, ui }) {
                     <figure className="project-shot">
                       <img
                         src={shot.image}
+                        srcSet={`${shot.imageSmall} 360w, ${shot.image} 718w`}
+                        sizes={SCREENSHOT_SIZES}
                         alt={shot.title}
                         width={shot.width}
                         height={shot.height}

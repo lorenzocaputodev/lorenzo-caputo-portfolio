@@ -7,15 +7,29 @@ function normalizeLang(value, supportedLanguages) {
   return supportedLanguages.includes(normalized) ? normalized : null
 }
 
-export function getInitialLang(supportedLanguages, fallback) {
+function getStoredLang(supportedLanguages) {
   try {
-    const stored = normalizeLang(localStorage.getItem(LANG_KEY), supportedLanguages)
-    if (stored) return stored
+    return normalizeLang(localStorage.getItem(LANG_KEY), supportedLanguages)
   } catch {
-    // Storage can be unavailable (private mode, blocked cookies): use the default language.
+    // Storage can be unavailable (private mode, blocked cookies).
+    return null
+  }
+}
+
+function getBrowserLang(supportedLanguages) {
+  const preferred = navigator.languages?.length ? navigator.languages : [navigator.language]
+
+  for (const value of preferred) {
+    const match = normalizeLang(value, supportedLanguages)
+    if (match) return match
   }
 
-  return fallback
+  return null
+}
+
+/** Language priority: explicit user choice, then browser preferences, then the site default. */
+export function getInitialLang(supportedLanguages, fallback) {
+  return getStoredLang(supportedLanguages) ?? getBrowserLang(supportedLanguages) ?? fallback
 }
 
 export function storeLang(language) {
