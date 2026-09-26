@@ -8,6 +8,12 @@ updates:
       # One PR per week for minor/patch bumps instead of one per package.
       npm-minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      # eslint-plugin-react does not support ESLint 10 yet: remove once it does.
+      - dependency-name: eslint
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@eslint/js'
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: github-actions
     directory: /
