@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import Lenis from 'lenis'
 import { canUsePointerEffects } from '../utils/media'
 
 const LENIS_IDLE_FRAMES = 8
@@ -44,75 +43,91 @@ export function useLenisScroll() {
       }
     }
 
-    const lenis = new Lenis({
-      duration: 0.78,
-      easing: (value) => 1 - Math.pow(1 - value, 4),
-      smoothWheel: true,
+    // Lenis is only needed here (desktop with a mouse): load it on demand to keep it out of the mobile bundle.
+    let cancelled = false
+    let stopLenis = null
+
+    import('lenis').then(({ default: Lenis }) => {
+      if (!cancelled) stopLenis = startLenis(Lenis, setScrolling, clearScrolling)
     })
-
-    let raf = 0
-    let running = false
-    let idleFrames = 0
-
-    const hasMomentum = () => (
-      lenis.isScrolling === 'smooth'
-      || Math.abs(lenis.velocity) > 0.01
-      || Math.abs(lenis.animatedScroll - lenis.actualScroll) > 0.5
-    )
-
-    const loop = (time) => {
-      lenis.raf(time)
-
-      if (hasMomentum()) {
-        idleFrames = 0
-        raf = requestAnimationFrame(loop)
-        return
-      }
-
-      if (idleFrames < LENIS_IDLE_FRAMES) {
-        idleFrames += 1
-        raf = requestAnimationFrame(loop)
-        return
-      }
-
-      clearScrolling()
-      running = false
-      raf = 0
-    }
-
-    const wake = () => {
-      idleFrames = 0
-      setScrolling()
-      if (running) return
-      running = true
-      raf = requestAnimationFrame(loop)
-    }
-
-    const onKey = (event) => {
-      if (SCROLL_WAKE_KEYS.has(event.code)) wake()
-    }
-
-    const onAnchor = (event) => {
-      if (!(event.target instanceof Element)) return
-      if (event.target.closest('a[href^="#"]')) wake()
-    }
-
-    lenis.on('scroll', () => {
-      idleFrames = 0
-      setScrolling()
-    })
-
-    window.addEventListener('wheel', wake, { passive: true })
-    window.addEventListener('keydown', onKey)
-    document.addEventListener('click', onAnchor)
 
     return () => {
-      cancelAnimationFrame(raf)
+      cancelled = true
+      stopLenis?.()
       clearScrolling()
-      window.removeEventListener('wheel', wake)
-      window.removeEventListener('keydown', onKey)
-      document.removeEventListener('click', onAnchor)
-      lenis.destroy()
     }
   }, [])
+}
+
+/** Starts Lenis with an on-demand rAF loop that sleeps while the page is idle. Returns a cleanup function. */
+function startLenis(Lenis, setScrolling, clearScrolling) {
+  const lenis = new Lenis({
+    duration: 0.78,
+    easing: (value) => 1 - Math.pow(1 - value, 4),
+    smoothWheel: true,
+  })
+
+  let raf = 0
+  let running = false
+  let idleFrames = 0
+
+  const hasMomentum = () => (
+    lenis.isScrolling === 'smooth'
+    || Math.abs(lenis.velocity) > 0.01
+    || Math.abs(lenis.animatedScroll - lenis.actualScroll) > 0.5
+  )
+
+  const loop = (time) => {
+    lenis.raf(time)
+
+    if (hasMomentum()) {
+      idleFrames = 0
+      raf = requestAnimationFrame(loop)
+      return
+    }
+
+    if (idleFrames < LENIS_IDLE_FRAMES) {
+      idleFrames += 1
+      raf = requestAnimationFrame(loop)
+      return
+    }
+
+    clearScrolling()
+    running = false
+    raf = 0
+  }
+
+  const wake = () => {
+    idleFrames = 0
+    setScrolling()
+    if (running) return
+    running = true
+    raf = requestAnimationFrame(loop)
+  }
+
+  const onKey = (event) => {
+    if (SCROLL_WAKE_KEYS.has(event.code)) wake()
+  }
+
+  const onAnchor = (event) => {
+    if (!(event.target instanceof Element)) return
+    if (event.target.closest('a[href^="#"]')) wake()
+  }
+
+  lenis.on('scroll', () => {
+    idleFrames = 0
+    setScrolling()
+  })
+
+  window.addEventListener('wheel', wake, { passive: true })
+  window.addEventListener('keydown', onKey)
+  document.addEventListener('click', onAnchor)
+
+  return () => {
+    cancelAnimationFrame(raf)
+    window.removeEventListener('wheel', wake)
+    window.removeEventListener('keydown', onKey)
+    document.removeEventListener('click', onAnchor)
+    lenis.destroy()
+  }
 }

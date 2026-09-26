@@ -109,7 +109,7 @@ html.is-scrolling .topbar__inner {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.nav a[aria-current='page'] {
+.nav a[aria-current='location'] {
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.06);
@@ -273,7 +273,7 @@ html.is-scrolling .mobile-nav__panel {
 }
 
 .mobile-nav__links a:hover,
-.mobile-nav__links a[aria-current='page'] {
+.mobile-nav__links a[aria-current='location'] {
   color: var(--text);
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.04);

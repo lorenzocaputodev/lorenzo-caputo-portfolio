@@ -81,7 +81,7 @@ export default function App() {
         <GrowthSection growth={growth} />
         <ExperienceSection experience={experience} />
         <SkillsSection skills={skills} />
-        <ProjectSection profile={profile} project={project} ui={ui} />
+        <ProjectSection profile={profile} project={project} />
         <CertificationsSection certifications={certifications} />
         <ContactSection contact={contact} footer={footer} profile={profile} />
       </main>
