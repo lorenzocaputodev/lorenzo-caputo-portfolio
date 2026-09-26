@@ -21,7 +21,7 @@ export const sharedProfile = {
   github: 'https://github.com/lorenzocaputodev',
   linkedin: 'https://www.linkedin.com/in/lorenzocaputodev/',
   projectRepo: 'https://github.com/lorenzocaputodev/my_tracking_app',
-  projectRelease: 'https://github.com/lorenzocaputodev/my_tracking_app/releases/tag/v1.0.0',
+  projectRelease: 'https://github.com/lorenzocaputodev/my_tracking_app/releases/latest',
   portrait,
   portraitWidth: 511,
   portraitHeight: 512,
