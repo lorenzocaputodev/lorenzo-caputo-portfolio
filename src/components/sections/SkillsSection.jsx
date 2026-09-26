@@ -9,7 +9,6 @@ function SkillsSectionComponent({ skills }) {
         <SectionHeading
           eyebrow={skills.eyebrow}
           title={skills.title}
-          className="skills__heading"
           id="skills-title"
         />
 
@@ -22,7 +21,13 @@ function SkillsSectionComponent({ skills }) {
             >
               <span className="skill-row__index">0{index + 1}</span>
               <h3 className="skill-row__title">{group.title}</h3>
-              <p className="skill-row__summary">{group.summary}</p>
+              <ul className="skill-row__summary skill-tags">
+                {group.items.map((item) => (
+                  <li key={item} className="skill-tag">
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>

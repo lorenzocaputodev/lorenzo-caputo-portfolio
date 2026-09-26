@@ -4,11 +4,9 @@ import { SiteDecor } from './components/layout/SiteDecor'
 import { SkipLink } from './components/layout/SkipLink'
 import { Topbar } from './components/layout/Topbar'
 import { AboutSection } from './components/sections/AboutSection'
-import { CertificationsSection } from './components/sections/CertificationsSection'
 import { ContactSection } from './components/sections/ContactSection'
-import { ExperienceSection } from './components/sections/ExperienceSection'
-import { GrowthSection } from './components/sections/GrowthSection'
 import { HeroSection } from './components/sections/HeroSection'
+import { JourneySection } from './components/sections/JourneySection'
 import { ProjectSection } from './components/sections/ProjectSection'
 import { SkillsSection } from './components/sections/SkillsSection'
 import { useCustomCursor } from './hooks/useCustomCursor'
@@ -32,11 +30,9 @@ export default function App({ language }) {
 
   const {
     about,
-    certifications,
     contact,
-    experience,
     footer,
-    growth,
+    journey,
     navItems,
     profile,
     project,
@@ -69,11 +65,9 @@ export default function App({ language }) {
       <main id="main-content">
         <HeroSection profile={profile} portraitRef={portraitRef} />
         <AboutSection about={about} />
-        <GrowthSection growth={growth} />
-        <ExperienceSection experience={experience} />
+        <JourneySection journey={journey} />
         <SkillsSection skills={skills} />
         <ProjectSection profile={profile} project={project} />
-        <CertificationsSection certifications={certifications} />
         <ContactSection contact={contact} footer={footer} profile={profile} />
       </main>
     </div>
