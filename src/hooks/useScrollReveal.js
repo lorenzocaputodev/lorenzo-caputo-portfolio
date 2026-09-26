@@ -1,24 +1,18 @@
 import { useEffect } from 'react'
-import { applyRevealVars, REVEAL_SELECTOR } from '../utils/reveal'
+import { REVEAL_SELECTOR } from '../utils/reveal'
+import { prefersReducedMotion } from '../utils/media'
 
+/**
+ * Adds `is-visible` to every `[data-reveal]` element the first time it enters the viewport.
+ * Re-runs on language change because localized lists are re-mounted with new keys.
+ */
 export function useScrollReveal(language) {
   useEffect(() => {
-    const elements = Array.from(document.querySelectorAll(REVEAL_SELECTOR))
+    const elements = Array.from(document.querySelectorAll(`${REVEAL_SELECTOR}:not(.is-visible)`))
     if (!elements.length) return
 
-    elements.forEach(applyRevealVars)
-
-    const showAll = () => {
+    if (prefersReducedMotion()) {
       elements.forEach((element) => element.classList.add('is-visible'))
-    }
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      showAll()
-      return
-    }
-
-    if (typeof IntersectionObserver === 'undefined') {
-      showAll()
       return
     }
 
@@ -26,10 +20,6 @@ export function useScrollReveal(language) {
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return
-          if (entry.target.classList.contains('is-visible')) {
-            observer.unobserve(entry.target)
-            return
-          }
           entry.target.classList.add('is-visible')
           observer.unobserve(entry.target)
         })

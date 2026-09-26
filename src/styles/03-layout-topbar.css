@@ -47,13 +47,7 @@ html.is-scrolling .topbar__inner {
 
 .topbar__mobile-title {
   display: none;
-}
-
-.topbar__mobile-title-main,
-.topbar__mobile-title-accent {
-  display: inline-block;
-  vertical-align: baseline;
-  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
 }
@@ -243,12 +237,7 @@ html.is-scrolling .topbar__inner {
 }
 
 .mobile-nav {
-  display: none;
   padding-top: 0.6rem;
-}
-
-.mobile-nav.is-open {
-  display: block;
 }
 
 .mobile-nav__panel {
@@ -392,3 +381,4 @@ h3 {
 .button--secondary {
   background: rgba(255, 255, 255, 0.03);
 }
+

@@ -1,8 +1,8 @@
 import { memo } from 'react'
-import { ExternalLink } from './ExternalLink'
-import { GitHubIcon } from './GitHubIcon'
+import { ExternalLink } from '../ui/ExternalLink'
+import { GitHubIcon } from '../ui/GitHubIcon'
 import { LanguageSwitch } from './LanguageSwitch'
-import { useActiveSection } from '../hooks/useActiveSection'
+import { useActiveSection } from '../../hooks/useActiveSection'
 
 function TopbarComponent({
   language,
@@ -26,8 +26,7 @@ function TopbarComponent({
           </a>
 
           <span className="topbar__mobile-title" aria-hidden="true">
-            <span className="topbar__mobile-title-main">Lorenzo</span>{' '}
-            <span className="topbar__mobile-title-accent">Caputo</span>
+            {profile.name}
           </span>
 
           <nav className="nav" aria-label={ui.primaryNavAria}>
@@ -59,7 +58,7 @@ function TopbarComponent({
             </ExternalLink>
 
             <button
-              className={`menu-toggle ${mobileMenuOpen ? 'is-open' : ''}`}
+              className={mobileMenuOpen ? 'menu-toggle is-open' : 'menu-toggle'}
               type="button"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-nav"
@@ -72,12 +71,7 @@ function TopbarComponent({
           </div>
         </div>
 
-        <div
-          className={`mobile-nav ${mobileMenuOpen ? 'is-open' : ''}`}
-          id="mobile-nav"
-          aria-hidden={!mobileMenuOpen}
-          hidden={!mobileMenuOpen}
-        >
+        <div className="mobile-nav" id="mobile-nav" hidden={!mobileMenuOpen}>
           <nav className="mobile-nav__panel" aria-label={ui.mobileNavAria}>
             <ul className="mobile-nav__links">
               {navItems.map((item) => (

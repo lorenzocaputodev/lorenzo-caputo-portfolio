@@ -1,0 +1,5 @@
+/* Self-hosted fonts (Fontsource), latin subset only: covers Italian and English copy. */
+@import '@fontsource/sora/latin-400.css';
+@import '@fontsource/sora/latin-600.css';
+@import '@fontsource/sora/latin-700.css';
+@import '@fontsource/cormorant-garamond/latin-600-italic.css';

@@ -1,6 +1,6 @@
 import { memo } from 'react'
-import { SectionHeading } from './SectionHeading'
-import { revealProps } from '../utils/reveal'
+import { SectionHeading } from '../ui/SectionHeading'
+import { revealProps } from '../../utils/reveal'
 
 function CertificationsSectionComponent({ certifications }) {
   return (
@@ -13,7 +13,7 @@ function CertificationsSectionComponent({ certifications }) {
           id="certifications-title"
         />
 
-        <div className="card-grid card-grid--compact certification-grid">
+        <div className="card-grid card-grid--three certification-grid">
           {certifications.items.map((item, index) => (
             <div
               key={`${item.title}-${item.date}`}

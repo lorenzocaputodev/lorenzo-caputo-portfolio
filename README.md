@@ -60,8 +60,51 @@ Applicazione sviluppata per il tracciamento quotidiano di prodotti e utilizzi, c
 - **React**
 - **Vite**
 - **JavaScript**
-- **Custom CSS**
+- **Custom CSS** con font self-hosted (Fontsource)
+- **Playwright** per i test end-to-end
 - **GitHub Pages** per il deploy
+
+---
+
+## 🧑‍💻 Sviluppo locale
+
+Requisiti: Node.js 20.19+ o 22.12+ (la CI usa Node 22).
+
+```bash
+npm install
+npm run dev      # server di sviluppo
+npm run check    # lint + build di produzione (lo stesso controllo della CI)
+npm run preview  # anteprima della build in dist/
+npm run test:e2e # test end-to-end Playwright (desktop + mobile)
+```
+
+La prima volta che lanci i test serve il browser: `npx playwright install chromium`.
+
+Il deploy su GitHub Pages parte automaticamente a ogni push su `main`; sulle pull request la CI esegue lint, build e test end-to-end senza pubblicare.
+
+## 🗂 Struttura del progetto
+
+```
+src/
+├── App.jsx                 # composizione della pagina e stato globale (lingua, menu)
+├── main.jsx                # entry point
+├── content/                # testi e dati del sito
+│   ├── shared.js           # dati comuni (profilo, link, screenshot, certificazioni)
+│   ├── en.js / it.js       # contenuti localizzati, stessa struttura
+│   └── index.js            # lingue supportate e lingua di default
+├── components/
+│   ├── layout/             # Topbar, LanguageSwitch, SkipLink, SiteDecor
+│   ├── sections/           # una sezione della pagina per file
+│   └── ui/                 # componenti riutilizzabili (SectionHeading, ExternalLink…)
+├── hooks/                  # effetti: smooth scroll, reveal, cursore, tilt, meta tag…
+├── utils/                  # helper (lingua, reveal, media query)
+├── styles/                 # CSS diviso per livello, importato da styles/index.css
+└── assets/                 # immagini (con varianti 360px per srcset) e CV
+tests/                      # test end-to-end Playwright
+public/                     # favicon, icone PWA, manifest, robots.txt, sitemap.xml, anteprima social
+```
+
+Per modificare i testi basta intervenire in `src/content/en.js` e `src/content/it.js`, mantenendo la stessa struttura in entrambe le lingue.
 
 ---
 

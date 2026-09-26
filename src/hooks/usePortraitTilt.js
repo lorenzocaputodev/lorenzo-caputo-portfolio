@@ -1,9 +1,23 @@
 import { useEffect } from 'react'
+import { canUsePointerEffects } from '../utils/media'
+
+// Custom properties driven by the pointer; their neutral values live in the .portrait-card CSS rule.
+const TILT_PROPERTIES = [
+  'transform',
+  '--gx',
+  '--gy',
+  '--media-shift-x',
+  '--media-shift-y',
+  '--meta-shift-x',
+  '--meta-shift-y',
+  '--portrait-glow',
+  '--frame-scale',
+  '--media-scale',
+]
 
 export function usePortraitTilt(portraitRef) {
   useEffect(() => {
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (!canUsePointerEffects()) return
 
     const card = portraitRef.current
     if (!card) return
@@ -19,18 +33,7 @@ export function usePortraitTilt(portraitRef) {
     }
 
     const setNeutralState = () => {
-      card.style.removeProperty('transform')
-      card.style.setProperty('--gx', '50%')
-      card.style.setProperty('--gy', '50%')
-      card.style.setProperty('--tilt-x', '0deg')
-      card.style.setProperty('--tilt-y', '0deg')
-      card.style.setProperty('--media-shift-x', '0px')
-      card.style.setProperty('--media-shift-y', '0px')
-      card.style.setProperty('--meta-shift-x', '0px')
-      card.style.setProperty('--meta-shift-y', '0px')
-      card.style.setProperty('--portrait-glow', '0.16')
-      card.style.setProperty('--frame-scale', '1')
-      card.style.setProperty('--media-scale', '1')
+      TILT_PROPERTIES.forEach((property) => card.style.removeProperty(property))
     }
 
     const reset = () => {
@@ -66,8 +69,6 @@ export function usePortraitTilt(portraitRef) {
         card.style.transform = `perspective(900px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
         card.style.setProperty('--gx', `${((event.clientX - rect.left) / rect.width) * 100}%`)
         card.style.setProperty('--gy', `${((event.clientY - rect.top) / rect.height) * 100}%`)
-        card.style.setProperty('--tilt-x', `${tiltX}deg`)
-        card.style.setProperty('--tilt-y', `${tiltY}deg`)
         card.style.setProperty('--media-shift-x', `${mediaShiftX}px`)
         card.style.setProperty('--media-shift-y', `${mediaShiftY}px`)
         card.style.setProperty('--meta-shift-x', `${metaShiftX}px`)
@@ -84,22 +85,26 @@ export function usePortraitTilt(portraitRef) {
     }
 
     const onLeave = () => {
+      cancelAnimationFrame(frame)
       card.classList.remove('is-portrait-active')
       reset()
     }
 
-    setNeutralState()
     card.addEventListener('pointerenter', onEnter)
     card.addEventListener('pointermove', onMove)
     card.addEventListener('pointerleave', onLeave)
     window.addEventListener('resize', onViewportChange)
+    window.addEventListener('scroll', onViewportChange, { passive: true })
 
     return () => {
       card.removeEventListener('pointerenter', onEnter)
       card.removeEventListener('pointermove', onMove)
       card.removeEventListener('pointerleave', onLeave)
       window.removeEventListener('resize', onViewportChange)
+      window.removeEventListener('scroll', onViewportChange)
       cancelAnimationFrame(frame)
+      card.classList.remove('is-portrait-active')
+      setNeutralState()
     }
   }, [portraitRef])
 }

@@ -1,18 +1,17 @@
 import { memo } from 'react'
-
-const CURSOR_TRAIL_COUNT = 5
+import { CURSOR_TRAIL_COUNT } from '../../hooks/useCustomCursor'
 
 function SiteDecorComponent({ cursorDotRef, cursorTrailRefs }) {
   return (
     <>
       <div ref={cursorDotRef} className="cursor-dot" aria-hidden="true" />
-      {Array.from({ length: CURSOR_TRAIL_COUNT }, (_, index) => index + 1).map((index) => (
+      {Array.from({ length: CURSOR_TRAIL_COUNT }, (_, index) => (
         <div
-          key={`cursor-trail-${index}`}
+          key={index}
           ref={(node) => {
-            cursorTrailRefs.current[index - 1] = node
+            cursorTrailRefs.current[index] = node
           }}
-          className={`cursor-trail cursor-trail--${index}`}
+          className={`cursor-trail cursor-trail--${index + 1}`}
           aria-hidden="true"
         />
       ))}

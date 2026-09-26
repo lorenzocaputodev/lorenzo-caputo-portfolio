@@ -1,4 +1,4 @@
-import { supportedLanguages } from '../content'
+import { supportedLanguages } from '../../content'
 
 export function LanguageSwitch({ language, onChange, ariaLabel, className = '' }) {
   return (
@@ -6,7 +6,7 @@ export function LanguageSwitch({ language, onChange, ariaLabel, className = '' }
       {supportedLanguages.map((item) => (
         <button
           key={item}
-          className={`lang-switch__button ${language === item ? 'is-active' : ''}`}
+          className={language === item ? 'lang-switch__button is-active' : 'lang-switch__button'}
           type="button"
           aria-pressed={language === item}
           onClick={() => onChange(item)}

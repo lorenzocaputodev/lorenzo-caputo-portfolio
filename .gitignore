@@ -1,6 +1,5 @@
 node_modules
 dist
-test-results
 .DS_Store
 .vscode
 .idea
@@ -11,3 +10,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+playwright-report
+test-results

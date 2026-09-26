@@ -1,28 +1,31 @@
 import { useEffect } from 'react'
 
-export function useMobileMenuBehavior(mobileMenuOpen, setMobileMenuOpen, mobileNavRef) {
+// Keep in sync with the mobile breakpoint in styles/05-responsive.css.
+const MOBILE_BREAKPOINT = 760
+
+/** While the mobile menu is open: lock page scroll and close it on Escape, outside click or desktop resize. */
+export function useMobileMenuBehavior(mobileMenuOpen, closeMenu, mobileNavRef) {
   useEffect(() => {
+    if (!mobileMenuOpen) return
+
     const previousOverflow = document.body.style.overflow
 
     const onResize = () => {
-      if (window.innerWidth > 760) setMobileMenuOpen(false)
+      if (window.innerWidth > MOBILE_BREAKPOINT) closeMenu()
     }
 
     const onKey = (event) => {
-      if (event.key === 'Escape') setMobileMenuOpen(false)
+      if (event.key === 'Escape') closeMenu()
     }
 
     const onPointer = (event) => {
-      if (!mobileMenuOpen) return
-      if (mobileNavRef.current && !mobileNavRef.current.contains(event.target)) {
-        setMobileMenuOpen(false)
-      }
+      if (!mobileNavRef.current?.contains(event.target)) closeMenu()
     }
 
     window.addEventListener('resize', onResize)
     window.addEventListener('keydown', onKey)
     document.addEventListener('pointerdown', onPointer)
-    document.body.style.overflow = mobileMenuOpen ? 'hidden' : previousOverflow
+    document.body.style.overflow = 'hidden'
 
     return () => {
       window.removeEventListener('resize', onResize)
@@ -30,5 +33,5 @@ export function useMobileMenuBehavior(mobileMenuOpen, setMobileMenuOpen, mobileN
       document.removeEventListener('pointerdown', onPointer)
       document.body.style.overflow = previousOverflow
     }
-  }, [mobileMenuOpen, mobileNavRef, setMobileMenuOpen])
+  }, [mobileMenuOpen, closeMenu, mobileNavRef])
 }

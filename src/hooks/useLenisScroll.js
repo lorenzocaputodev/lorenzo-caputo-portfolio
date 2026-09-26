@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import Lenis from 'lenis'
+import { canUsePointerEffects } from '../utils/media'
 
 const LENIS_IDLE_FRAMES = 8
 const SCROLL_IDLE_MS = 90
-const FINE_POINTER_QUERY = '(hover: hover) and (pointer: fine)'
 const SCROLL_WAKE_KEYS = new Set([
   'ArrowUp',
   'ArrowDown',
@@ -17,11 +17,7 @@ const SCROLL_WAKE_KEYS = new Set([
 export function useLenisScroll() {
   useEffect(() => {
     const root = document.documentElement
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const hasFinePointer = window.matchMedia(FINE_POINTER_QUERY).matches
-
     let scrollIdleTimer = 0
-    let cleanupNativeScroll = () => {}
 
     const setScrolling = () => {
       root.classList.add('is-scrolling')
@@ -36,36 +32,22 @@ export function useLenisScroll() {
       root.classList.remove('is-scrolling')
     }
 
-    const enableNativeScrollMode = () => {
+    // Touch devices and reduced-motion users keep native scrolling.
+    if (!canUsePointerEffects()) {
       root.classList.add('has-native-scroll')
-
-      const onNativeScroll = () => {
-        setScrolling()
-      }
-
-      window.addEventListener('scroll', onNativeScroll, { passive: true })
-      cleanupNativeScroll = () => {
-        window.removeEventListener('scroll', onNativeScroll)
-      }
-    }
-
-    if (prefersReducedMotion || !hasFinePointer) {
-      enableNativeScrollMode()
+      window.addEventListener('scroll', setScrolling, { passive: true })
 
       return () => {
-        cleanupNativeScroll()
+        window.removeEventListener('scroll', setScrolling)
         clearScrolling()
         root.classList.remove('has-native-scroll')
       }
     }
 
-    root.classList.remove('has-native-scroll')
-
     const lenis = new Lenis({
       duration: 0.78,
       easing: (value) => 1 - Math.pow(1 - value, 4),
       smoothWheel: true,
-      wheelMultiplier: 1.0,
     })
 
     let raf = 0
