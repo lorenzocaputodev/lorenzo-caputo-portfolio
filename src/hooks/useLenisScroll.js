@@ -1,3 +1,4 @@
+// ===== Scroll fluido (Lenis) =====
 import { useEffect } from 'react'
 import { canUsePointerEffects } from '../utils/media'
 
@@ -31,7 +32,6 @@ export function useLenisScroll() {
       root.classList.remove('is-scrolling')
     }
 
-    // Touch devices and reduced-motion users keep native scrolling.
     if (!canUsePointerEffects()) {
       root.classList.add('has-native-scroll')
       window.addEventListener('scroll', setScrolling, { passive: true })
@@ -43,7 +43,6 @@ export function useLenisScroll() {
       }
     }
 
-    // Lenis is only needed here (desktop with a mouse): load it on demand to keep it out of the mobile bundle.
     let cancelled = false
     let stopLenis = null
 
@@ -59,7 +58,7 @@ export function useLenisScroll() {
   }, [])
 }
 
-/** Starts Lenis with an on-demand rAF loop that sleeps while the page is idle. Returns a cleanup function. */
+// ===== Avvio di Lenis e ciclo di animazione =====
 function startLenis(Lenis, setScrolling, clearScrolling) {
   const lenis = new Lenis({
     duration: 0.78,

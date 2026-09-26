@@ -1,3 +1,4 @@
+// ===== Sezione iniziale (hero) =====
 import { memo } from 'react'
 import { ExternalLink } from '../ui/ExternalLink'
 

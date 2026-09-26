@@ -1,3 +1,4 @@
+// ===== Avvio dell'app nel browser =====
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import App from './App'
@@ -11,7 +12,5 @@ const app = (
   </StrictMode>
 )
 
-// Production pages are prerendered (scripts/prerender.js): hydrate them. The dev server serves an empty
-// shell that only holds the <!--app-html--> placeholder comment, so look for elements, not any node.
 if (container.firstElementChild) hydrateRoot(container, app)
 else createRoot(container).render(app)

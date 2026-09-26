@@ -1,3 +1,4 @@
+/* ===== Sezione iniziale e ritratto ===== */
 .hero {
   position: relative;
   overflow: hidden;
@@ -200,6 +201,7 @@
   text-align: right;
 }
 
+/* ===== Card e griglie ===== */
 .surface-card {
   position: relative;
   padding: 1.4rem;
@@ -243,6 +245,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* ===== Chi sono ===== */
 .about__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.16fr) minmax(290px, 0.88fr);
@@ -307,6 +310,7 @@
   line-height: 1.7;
 }
 
+/* ===== Percorso ===== */
 .timeline {
   position: relative;
   display: grid;
@@ -394,6 +398,7 @@
   line-height: 1.72;
 }
 
+/* ===== Competenze ===== */
 .skill-rows {
   margin: 0;
   padding: 0;
@@ -466,6 +471,7 @@
   border-color: rgba(47, 211, 233, 0.22);
 }
 
+/* ===== Progetto ===== */
 .section--project::before {
   content: '';
   position: absolute;
@@ -672,6 +678,7 @@ html.is-scrolling .project::after {
   background: rgba(47, 211, 233, 0.7);
 }
 
+/* ===== Screenshot del progetto ===== */
 .project__shots {
   width: min(100%, 36rem);
   height: 100%;
@@ -699,7 +706,6 @@ html.is-scrolling .project::after {
   min-height: 0;
 }
 
-/* Shown only on mobile, where the screenshots become a swipe carousel. */
 .project__shots-hint {
   display: none;
 }
@@ -725,6 +731,7 @@ html.is-scrolling .project::after {
   object-position: top;
 }
 
+/* ===== Certificazioni ===== */
 .certification-grid {
   align-items: stretch;
   gap: 0.68rem;
@@ -755,6 +762,7 @@ html.is-scrolling .project::after {
   font-size: 0.88rem;
 }
 
+/* ===== Contatti e footer ===== */
 .contact {
   text-align: center;
 }
@@ -789,6 +797,34 @@ html.is-scrolling .project::after {
 
 .contact__email:hover {
   color: var(--accent);
+}
+
+.contact__copy {
+  margin-top: 0.2rem;
+  padding: 0.42rem 0.95rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.contact__copy:hover {
+  color: var(--text);
+  border-color: rgba(47, 211, 233, 0.34);
+  background: rgba(47, 211, 233, 0.08);
+}
+
+.contact__copy.is-copied {
+  color: var(--accent);
+  border-color: rgba(47, 211, 233, 0.4);
+}
+
+.contact__copy.is-failed {
+  color: #f0b4b4;
 }
 
 .contact__actions {

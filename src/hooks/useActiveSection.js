@@ -1,15 +1,9 @@
+// ===== Voce attiva della navigazione =====
 import { useEffect, useState } from 'react'
 
-// A section becomes active once its top edge passes this fraction of the viewport height.
 const ACTIVATION_LINE = 0.3
-// After a nav click, keep the clicked item active while the page scrolls to it.
 const CLICK_LOCK_MS = 1000
 
-/**
- * Returns the href of the nav section currently being read (null while in the hero).
- * Based on scroll position rather than on how much of a section is visible, so very tall
- * sections (the project) and the last one (contact, which can't scroll to the top) work too.
- */
 export function useActiveSection(navItems) {
   const [activeSection, setActiveSection] = useState(null)
 
@@ -27,7 +21,6 @@ export function useActiveSection(navItems) {
       frame = 0
       const now = performance.now()
       if (now < lockedUntil) {
-        // Re-check once the lock expires, so scrolling during the lock is not lost.
         clearTimeout(unlockTimer)
         unlockTimer = setTimeout(scheduleUpdate, lockedUntil - now)
         return
@@ -39,7 +32,6 @@ export function useActiveSection(navItems) {
 
       let current = null
       if (atBottom) {
-        // On tall screens several sections fit at the bottom: prefer the one just clicked, if visible.
         const clickedVisible = clickedSection && clickedSection.getBoundingClientRect().top < innerHeight
         current = clickedVisible ? clickedSection : sections[sections.length - 1]
       } else {
@@ -50,7 +42,6 @@ export function useActiveSection(navItems) {
         }
       }
 
-      // React skips the re-render when the value is unchanged.
       setActiveSection(current ? `#${current.id}` : null)
     }
 

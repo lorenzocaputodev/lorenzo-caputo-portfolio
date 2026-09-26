@@ -1,12 +1,9 @@
+// ===== Comparsa degli elementi allo scroll =====
 import { useEffect } from 'react'
 import { REVEAL_SELECTOR } from '../utils/reveal'
 import { prefersReducedMotion } from '../utils/media'
 
-/**
- * Adds `is-visible` to every `[data-reveal]` element the first time it enters the viewport.
- * Re-runs on language change because localized lists are re-mounted with new keys.
- */
-export function useScrollReveal(language) {
+export function useScrollReveal() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll(`${REVEAL_SELECTOR}:not(.is-visible)`))
     if (!elements.length) return
@@ -30,5 +27,5 @@ export function useScrollReveal(language) {
     elements.forEach((element) => observer.observe(element))
 
     return () => observer.disconnect()
-  }, [language])
+  }, [])
 }

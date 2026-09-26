@@ -5,35 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--app-head-->
     <script>
-      // Runs before first paint: enables the scroll-reveal styles (content stays visible without JS)
-      // and sends visitors who explicitly chose English back to /en/. Storage key: src/utils/language.js.
+      // ===== Prima del caricamento: animazioni attive e ritorno alla lingua scelta =====
       document.documentElement.classList.add('js')
       try {
         if (location.pathname === '/' && localStorage.getItem('portfolio-language') === 'en') {
           location.replace('/en/' + location.hash)
         }
-      } catch (error) {
-        // Storage unavailable: stay on the default language.
-      }
+      } catch {}
     </script>
     <meta name="author" content="Lorenzo Caputo" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0b1016" />
     <meta name="color-scheme" content="dark" />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://lorenzocaputo.is-a.dev/social-preview.jpg"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Lorenzo Caputo portfolio preview" />
     <meta property="og:site_name" content="Lorenzo Caputo — Portfolio" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:image"
-      content="https://lorenzocaputo.is-a.dev/social-preview.jpg"
-    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -44,7 +30,7 @@
         "@type": "Person",
         "name": "Lorenzo Caputo",
         "url": "https://lorenzocaputo.is-a.dev/",
-        "image": "https://lorenzocaputo.is-a.dev/social-preview.jpg",
+        "image": "https://lorenzocaputo.is-a.dev/social-preview-it.jpg",
         "jobTitle": "Junior Developer in Training",
         "address": { "@type": "PostalAddress", "addressLocality": "Lecce", "addressCountry": "IT" },
         "sameAs": [

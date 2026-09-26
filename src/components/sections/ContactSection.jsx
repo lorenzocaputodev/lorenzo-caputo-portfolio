@@ -1,9 +1,31 @@
-import { memo } from 'react'
+// ===== Sezione Contatti e footer =====
+import { memo, useEffect, useState } from 'react'
 import { ExternalLink } from '../ui/ExternalLink'
 import { SectionHeading } from '../ui/SectionHeading'
 import { revealProps } from '../../utils/reveal'
 
+const COPY_FEEDBACK_MS = 2000
+
 function ContactSectionComponent({ contact, footer, profile }) {
+  const [copyState, setCopyState] = useState(null)
+
+  useEffect(() => {
+    if (!copyState) return undefined
+    const timer = setTimeout(() => setCopyState(null), COPY_FEEDBACK_MS)
+    return () => clearTimeout(timer)
+  }, [copyState])
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email)
+      setCopyState('copied')
+    } catch {
+      setCopyState('failed')
+    }
+  }
+
+  const copyLabel = { copied: contact.emailCopied, failed: contact.copyFailed }[copyState] ?? contact.copyEmail
+
   return (
     <section className="section section--contact" id="contact" aria-labelledby="contact-title">
       <div className="container contact">
@@ -24,6 +46,14 @@ function ContactSectionComponent({ contact, footer, profile }) {
           <ExternalLink className="contact__email" href={`mailto:${profile.email}`}>
             {profile.email}
           </ExternalLink>
+          <button
+            className={copyState ? `contact__copy is-${copyState}` : 'contact__copy'}
+            type="button"
+            aria-live="polite"
+            onClick={copyEmail}
+          >
+            {copyLabel}
+          </button>
 
           <div className="contact__actions">
             {contact.links.map((item) => (

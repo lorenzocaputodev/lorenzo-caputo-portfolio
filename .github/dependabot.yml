@@ -1,20 +1,20 @@
 version: 2
 updates:
+  # ===== Pacchetti npm =====
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: weekly
     groups:
-      # One PR per week for minor/patch bumps instead of one per package.
       npm-minor-and-patch:
         update-types: [minor, patch]
     ignore:
-      # eslint-plugin-react does not support ESLint 10 yet: remove once it does.
       - dependency-name: eslint
         update-types: ['version-update:semver-major']
       - dependency-name: '@eslint/js'
         update-types: ['version-update:semver-major']
 
+  # ===== GitHub Actions =====
   - package-ecosystem: github-actions
     directory: /
     schedule:

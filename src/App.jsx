@@ -1,3 +1,4 @@
+// ===== Composizione della pagina =====
 import { useCallback, useRef, useState } from 'react'
 import { content } from './content'
 import { SiteDecor } from './components/layout/SiteDecor'
@@ -15,7 +16,6 @@ import { useMobileMenuBehavior } from './hooks/useMobileMenuBehavior'
 import { usePortraitTilt } from './hooks/usePortraitTilt'
 import { useScrollReveal } from './hooks/useScrollReveal'
 
-/** The language comes from the URL (/ or /en/): each language is a separate prerendered page. */
 export default function App({ language }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -24,7 +24,6 @@ export default function App({ language }) {
   const cursorTrailRefs = useRef([])
   const portraitRef = useRef(null)
 
-  // Stable callbacks keep the memoized Topbar from re-rendering on every App render.
   const closeMenu = useCallback(() => setMobileMenuOpen(false), [])
   const toggleMenu = useCallback(() => setMobileMenuOpen((open) => !open), [])
 
@@ -41,7 +40,7 @@ export default function App({ language }) {
   } = content[language]
 
   useLenisScroll()
-  useScrollReveal(language)
+  useScrollReveal()
   useMobileMenuBehavior(mobileMenuOpen, closeMenu, mobileNavRef)
   useCustomCursor(cursorDotRef, cursorTrailRefs)
   usePortraitTilt(portraitRef)

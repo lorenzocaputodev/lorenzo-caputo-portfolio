@@ -1,3 +1,4 @@
+// ===== Intestazione di sezione =====
 import { revealProps } from '../../utils/reveal'
 
 export function SectionHeading({

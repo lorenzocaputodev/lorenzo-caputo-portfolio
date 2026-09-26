@@ -1,8 +1,10 @@
+/* ===== Contenitore ===== */
 .container {
   width: min(calc(100% - 2rem), var(--content-width));
   margin: 0 auto;
 }
 
+/* ===== Barra di navigazione in alto ===== */
 .topbar {
   position: sticky;
   top: 0;
@@ -122,6 +124,7 @@ html.is-scrolling .topbar__inner {
   gap: 0.55rem;
 }
 
+/* ===== Selettore di lingua ===== */
 .lang-switch {
   display: inline-grid;
   grid-auto-flow: column;
@@ -189,6 +192,7 @@ html.is-scrolling .topbar__inner {
   height: 1rem;
 }
 
+/* ===== Menu mobile ===== */
 .menu-toggle {
   display: none;
   position: relative;
@@ -289,6 +293,7 @@ html.is-scrolling .mobile-nav__panel {
   }
 }
 
+/* ===== Sezioni e titoli ===== */
 .section {
   padding: 4rem 0;
 }
@@ -346,6 +351,7 @@ h3 {
   line-height: 1.8;
 }
 
+/* ===== Pulsanti ===== */
 .button {
   display: inline-flex;
   align-items: center;

@@ -1,16 +1,15 @@
+// ===== Sezione Progetto =====
 import { memo, useEffect, useRef } from 'react'
 import { ExternalLink } from '../ui/ExternalLink'
 import { SectionHeading } from '../ui/SectionHeading'
 import { prefersReducedMotion } from '../../utils/media'
 import { revealProps } from '../../utils/reveal'
 
-// Rendered width of one screenshot column at each breakpoint (see .project__shots in CSS).
 const SCREENSHOT_SIZES = '(max-width: 760px) 72vw, (max-width: 1080px) 340px, 270px'
 
 function ProjectSectionComponent({ project, profile }) {
   const projectRef = useRef(null)
 
-  // One-shot glow the first time the project card scrolls into view.
   useEffect(() => {
     const projectElement = projectRef.current
     if (!projectElement || prefersReducedMotion()) return
@@ -105,7 +104,6 @@ function ProjectSectionComponent({ project, profile }) {
           </div>
 
           <section className="project__shots" aria-label={project.screenshotsAria}>
-            {/* A 2-column grid on desktop, a horizontal swipe carousel on mobile (focusable to scroll by keyboard). */}
             <ul className="project__shot-list" tabIndex={0}>
               {project.screenshots.map((shot, index) => (
                 <li
