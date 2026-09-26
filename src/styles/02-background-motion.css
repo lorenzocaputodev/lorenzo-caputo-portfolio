@@ -222,6 +222,12 @@ html.is-scrolling .cursor-trail {
   animation-delay: 0.7s;
 }
 
+.hero-reveal--6 {
+  --hero-reveal-y: 14px;
+  --hero-reveal-duration: 780ms;
+  animation-delay: 0.64s;
+}
+
 @keyframes hero-in {
   from {
     opacity: 0;

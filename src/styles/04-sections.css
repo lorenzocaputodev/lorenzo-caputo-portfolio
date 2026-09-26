@@ -57,7 +57,7 @@
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2.9rem, 6.2vw, 5.6rem);
+  font-size: clamp(2.9rem, 5.6vw, 4.9rem);
   line-height: 1;
   letter-spacing: -0.045em;
   text-wrap: balance;
@@ -84,6 +84,13 @@
   color: var(--muted);
   font-size: 0.98rem;
   line-height: 1.72;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.8rem;
 }
 
 .hero__aside {
@@ -227,6 +234,9 @@
 .card-grid {
   display: grid;
   gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .card-grid--three {
@@ -306,9 +316,24 @@
   list-style: none;
 }
 
-.growth__heading {
-  max-width: 38rem;
-  margin-bottom: 1.9rem;
+.journey__columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+  align-items: start;
+}
+
+.journey__label {
+  margin: 0 0 1rem;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.journey__certifications {
+  margin-top: clamp(2.2rem, 4vw, 3rem);
 }
 
 .timeline::before {
@@ -357,47 +382,16 @@
   font-size: 0.93rem;
 }
 
-.timeline__content p {
-  margin: 0.55rem 0 0;
-  line-height: 1.72;
-}
-
-.experience__heading {
-  max-width: 39rem;
-  margin-bottom: 1.95rem;
-}
-
-.experience-card {
-  display: grid;
-  grid-template-rows:
-    minmax(calc(1.5em * 2), auto)
-    minmax(calc(1.32em * 2), auto)
-    1fr;
-  align-content: start;
-  row-gap: 0.65rem;
-  min-height: 100%;
-}
-
-.experience-card__context {
+.timeline__content h4,
+.certification-card h4 {
   margin: 0;
-  color: rgba(47, 211, 233, 0.72);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  line-height: 1.5;
-}
-
-.experience-card__title {
-  align-self: start;
-  margin: 0;
+  font-size: 1.1rem;
   line-height: 1.32;
 }
 
-.experience-card__copy {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.76;
+.timeline__content p {
+  margin: 0.55rem 0 0;
+  line-height: 1.72;
 }
 
 .skill-rows {
@@ -415,11 +409,6 @@
   padding: clamp(0.95rem, 1.5vw, 1.2rem) 0.2rem;
   border-bottom: 1px solid var(--line);
   transition: border-color 180ms ease;
-}
-
-.skills__heading {
-  max-width: 33rem;
-  margin-bottom: 1.55rem;
 }
 
 .skill-row:hover {
@@ -452,6 +441,29 @@
   margin: 0;
   color: var(--muted);
   line-height: 1.68;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-tag {
+  padding: 0.3rem 0.72rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #d6e3ef;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.skill-row:hover .skill-tag {
+  border-color: rgba(47, 211, 233, 0.22);
 }
 
 .section--project::before {
@@ -661,14 +673,10 @@ html.is-scrolling .project::after {
 }
 
 .project__shots {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: min(100%, 36rem);
   height: 100%;
   justify-self: end;
-  gap: 0.9rem;
   align-self: stretch;
-  align-items: stretch;
   padding: 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 28px;
@@ -676,9 +684,10 @@ html.is-scrolling .project::after {
   box-shadow: var(--shadow-md);
 }
 
-.project__shot-column {
+.project__shot-list {
   display: grid;
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
   gap: 0.9rem;
   height: 100%;
   margin: 0;
@@ -686,8 +695,13 @@ html.is-scrolling .project::after {
   list-style: none;
 }
 
-.project__shot-column li {
+.project__shot-list li {
   min-height: 0;
+}
+
+/* Shown only on mobile, where the screenshots become a swipe carousel. */
+.project__shots-hint {
+  display: none;
 }
 
 .project-shot {
@@ -708,16 +722,12 @@ html.is-scrolling .project::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 
 .certification-grid {
   align-items: stretch;
   gap: 0.68rem;
-}
-
-.certifications__heading {
-  max-width: 27rem;
-  margin-bottom: 1rem;
 }
 
 .certification-card {
@@ -734,7 +744,7 @@ html.is-scrolling .project::after {
   text-transform: uppercase;
 }
 
-.certification-card h3 {
+.certification-card h4 {
   margin-top: 0.35rem;
   font-size: 0.98rem;
   line-height: 1.35;

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-const SECTION_IDS = ['about', 'growth', 'experience', 'skills', 'project', 'certifications', 'contact']
+const SECTION_IDS = ['about', 'journey', 'skills', 'project', 'contact']
 
 test.describe('portfolio', () => {
   test.beforeEach(async ({ page }) => {
@@ -22,7 +22,7 @@ test.describe('portfolio', () => {
 
     await expect(page.locator('html')).toHaveAttribute('lang', 'it')
     await expect(page).toHaveTitle('Lorenzo Caputo — Portfolio')
-    await expect(page.locator('h1')).toContainText('Sto imparando a sviluppare')
+    await expect(page.locator('h1')).toContainText('Costruisco software con cura')
 
     for (const id of SECTION_IDS) {
       await expect(page.locator(`section#${id}`)).toHaveCount(1)
@@ -37,7 +37,7 @@ test.describe('portfolio', () => {
 
     await expect(page).toHaveURL(/\/en\/$/)
     await expect(page.locator('html')).toHaveAttribute('lang', 'en')
-    await expect(page.locator('h1')).toContainText('Learning to build software')
+    await expect(page.locator('h1')).toContainText('I build software with care')
 
     // The explicit choice sends the visitor back to /en/ when opening the root again.
     await page.goto('./')
@@ -79,11 +79,15 @@ test.describe('portfolio', () => {
       await expect.poll(() => image.evaluate((img) => img.complete && img.naturalWidth > 0)).toBe(true)
     }
 
-    const cvLink = page.locator('a[download]')
-    await expect(cvLink).toHaveAttribute('download', 'Lorenzo-Caputo-CV.pdf')
-    const response = await request.get(await cvLink.getAttribute('href'))
-    expect(response.ok()).toBe(true)
-    expect(response.headers()['content-type']).toContain('pdf')
+    // The CV is offered both in the hero and in the contact section.
+    const cvLinks = page.locator('a[download]')
+    await expect(cvLinks).toHaveCount(2)
+    for (const cvLink of await cvLinks.all()) {
+      await expect(cvLink).toHaveAttribute('download', 'Lorenzo-Caputo-CV.pdf')
+      const response = await request.get(await cvLink.getAttribute('href'))
+      expect(response.ok()).toBe(true)
+      expect(response.headers()['content-type']).toContain('pdf')
+    }
   })
 
   test('has no detectable accessibility violations', async ({ page }) => {
@@ -146,7 +150,7 @@ test.describe('prerendered pages', () => {
 
     test('shows the full content', async ({ page }) => {
       await page.goto('./')
-      await expect(page.locator('h1')).toContainText('Sto imparando a sviluppare')
+      await expect(page.locator('h1')).toContainText('Costruisco software con cura')
 
       const hidden = await page.locator('[data-reveal]').evaluateAll(
         (elements) => elements.filter((element) => getComputedStyle(element).opacity !== '1').length,

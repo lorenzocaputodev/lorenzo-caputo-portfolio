@@ -25,9 +25,11 @@ export const sharedProfile = {
   portrait,
   portraitWidth: 511,
   portraitHeight: 512,
+  cvFile,
+  cvDownloadName: 'Lorenzo-Caputo-CV.pdf',
 }
 
-const navSections = ['about', 'growth', 'experience', 'skills', 'project', 'certifications', 'contact']
+const navSections = ['about', 'journey', 'skills', 'project', 'contact']
 
 export const buildNavItems = (labels) =>
   labels.map((label, index) => ({ label, href: `#${navSections[index]}` }))
@@ -35,23 +37,18 @@ export const buildNavItems = (labels) =>
 export const buildContactLinks = ({ github, linkedin, cv }) => [
   { label: github, href: sharedProfile.github },
   { label: linkedin, href: sharedProfile.linkedin },
-  { label: cv, href: cvFile, download: 'Lorenzo-Caputo-CV.pdf' },
+  { label: cv, href: cvFile, download: sharedProfile.cvDownloadName },
 ]
 
 // `image` is the 718px original, `imageSmall` a 360px variant used through srcset.
 const projectScreenshots = [
-  [
-    { title: { en: 'Daily dashboard', it: 'Dashboard giornaliera' }, image: dashboardOverview, imageSmall: dashboardOverviewSmall, width: 718, height: 1591 },
-    { title: { en: 'Reduction planning', it: 'Piano di riduzione' }, image: reductionPlan, imageSmall: reductionPlanSmall, width: 718, height: 1590 },
-  ],
-  [
-    { title: { en: 'History & analytics', it: 'Storico e analisi' }, image: historyAnalytics, imageSmall: historyAnalyticsSmall, width: 718, height: 1591 },
-    { title: { en: 'Configuration', it: 'Impostazioni' }, image: settingsOverview, imageSmall: settingsOverviewSmall, width: 718, height: 1591 },
-  ],
+  { title: { en: 'Daily dashboard', it: 'Dashboard giornaliera' }, image: dashboardOverview, imageSmall: dashboardOverviewSmall, width: 718, height: 1591 },
+  { title: { en: 'History & analytics', it: 'Storico e analisi' }, image: historyAnalytics, imageSmall: historyAnalyticsSmall, width: 718, height: 1591 },
+  { title: { en: 'Reduction planning', it: 'Piano di riduzione' }, image: reductionPlan, imageSmall: reductionPlanSmall, width: 718, height: 1590 },
+  { title: { en: 'Configuration', it: 'Impostazioni' }, image: settingsOverview, imageSmall: settingsOverviewSmall, width: 718, height: 1591 },
 ]
 
-export const buildScreenshotColumns = (lang) =>
-  projectScreenshots.map((column) => column.map((shot) => ({ ...shot, title: shot.title[lang] })))
+export const buildScreenshots = (lang) => projectScreenshots.map((shot) => ({ ...shot, title: shot.title[lang] }))
 
 export const certifications = {
   en: [
@@ -59,7 +56,7 @@ export const certifications = {
     { title: 'Boost Your Productivity with Data', issuer: 'IBM SkillsBuild', date: 'Mar 2026' },
     { title: 'Robotics, 3D Printing & Laser Cutting', issuer: 'The Qube – Molo12', date: 'Jul 2023' },
     { title: 'Cambridge English B2 First', issuer: 'Cambridge', date: '2022' },
-    { title: 'Google Analytics for Beginners', issuer: 'Google Analytics Academy', date: '2022' },
+    { title: 'Google Analytics for Beginners', issuer: 'Google Analytics Academy', date: 'May 2022' },
     { title: 'Worker Safety Training', issuer: 'Accordo Stato-Regioni', date: 'Nov 2019' },
   ],
   it: [
@@ -67,7 +64,7 @@ export const certifications = {
     { title: 'Boost Your Productivity with Data', issuer: 'IBM SkillsBuild', date: 'mar 2026' },
     { title: 'Robotics, 3D Printing & Laser Cutting', issuer: 'The Qube – Molo12', date: 'lug 2023' },
     { title: 'Cambridge English B2 First', issuer: 'Cambridge', date: '2022' },
-    { title: 'Google Analytics for Beginners', issuer: 'Google Analytics Academy', date: '2022' },
+    { title: 'Google Analytics for Beginners', issuer: 'Google Analytics Academy', date: 'mag 2022' },
     { title: 'Formazione per Lavoratori', issuer: 'Accordo Stato-Regioni', date: 'nov 2019' },
   ],
 }

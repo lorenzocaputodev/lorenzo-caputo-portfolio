@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { ExternalLink } from '../ui/ExternalLink'
 
 function HeroSectionComponent({ profile, portraitRef }) {
   return (
@@ -16,6 +17,15 @@ function HeroSectionComponent({ profile, portraitRef }) {
 
           <p className="hero__intro hero-reveal hero-reveal--2">{profile.intro}</p>
           <p className="hero__note hero-reveal hero-reveal--3">{profile.introNote}</p>
+
+          <div className="hero__actions hero-reveal hero-reveal--6">
+            <a className="button button--project" href="#project">
+              {profile.ctaProject}
+            </a>
+            <ExternalLink className="button button--ghost" href={profile.cvFile} download={profile.cvDownloadName}>
+              {profile.ctaCv}
+            </ExternalLink>
+          </div>
         </header>
 
         <aside className="hero__aside">

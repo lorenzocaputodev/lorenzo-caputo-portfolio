@@ -5,7 +5,7 @@ import { prefersReducedMotion } from '../../utils/media'
 import { revealProps } from '../../utils/reveal'
 
 // Rendered width of one screenshot column at each breakpoint (see .project__shots in CSS).
-const SCREENSHOT_SIZES = '(max-width: 760px) calc(100vw - 4rem), (max-width: 1080px) 340px, 270px'
+const SCREENSHOT_SIZES = '(max-width: 760px) 72vw, (max-width: 1080px) 340px, 270px'
 
 function ProjectSectionComponent({ project, profile }) {
   const projectRef = useRef(null)
@@ -105,37 +105,36 @@ function ProjectSectionComponent({ project, profile }) {
           </div>
 
           <section className="project__shots" aria-label={project.screenshotsAria}>
-            {project.screenshotColumns.map((column, columnIndex) => (
-              <ul key={columnIndex} className="project__shot-column">
-                {column.map((shot, shotIndex) => (
-                  <li
-                    key={shot.title}
-                    {...revealProps(
-                      170 + columnIndex * 90 + shotIndex * 95,
-                      {
-                        kind: 'media',
-                        x: columnIndex === 0 ? -10 : 10,
-                        y: 20 + shotIndex * 4,
-                        scale: 0.985,
-                      },
-                    )}
-                  >
-                    <figure className="project-shot">
-                      <img
-                        src={shot.image}
-                        srcSet={`${shot.imageSmall} 360w, ${shot.image} 718w`}
-                        sizes={SCREENSHOT_SIZES}
-                        alt={shot.title}
-                        width={shot.width}
-                        height={shot.height}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </figure>
-                  </li>
-                ))}
-              </ul>
-            ))}
+            {/* A 2-column grid on desktop, a horizontal swipe carousel on mobile (focusable to scroll by keyboard). */}
+            <ul className="project__shot-list" tabIndex={0}>
+              {project.screenshots.map((shot, index) => (
+                <li
+                  key={shot.title}
+                  {...revealProps(170 + index * 90, {
+                    kind: 'media',
+                    x: index % 2 === 0 ? -10 : 10,
+                    y: 20,
+                    scale: 0.985,
+                  })}
+                >
+                  <figure className="project-shot">
+                    <img
+                      src={shot.image}
+                      srcSet={`${shot.imageSmall} 360w, ${shot.image} 718w`}
+                      sizes={SCREENSHOT_SIZES}
+                      alt={shot.title}
+                      width={shot.width}
+                      height={shot.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                </li>
+              ))}
+            </ul>
+            <p className="project__shots-hint" aria-hidden="true">
+              {project.screenshotsHint}
+            </p>
           </section>
         </div>
       </div>
