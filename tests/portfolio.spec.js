@@ -144,7 +144,7 @@ test.describe('prerendered pages', () => {
   test('serve localized content and metadata at / and /en/', async ({ page }) => {
     await page.goto('./en/')
     await expect(page.locator('html')).toHaveAttribute('lang', 'en')
-    await expect(page).toHaveTitle('Lorenzo Caputo | Junior Developer in Training')
+    await expect(page).toHaveTitle('Lorenzo Caputo — Portfolio')
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://lorenzocaputo.is-a.dev/en/')
     await expect(page.locator('link[hreflang="it"]')).toHaveAttribute('href', 'https://lorenzocaputo.is-a.dev/')
 

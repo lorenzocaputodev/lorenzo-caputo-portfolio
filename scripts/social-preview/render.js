@@ -11,15 +11,15 @@ const root = resolve(here, '../..')
 const previews = {
   it: {
     output: 'public/social-preview-it.jpg',
-    headline: ['Junior Developer', 'in formazione'],
+    headline: ['Junior developer', 'in formazione'],
     subtitle: ['Appassionato di software e hardware.', 'Imparo, costruisco e miglioro ogni giorno.'],
     tagline: ['Codice pulito.', 'UI curata.', 'Impatto reale.'],
   },
   en: {
     output: 'public/social-preview-en.jpg',
-    headline: ['Junior Developer', 'in Training'],
-    subtitle: ['Passionate about Software and Hardware.', 'I learn, build, and improve every day.'],
-    tagline: ['Clean Code.', 'Great UI.', 'Real Impact.'],
+    headline: ['Junior developer', 'in training'],
+    subtitle: ['Passionate about software and hardware.', 'I learn, build, and improve every day.'],
+    tagline: ['Clean code.', 'Great UI.', 'Real impact.'],
   },
 }
 

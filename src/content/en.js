@@ -9,11 +9,11 @@ import {
 
 export const en = {
   meta: {
-    title: 'Lorenzo Caputo | Junior Developer in Training',
+    title: 'Lorenzo Caputo — Portfolio',
     description: 'Portfolio of Lorenzo Caputo, a junior developer in training at ITS Academy Apulia Digital Maker: project, background and skills.',
-    ogTitle: 'Lorenzo Caputo | Junior Developer in Training',
+    ogTitle: 'Lorenzo Caputo — Portfolio',
     ogDescription: 'Junior developer in training: background, skills and the My Tracking App project.',
-    twitterTitle: 'Lorenzo Caputo | Junior Developer in Training',
+    twitterTitle: 'Lorenzo Caputo — Portfolio',
     twitterDescription: 'Junior developer in training: background, skills and the My Tracking App project.',
     ogLocale: 'en_US',
     image: '/social-preview-en.jpg',
