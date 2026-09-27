@@ -8,45 +8,46 @@
 
 ## 🇮🇹 Italiano
 
-✨ Portfolio personale sviluppato per presentare in modo chiaro, moderno e coerente il mio percorso, il mio approccio al lavoro e i progetti che sto costruendo.
+✨ Il mio portfolio personale: chi sono, il percorso che sto facendo e i progetti che sto costruendo.
 
-L’idea non è creare un semplice biglietto da visita, ma uno spazio curato dove raccogliere **identità, crescita tecnica e proof of work reale**.
+Non vuole essere un semplice biglietto da visita, ma un posto ordinato dove mostrare **chi sono, come sto crescendo e cosa ho realizzato davvero**.
 
-### 👋 Overview
+### 👋 In breve
 
-Questo portfolio nasce per raccontare in modo credibile chi sono oggi:
+Il sito racconta chi sono oggi:
 
-- **Junior Developer in formazione**
-- orientato a costruire progetti concreti
-- attento a ordine, qualità e dettagli
-- interessato sia al **software** sia al lato **hardware, sistemi e troubleshooting**
+- **junior developer in formazione** all'ITS Academy Apulia Digital Maker
+- con la voglia di costruire progetti concreti
+- attento all'ordine, alla qualità e ai dettagli
+- interessato sia al **software** sia all'**hardware**, ai sistemi e alla risoluzione dei problemi
 
-Il sito mette al centro soprattutto **My Tracking App**, il progetto personale che rappresenta meglio il mio modo di lavorare e il livello di cura che voglio portare nei miei progetti.
+Al centro c'è **My Tracking App**, il progetto personale che mostra meglio il mio modo di lavorare.
 
-### 🎯 Main Goals
+### 🎯 Obiettivi
 
-- presentare il mio profilo in modo professionale ma autentico
-- valorizzare un progetto reale come prova concreta
-- costruire una presenza online ordinata, leggibile e curata
-- mantenere un design premium, ma sobrio e coerente
-- offrire una buona esperienza sia su desktop che su mobile
+- presentarmi in modo professionale ma autentico
+- mostrare un progetto reale, pubblicato e usato
+- avere una presenza online ordinata e facile da leggere
+- un design curato ma sobrio
+- funzionare bene sia su computer sia su telefono
 
-### 🚀 Featured Project — My Tracking App
+### 🚀 Progetto in evidenza — My Tracking App
 
-Applicazione sviluppata per il tracciamento quotidiano di prodotti e utilizzi, con focus su **praticità, chiarezza dei dati e continuità d’uso**.
+App Android sviluppata in Flutter per tenere traccia dei consumi quotidiani, pensata per essere **pratica, chiara e comoda da usare ogni giorno**.
 
-- tracking multi-prodotto
-- dashboard con dati di utilizzo
-- cronologia e analytics
-- reminder periodici
-- widget Android
-- import/export CSV
-- supporto tema dark / light / system
-- approccio local-first
+- più prodotti da seguire, con scorta e costi
+- schermata principale con il conteggio del giorno e gli ultimi 7 giorni
+- cronologia per giorni, settimane e mesi, con statistiche
+- obiettivi, badge e piano di riduzione
+- promemoria periodici
+- widget Android in tre dimensioni
+- backup CSV (esporta e importa)
+- tema scuro, chiaro o di sistema
+- nessun account: i dati restano sul telefono
 
 🔗 Repository progetto: [My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)
 
-### 🛠 Tech Stack
+### 🛠 Tecnologie
 
 - **Preact** (compatibile con React) + **Vite**, con HTML pre-generato in fase di build per ogni lingua (`/` italiano, `/en/` inglese)
 - **JavaScript**
@@ -99,31 +100,28 @@ public/                     # favicon, icone PWA, manifest, robots.txt, pagina 4
 
 Per modificare i testi basta intervenire in `src/content/en.js` e `src/content/it.js`, mantenendo la stessa struttura in entrambe le lingue.
 
-### 🎨 Frontend / Design Notes
+### 🎨 Design
 
-Questo progetto è stato costruito con attenzione particolare a:
+Nel costruire il sito ho curato in particolare:
 
-- gerarchia visiva
-- qualità del layout e degli spazi
-- coerenza tipografica
-- performance frontend
-- responsive behavior
-- micro-animazioni leggere e non invasive
+- gerarchia visiva, spazi e tipografia
+- velocità di caricamento
+- resa su schermi di ogni dimensione
+- animazioni leggere e mai invadenti
 - accessibilità
 
-Non è stato pensato come un template generico, ma come un portfolio personale con una direzione visiva precisa.
+Non è un template: è un portfolio personale con uno stile preciso.
 
-### 🤖 Notes
+### 🤖 Note
 
-Questo portfolio è stato progettato, curato e rifinito da me, con supporto mirato di strumenti AI in alcune fasi del lavoro, soprattutto per:
+Ho progettato e rifinito questo portfolio in prima persona, usando strumenti di AI come supporto in alcune fasi:
 
 - revisione del codice
-- refactor frontend
-- polishing del copy
-- ottimizzazione della struttura
-- refinement visivo e tecnico
+- riorganizzazione del frontend
+- revisione dei testi
+- rifiniture grafiche e tecniche
 
-L’AI è stata usata come supporto, non come sostituzione del mio lavoro: direzione, scelte finali, contenuti, validazione e rifinitura del progetto sono stati gestiti da me.
+L'AI è stata un aiuto, non un sostituto: direzione, scelte finali, contenuti e verifica sono miei.
 
 ### 📫 Contatti
 
@@ -137,41 +135,42 @@ Grazie per aver dato un’occhiata al progetto ✨
 
 ## 🇬🇧 English
 
-✨ A personal portfolio built to present my path, my approach to work and the projects I'm building in a clear, modern and consistent way.
+✨ My personal portfolio: who I am, the path I'm on and the projects I'm building.
 
-The goal isn't a simple business card, but a curated space that brings together **identity, technical growth and real proof of work**.
+It isn't meant to be a simple business card, but a tidy place to show **who I am, how I'm growing and what I've actually built**.
 
 ### 👋 Overview
 
-This portfolio aims to give an honest picture of who I am today:
+The site shows who I am today:
 
-- **Junior Developer in training**
-- focused on building concrete projects
+- **junior developer in training** at ITS Academy Apulia Digital Maker
+- keen on building concrete projects
 - attentive to order, quality and details
-- interested in both **software** and **hardware, systems and troubleshooting**
+- interested in both **software** and **hardware**, systems and troubleshooting
 
-The site centers on **My Tracking App**, the personal project that best represents how I work and the level of care I want to bring to my projects.
+At its center is **My Tracking App**, the personal project that best shows how I work.
 
 ### 🎯 Main Goals
 
-- present my profile in a professional yet authentic way
-- showcase a real project as concrete proof
-- build a tidy, readable and well-crafted online presence
-- keep a premium but restrained and consistent design
-- offer a good experience on both desktop and mobile
+- present myself in a professional yet authentic way
+- show a real project, published and in use
+- have a tidy, easy-to-read online presence
+- a polished but restrained design
+- work well on both computers and phones
 
 ### 🚀 Featured Project — My Tracking App
 
-An app for daily tracking of products and usage, focused on **practicality, clear data and continuity of use**.
+An Android app built with Flutter to keep track of daily consumption, designed to be **practical, clear and easy to use every day**.
 
-- multi-product tracking
-- usage dashboard
-- history and analytics
+- multiple products, with stock and costs
+- home screen with today's count and the last 7 days
+- history by day, week and month, with statistics
+- goals, badges and a reduction plan
 - periodic reminders
-- Android widgets
-- CSV import/export
-- dark / light / system theme
-- local-first approach
+- Android widgets in three sizes
+- CSV backup (export and import)
+- dark, light or system theme
+- no account: data stays on the phone
 
 🔗 Project repository: [My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)
 
@@ -205,9 +204,9 @@ The project structure is described in the Italian section above. To edit the cop
 
 ### 🤖 Notes
 
-I designed, curated and refined this portfolio myself, with targeted support from AI tools in some phases of the work, mainly for code review, frontend refactoring, copy polishing, structure optimization and visual/technical refinement.
+I designed and refined this portfolio myself, using AI tools as support in some phases: code review, frontend restructuring, copy review and visual/technical polish.
 
-AI was used as support, not as a replacement for my work: direction, final choices, content, validation and finishing were handled by me.
+AI was a help, not a replacement: direction, final choices, content and validation are mine.
 
 ### 📫 Contacts
 
