@@ -1,13 +1,13 @@
 // ===== Dati comuni a tutte le lingue =====
 import portrait from '../assets/images/lorenzo-portrait.webp'
-import dashboardOverview from '../assets/images/dashboard_overview.webp'
-import historyAnalytics from '../assets/images/history_analytics.webp'
-import reductionPlan from '../assets/images/reduction_plan.webp'
-import settingsOverview from '../assets/images/settings_overview.webp'
-import dashboardOverviewSmall from '../assets/images/dashboard_overview-360.webp'
-import historyAnalyticsSmall from '../assets/images/history_analytics-360.webp'
-import reductionPlanSmall from '../assets/images/reduction_plan-360.webp'
-import settingsOverviewSmall from '../assets/images/settings_overview-360.webp'
+import appHome from '../assets/images/app_home.webp'
+import appGoals from '../assets/images/app_goals.webp'
+import appSettings from '../assets/images/app_settings.webp'
+import appHistory from '../assets/images/app_history.webp'
+import appHomeSmall from '../assets/images/app_home-360.webp'
+import appGoalsSmall from '../assets/images/app_goals-360.webp'
+import appSettingsSmall from '../assets/images/app_settings-360.webp'
+import appHistorySmall from '../assets/images/app_history-360.webp'
 import cvFile from '../assets/files/cv-caputo-lorenzo.pdf'
 
 export const sharedProfile = {
@@ -31,17 +31,17 @@ export const buildNavItems = (labels) =>
   labels.map((label, index) => ({ label, href: `#${navSections[index]}` }))
 
 export const buildContactLinks = ({ github, linkedin, cv }) => [
-  { label: github, href: sharedProfile.github },
-  { label: linkedin, href: sharedProfile.linkedin },
-  { label: cv, href: cvFile, download: sharedProfile.cvDownloadName },
+  { label: cv, href: cvFile, download: sharedProfile.cvDownloadName, icon: 'download' },
+  { label: github, href: sharedProfile.github, icon: 'github' },
+  { label: linkedin, href: sharedProfile.linkedin, icon: 'linkedin' },
 ]
 
 // ===== Screenshot del progetto =====
 const projectScreenshots = [
-  { title: { en: 'Daily dashboard', it: 'Dashboard giornaliera' }, image: dashboardOverview, imageSmall: dashboardOverviewSmall, width: 718, height: 1591 },
-  { title: { en: 'History & analytics', it: 'Storico e analisi' }, image: historyAnalytics, imageSmall: historyAnalyticsSmall, width: 718, height: 1591 },
-  { title: { en: 'Reduction planning', it: 'Piano di riduzione' }, image: reductionPlan, imageSmall: reductionPlanSmall, width: 718, height: 1590 },
-  { title: { en: 'Configuration', it: 'Impostazioni' }, image: settingsOverview, imageSmall: settingsOverviewSmall, width: 718, height: 1591 },
+  { title: { en: 'Home', it: 'Home' }, image: appHome, imageSmall: appHomeSmall, width: 718, height: 1596 },
+  { title: { en: 'Goals & badges', it: 'Obiettivi e badge' }, image: appGoals, imageSmall: appGoalsSmall, width: 718, height: 1596 },
+  { title: { en: 'Settings', it: 'Impostazioni' }, image: appSettings, imageSmall: appSettingsSmall, width: 718, height: 1596 },
+  { title: { en: 'History & statistics', it: 'Cronologia e statistiche' }, image: appHistory, imageSmall: appHistorySmall, width: 718, height: 1596 },
 ]
 
 export const buildScreenshots = (lang) => projectScreenshots.map((shot) => ({ ...shot, title: shot.title[lang] }))

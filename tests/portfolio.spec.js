@@ -22,7 +22,7 @@ test.describe('portfolio', () => {
 
     await expect(page.locator('html')).toHaveAttribute('lang', 'it')
     await expect(page).toHaveTitle('Lorenzo Caputo — Portfolio')
-    await expect(page.locator('h1')).toContainText('Costruisco software con cura')
+    await expect(page.locator('h1')).toContainText('Sviluppo software con cura')
 
     for (const id of SECTION_IDS) {
       await expect(page.locator(`section#${id}`)).toHaveCount(1)
@@ -169,7 +169,7 @@ test.describe('prerendered pages', () => {
 
     test('shows the full content', async ({ page }) => {
       await page.goto('./')
-      await expect(page.locator('h1')).toContainText('Costruisco software con cura')
+      await expect(page.locator('h1')).toContainText('Sviluppo software con cura')
 
       const hidden = await page.locator('[data-reveal]').evaluateAll(
         (elements) => elements.filter((element) => getComputedStyle(element).opacity !== '1').length,

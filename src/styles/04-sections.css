@@ -789,9 +789,10 @@ html.is-scrolling .project::after {
   display: inline-block;
   margin-top: 1rem;
   color: #f0fdff;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   font-size: clamp(1.2rem, 3.5vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   transition: color 160ms ease;
 }
 
@@ -828,12 +829,34 @@ html.is-scrolling .project::after {
 }
 
 .contact__actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 10.5rem));
   justify-content: center;
   gap: 0.8rem;
   width: 100%;
   margin-top: 1.2rem;
+}
+
+.contact__actions .button {
+  gap: 0.55rem;
+}
+
+.contact__cv {
+  grid-column: 1 / -1;
+}
+
+.contact__icon {
+  display: inline-flex;
+  color: var(--accent);
+}
+
+.contact__cv .contact__icon {
+  color: inherit;
+}
+
+.contact__icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 
 .footer {
@@ -852,7 +875,9 @@ html.is-scrolling .project::after {
 
 .footer__identity {
   display: grid;
+  justify-items: start;
   gap: 0.18rem;
+  text-align: left;
 }
 
 .footer__name {
