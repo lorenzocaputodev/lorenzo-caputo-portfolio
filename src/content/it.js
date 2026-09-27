@@ -48,7 +48,7 @@ export const it = {
     title: 'Dal lavoro con il pubblico allo sviluppo software',
     lead: "Vengo da anni di lavoro a contatto con il pubblico e da una passione di lunga data per l'hardware: oggi li unisco nel percorso da sviluppatore.",
     paragraphs: [
-      "All'ITS Academy studio Java, OOP, database SQL, Git e architetture cloud. In sala e al front-office ho imparato a gestire la pressione, comunicare con chiarezza e lavorare in squadra.",
+      "All'ITS Academy studio Java e Spring, OOP, database SQL e NoSQL, Git e architetture cloud. In sala e al front-office ho imparato a gestire la pressione, comunicare con chiarezza e lavorare in squadra.",
       'Nei progetti porto tutte e due: codice ordinato e attenzione a chi lo userà.',
     ],
     principlesEyebrow: 'Come lavoro',
@@ -78,7 +78,7 @@ export const it = {
         period: 'gen 2026 – oggi',
         title: 'ITS Academy Apulia Digital Maker',
         place: 'Tecnico Superiore Developer (EQF 5)',
-        text: '1.800 ore su Java e C# (OOP), database SQL, Git/GitHub, architetture cloud e integrazione AI, con laboratori pratici di codifica e debugging.',
+        text: '1.800 ore su Java e Spring (OOP), database SQL e NoSQL, Git/GitHub, architetture cloud e integrazione AI, con laboratori pratici di codifica e debugging.',
       },
       {
         period: '2022',
@@ -104,7 +104,7 @@ export const it = {
         period: 'lug 2017 – set 2019',
         title: 'Addetto sala e front-office',
         place: 'Ristorante Pizzeria "Il Gambero Rosso"',
-        text: 'Accoglienza di clienti stranieri, pagamenti e front-desk, con molte attività da gestire in parallelo.',
+        text: 'Accoglienza di clienti stranieri, pagamenti in cassa e servizio bar, con molte attività da gestire in parallelo.',
       },
     ],
     certifications: certifications.it,
