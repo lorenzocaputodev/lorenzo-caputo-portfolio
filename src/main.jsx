@@ -14,3 +14,10 @@ const app = (
 
 if (container.firstElementChild) hydrateRoot(container, app)
 else createRoot(container).render(app)
+
+// ===== Stampa: carica subito le immagini differite =====
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll('img[loading="lazy"]').forEach((image) => {
+    image.loading = 'eager'
+  })
+})
