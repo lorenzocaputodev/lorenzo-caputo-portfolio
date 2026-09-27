@@ -74,6 +74,17 @@
     padding: 0;
     border: 0;
     transform: none !important;
+    transform-style: flat;
+  }
+
+  .portrait-card__frame,
+  .portrait-card__frame img,
+  .portrait-card__meta {
+    transform: none !important;
+  }
+
+  .portrait-card__frame::after {
+    display: none;
   }
 
   .surface-card,
