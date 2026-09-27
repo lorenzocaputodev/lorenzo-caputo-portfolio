@@ -48,7 +48,7 @@ export const en = {
     title: 'From working with people to building software',
     lead: 'I come from years of customer-facing work and a long-standing passion for hardware: today I bring both into my path as a developer.',
     paragraphs: [
-      'At ITS Academy I study Java, OOP, SQL databases, Git and cloud architectures. Front-of-house and front-office work taught me to handle pressure, communicate clearly and work as a team.',
+      'At ITS Academy I study Java and Spring, OOP, SQL and NoSQL databases, Git and cloud architectures. Front-of-house and front-office work taught me to handle pressure, communicate clearly and work as a team.',
       'I bring both into my projects: tidy code and attention to the people who will use it.',
     ],
     principlesEyebrow: 'How I work',
@@ -78,7 +78,7 @@ export const en = {
         period: 'Jan 2026 – present',
         title: 'ITS Academy Apulia Digital Maker',
         place: 'Higher Technician in Software Development (EQF 5)',
-        text: '1,800 hours on Java and C# (OOP), SQL databases, Git/GitHub, cloud architectures and AI integration, with hands-on coding and debugging labs.',
+        text: '1,800 hours on Java and Spring (OOP), SQL and NoSQL databases, Git/GitHub, cloud architectures and AI integration, with hands-on coding and debugging labs.',
       },
       {
         period: '2022',
@@ -104,7 +104,7 @@ export const en = {
         period: 'Jul 2017 – Sep 2019',
         title: 'Front-of-House & Front-Office',
         place: 'Ristorante Pizzeria "Il Gambero Rosso"',
-        text: 'Welcoming international guests, handling payments and the front desk, with many tasks running in parallel.',
+        text: 'Welcoming international guests, handling payments at the till and bar service, with many tasks running in parallel.',
       },
     ],
     certifications: certifications.en,
