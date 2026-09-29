@@ -1,6 +1,6 @@
 # Lorenzo Caputo — Portfolio
 
-[![Deploy](https://github.com/lorenzocaputodev/lorenzo-caputo-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/lorenzocaputodev/lorenzo-caputo-portfolio/actions/workflows/deploy.yml) [![Live site](https://img.shields.io/website?url=https%3A%2F%2Florenzocaputo.is-a.dev%2F&label=live)](https://lorenzocaputo.is-a.dev/)
+[![Deploy](https://github.com/lorenzocaputodev/lorenzo-caputo-portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/lorenzocaputodev/lorenzo-caputo-portfolio/actions/workflows/deploy.yml) [![License](https://img.shields.io/github/license/lorenzocaputodev/lorenzo-caputo-portfolio)](LICENSE) [![Live site](https://img.shields.io/website?url=https%3A%2F%2Florenzocaputo.is-a.dev%2F&label=live)](https://lorenzocaputo.is-a.dev/)
 
 🇮🇹 [Italiano](#-italiano) · 🇬🇧 [English](#-english)
 
