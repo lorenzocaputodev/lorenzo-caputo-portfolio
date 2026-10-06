@@ -44,7 +44,7 @@ test.describe('portfolio', () => {
 
     if (isMobile) await page.getByRole('button', { name: 'Toggle navigation menu' }).click()
     await page.locator('.lang-switch:visible').getByRole('link', { name: 'IT' }).click()
-    await expect(page).toHaveURL(/\/$/)
+    await expect(page).toHaveURL(/^https?:\/\/[^/]+\/$/)
     await page.goto('./')
     await expect(page.locator('html')).toHaveAttribute('lang', 'it')
   })
