@@ -16,7 +16,7 @@ const { languagePath, renderApp, renderHead, SITE_URL, supportedLanguages } = aw
 
 // --- Content Security Policy ---
 const inlineScripts = [...template.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(([, code]) => code)
-const scriptHashes = inlineScripts.map((code) => `'sha256-${createHash('sha256').update(code).digest('base64')}'`)
+const scriptHashes = inlineScripts.map((code) => `'sha256-${createHash('sha256').update(code.replace(/\r\n?/g, '\n')).digest('base64')}'`)
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -38,8 +38,8 @@ for (const language of supportedLanguages) {
   const html = template
     .replace(/<html lang="[^"]*">/, `<html lang="${language}">`)
     .replace('<meta charset="UTF-8" />', `<meta charset="UTF-8" />\n    ${cspTag}`)
-    .replace('<!--app-head-->', renderHead(language))
-    .replace('<!--app-html-->', renderApp(language))
+    .replace('<!--app-head-->', () => renderHead(language))
+    .replace('<!--app-html-->', () => renderApp(language))
 
   const outputFile = resolve(distDir, `.${languagePath(language)}`, 'index.html')
   await mkdir(dirname(outputFile), { recursive: true })
