@@ -1,4 +1,4 @@
-// ===== Sezione Percorso: formazione, esperienza e certificazioni =====
+// --- Sezione Percorso: formazione, esperienza e certificazioni ---
 import { memo } from 'react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { revealProps } from '../../utils/reveal'

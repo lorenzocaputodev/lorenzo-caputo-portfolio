@@ -1,4 +1,4 @@
-/* ===== Colori, font e stili di base ===== */
+/* --- Colori, font e stili di base --- */
 :root {
   color-scheme: dark;
   --bg: #090e14;
@@ -96,7 +96,7 @@ main {
   scroll-margin-top: 6.4rem;
 }
 
-/* ===== Link "Salta al contenuto" ===== */
+/* --- Link "Salta al contenuto" --- */
 .skip-link {
   position: fixed;
   top: 1rem;

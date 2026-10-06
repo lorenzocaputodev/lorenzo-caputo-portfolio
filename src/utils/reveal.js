@@ -1,4 +1,4 @@
-// ===== Proprietà per la comparsa allo scroll =====
+// --- Proprietà per la comparsa allo scroll ---
 export const REVEAL_SELECTOR = '[data-reveal]'
 
 export function revealProps(delay = 0, { kind, x, y, scale } = {}) {

@@ -1,4 +1,4 @@
-// ===== Barra di navigazione in alto =====
+// --- Barra di navigazione in alto ---
 import { memo } from 'react'
 import { ExternalLink } from '../ui/ExternalLink'
 import { GitHubIcon } from '../ui/GitHubIcon'

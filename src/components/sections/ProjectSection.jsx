@@ -1,4 +1,4 @@
-// ===== Sezione Progetto =====
+// --- Sezione Progetto ---
 import { memo, useEffect, useRef } from 'react'
 import { ExternalLink } from '../ui/ExternalLink'
 import { SectionHeading } from '../ui/SectionHeading'

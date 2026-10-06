@@ -1,4 +1,4 @@
-// ===== Sezione Chi sono =====
+// --- Sezione Chi sono ---
 import { memo } from 'react'
 import { SectionHeading } from '../ui/SectionHeading'
 import { revealProps } from '../../utils/reveal'

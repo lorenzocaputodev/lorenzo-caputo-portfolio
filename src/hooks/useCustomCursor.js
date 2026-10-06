@@ -1,4 +1,4 @@
-// ===== Cursore personalizzato =====
+// --- Cursore personalizzato ---
 import { useEffect } from 'react'
 import { canUsePointerEffects } from '../utils/media'
 
@@ -21,6 +21,7 @@ export function useCustomCursor(cursorDotRef, cursorTrailRefs) {
     let raf = 0
     let idleTimer = 0
     let shown = false
+    let idle = false
     let running = false
     let interactive = false
     let trailsVisible = false
@@ -45,6 +46,7 @@ export function useCustomCursor(cursorDotRef, cursorTrailRefs) {
     }
 
     const show = () => {
+      idle = false
       if (!shown) {
         shown = true
         dot.style.opacity = '1'
@@ -66,7 +68,10 @@ export function useCustomCursor(cursorDotRef, cursorTrailRefs) {
 
     const scheduleIdle = () => {
       clearTimeout(idleTimer)
-      idleTimer = window.setTimeout(hide, CURSOR_IDLE_MS)
+      idleTimer = window.setTimeout(() => {
+        idle = true
+        setTrailsVisible(false)
+      }, CURSOR_IDLE_MS)
     }
 
     const setInteractiveState = (nextInteractive) => {
@@ -92,7 +97,7 @@ export function useCustomCursor(cursorDotRef, cursorTrailRefs) {
           position.y = dotY
         })
       } else {
-        if (shown) {
+        if (shown && !idle) {
           setTrailsVisible(true)
         }
 

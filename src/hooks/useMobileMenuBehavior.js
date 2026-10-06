@@ -1,4 +1,4 @@
-// ===== Comportamento del menu mobile =====
+// --- Comportamento del menu mobile ---
 import { useEffect } from 'react'
 
 const MOBILE_BREAKPOINT = 760
@@ -14,7 +14,9 @@ export function useMobileMenuBehavior(mobileMenuOpen, closeMenu, mobileNavRef) {
     }
 
     const onKey = (event) => {
-      if (event.key === 'Escape') closeMenu()
+      if (event.key !== 'Escape') return
+      closeMenu()
+      mobileNavRef.current?.querySelector('.menu-toggle')?.focus()
     }
 
     const onPointer = (event) => {
@@ -25,12 +27,14 @@ export function useMobileMenuBehavior(mobileMenuOpen, closeMenu, mobileNavRef) {
     window.addEventListener('keydown', onKey)
     document.addEventListener('pointerdown', onPointer)
     document.body.style.overflow = 'hidden'
+    document.body.setAttribute('data-lenis-prevent', '')
 
     return () => {
       window.removeEventListener('resize', onResize)
       window.removeEventListener('keydown', onKey)
       document.removeEventListener('pointerdown', onPointer)
       document.body.style.overflow = previousOverflow
+      document.body.removeAttribute('data-lenis-prevent')
     }
   }, [mobileMenuOpen, closeMenu, mobileNavRef])
 }

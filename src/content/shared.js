@@ -1,4 +1,4 @@
-// ===== Dati comuni a tutte le lingue =====
+// --- Dati comuni a tutte le lingue ---
 import portrait from '../assets/images/lorenzo-portrait.webp'
 import appHome from '../assets/images/app_home.webp'
 import appGoals from '../assets/images/app_goals.webp'
@@ -24,7 +24,7 @@ export const sharedProfile = {
   cvDownloadName: 'Lorenzo-Caputo-CV.pdf',
 }
 
-// ===== Navigazione e contatti =====
+// --- Navigazione e contatti ---
 const navSections = ['about', 'journey', 'skills', 'project', 'contact']
 
 export const buildNavItems = (labels) =>
@@ -36,7 +36,7 @@ export const buildContactLinks = ({ github, linkedin, cv }) => [
   { label: linkedin, href: sharedProfile.linkedin, icon: 'linkedin' },
 ]
 
-// ===== Screenshot del progetto =====
+// --- Screenshot del progetto ---
 const projectScreenshots = [
   { title: { en: 'Home', it: 'Home' }, image: appHome, imageSmall: appHomeSmall, width: 718, height: 1596 },
   { title: { en: 'Goals & badges', it: 'Obiettivi e badge' }, image: appGoals, imageSmall: appGoalsSmall, width: 718, height: 1596 },
@@ -46,7 +46,7 @@ const projectScreenshots = [
 
 export const buildScreenshots = (lang) => projectScreenshots.map((shot) => ({ ...shot, title: shot.title[lang] }))
 
-// ===== Certificazioni =====
+// --- Certificazioni ---
 export const certifications = {
   en: [
     { title: 'Exploring in AI', issuer: 'IBM SkillsBuild', date: 'Mar 2026' },

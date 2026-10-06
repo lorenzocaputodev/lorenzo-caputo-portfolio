@@ -1,4 +1,4 @@
-// ===== Link esterno =====
+// --- Link esterno ---
 export function ExternalLink({ href, children, className = '', download, ...rest }) {
   const extra = href.startsWith('mailto:') || download
     ? {}

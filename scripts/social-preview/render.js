@@ -1,4 +1,4 @@
-// ===== Generazione delle immagini di anteprima social =====
+// --- Generazione delle immagini di anteprima social ---
 import { readFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -7,7 +7,7 @@ import { chromium } from '@playwright/test'
 const here = dirname(fileURLToPath(import.meta.url))
 const root = resolve(here, '../..')
 
-// ===== Testi =====
+// --- Testi ---
 const previews = {
   it: {
     output: 'public/social-preview-it.jpg',
@@ -23,7 +23,7 @@ const previews = {
   },
 }
 
-// ===== Competenze chiave mostrate nell'immagine =====
+// --- Competenze chiave mostrate nell'immagine ---
 const skills = [
   ['Java', 'java.png'],
   ['JavaScript', 'javascript.svg'],
@@ -33,7 +33,7 @@ const skills = [
   ['SQL', 'sql.png'],
 ]
 
-// ===== Risorse: sfondo e font =====
+// --- Risorse: sfondo e font ---
 const dataUrl = async (path, type) => `data:${type};base64,${(await readFile(resolve(root, path))).toString('base64')}`
 
 const assets = {
@@ -49,7 +49,7 @@ const icons = Object.fromEntries(
   ),
 )
 
-// ===== Impaginazione (coordinate dell'immagine sorgente 1774×887) =====
+// --- Impaginazione (coordinate dell'immagine sorgente 1774×887) ---
 const page = ({ headline, subtitle, tagline }) => `<!doctype html>
 <html>
   <head>
@@ -112,7 +112,7 @@ const page = ({ headline, subtitle, tagline }) => `<!doctype html>
   </body>
 </html>`
 
-// ===== Rendering =====
+// --- Rendering ---
 const browser = await chromium.launch(process.env.PW_CHROMIUM_PATH ? { executablePath: process.env.PW_CHROMIUM_PATH } : {})
 const tab = await browser.newPage({ viewport: { width: 1200, height: 630 } })
 

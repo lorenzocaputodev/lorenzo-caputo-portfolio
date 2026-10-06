@@ -1,4 +1,4 @@
-// ===== Voce attiva della navigazione =====
+// --- Voce attiva della navigazione ---
 import { useEffect, useState } from 'react'
 
 const ACTIVATION_LINE = 0.3

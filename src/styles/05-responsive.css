@@ -1,4 +1,4 @@
-/* ===== Tablet e schermi medi (fino a 1080px) ===== */
+/* --- Tablet e schermi medi (fino a 1080px) --- */
 @media (max-width: 1080px) {
   .topbar__inner {
     gap: 0.62rem;
@@ -59,7 +59,7 @@
   }
 }
 
-/* ===== Schermi desktop bassi ===== */
+/* --- Schermi desktop bassi --- */
 @media (min-width: 1081px) and (max-height: 820px) {
   .hero {
     padding-top: 4.4rem;
@@ -75,7 +75,7 @@
   }
 }
 
-/* ===== Mobile (fino a 760px) ===== */
+/* --- Mobile (fino a 760px) --- */
 @media (max-width: 760px) {
   .hero,
   .section {
@@ -342,7 +342,7 @@
   }
 }
 
-/* ===== Mobile piccolo (fino a 580px) ===== */
+/* --- Mobile piccolo (fino a 580px) --- */
 @media (max-width: 580px) {
   .hero__eyebrow {
     gap: 0.38rem;
@@ -428,7 +428,7 @@
   }
 }
 
-/* ===== Movimento ridotto ===== */
+/* --- Movimento ridotto --- */
 @media (prefers-reduced-motion: reduce) {
   .hero-reveal {
     opacity: 1;

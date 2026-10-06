@@ -1,4 +1,4 @@
-// ===== Generazione delle pagine per lingua, CSP e sitemap =====
+// --- Generazione delle pagine per lingua, CSP e sitemap ---
 import { execSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -14,9 +14,9 @@ const { languagePath, renderApp, renderHead, SITE_URL, supportedLanguages } = aw
   pathToFileURL(resolve(serverDir, 'entry-server.js')).href
 )
 
-// ===== Content Security Policy =====
+// --- Content Security Policy ---
 const inlineScripts = [...template.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(([, code]) => code)
-const scriptHashes = inlineScripts.map((code) => `'sha256-${createHash('sha256').update(code).digest('base64')}'`)
+const scriptHashes = inlineScripts.map((code) => `'sha256-${createHash('sha256').update(code.replace(/\r\n?/g, '\n')).digest('base64')}'`)
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -33,13 +33,13 @@ const contentSecurityPolicy = [
 
 const cspTag = `<meta http-equiv="Content-Security-Policy" content="${contentSecurityPolicy}" />`
 
-// ===== Pagine per lingua =====
+// --- Pagine per lingua ---
 for (const language of supportedLanguages) {
   const html = template
     .replace(/<html lang="[^"]*">/, `<html lang="${language}">`)
     .replace('<meta charset="UTF-8" />', `<meta charset="UTF-8" />\n    ${cspTag}`)
-    .replace('<!--app-head-->', renderHead(language))
-    .replace('<!--app-html-->', renderApp(language))
+    .replace('<!--app-head-->', () => renderHead(language))
+    .replace('<!--app-html-->', () => renderApp(language))
 
   const outputFile = resolve(distDir, `.${languagePath(language)}`, 'index.html')
   await mkdir(dirname(outputFile), { recursive: true })
@@ -47,7 +47,7 @@ for (const language of supportedLanguages) {
   console.log(`prerendered ${languagePath(language)} -> ${outputFile.replace(`${root}/`, '')}`)
 }
 
-// ===== Sitemap =====
+// --- Sitemap ---
 function lastModified() {
   try {
     return execSync('git log -1 --format=%cs', { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim()
