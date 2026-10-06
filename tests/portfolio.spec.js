@@ -1,4 +1,4 @@
-// ===== Test end-to-end del portfolio =====
+// --- Test end-to-end del portfolio ---
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 

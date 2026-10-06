@@ -1,6 +1,6 @@
 version: 2
 updates:
-  # ===== Pacchetti npm =====
+  # --- Pacchetti npm ---
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -16,7 +16,7 @@ updates:
       - dependency-name: '@babel/core'
         update-types: ['version-update:semver-major']
 
-  # ===== GitHub Actions =====
+  # --- GitHub Actions ---
   - package-ecosystem: github-actions
     directory: /
     schedule:

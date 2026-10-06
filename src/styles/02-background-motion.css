@@ -1,4 +1,4 @@
-/* ===== Sfondo ===== */
+/* --- Sfondo --- */
 .site-shell {
   position: relative;
   overflow-x: clip;
@@ -40,7 +40,7 @@ html.is-scrolling .site-grain {
   opacity: 0;
 }
 
-/* ===== Cursore personalizzato ===== */
+/* --- Cursore personalizzato --- */
 .cursor-dot,
 .cursor-trail {
   position: fixed;
@@ -133,7 +133,7 @@ html.is-scrolling .cursor-trail {
   opacity: 0 !important;
 }
 
-/* ===== Comparsa degli elementi allo scroll ===== */
+/* --- Comparsa degli elementi allo scroll --- */
 [data-reveal] {
   --reveal-x: 0px;
   --reveal-y: 26px;
@@ -179,7 +179,7 @@ html.is-scrolling .cursor-trail {
   will-change: auto;
 }
 
-/* ===== Comparsa della sezione iniziale ===== */
+/* --- Comparsa della sezione iniziale --- */
 .hero-reveal {
   --hero-reveal-y: 26px;
   --hero-reveal-duration: 980ms;

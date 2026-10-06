@@ -1,4 +1,4 @@
-// ===== Comportamento del menu mobile =====
+// --- Comportamento del menu mobile ---
 import { useEffect } from 'react'
 
 const MOBILE_BREAKPOINT = 760

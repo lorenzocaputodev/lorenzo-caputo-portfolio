@@ -1,4 +1,4 @@
-// ===== Rendering in fase di build: HTML e <head> per ogni lingua =====
+// --- Rendering in fase di build: HTML e <head> per ogni lingua ---
 import { StrictMode } from 'react'
 import { renderToString } from 'react-dom/server'
 import App from './App'

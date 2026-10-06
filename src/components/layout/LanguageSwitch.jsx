@@ -1,4 +1,4 @@
-// ===== Selettore di lingua =====
+// --- Selettore di lingua ---
 import { languagePath, supportedLanguages } from '../../content'
 import { storeLang } from '../../utils/language'
 

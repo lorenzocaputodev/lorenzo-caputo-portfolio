@@ -1,4 +1,4 @@
-/* ===== Sezione iniziale e ritratto ===== */
+/* --- Sezione iniziale e ritratto --- */
 .hero {
   position: relative;
   overflow: hidden;
@@ -201,7 +201,7 @@
   text-align: right;
 }
 
-/* ===== Card e griglie ===== */
+/* --- Card e griglie --- */
 .surface-card {
   position: relative;
   padding: 1.4rem;
@@ -245,7 +245,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* ===== Chi sono ===== */
+/* --- Chi sono --- */
 .about__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.16fr) minmax(290px, 0.88fr);
@@ -310,7 +310,7 @@
   line-height: 1.7;
 }
 
-/* ===== Percorso ===== */
+/* --- Percorso --- */
 .timeline {
   position: relative;
   display: grid;
@@ -398,7 +398,7 @@
   line-height: 1.72;
 }
 
-/* ===== Competenze ===== */
+/* --- Competenze --- */
 .skill-rows {
   margin: 0;
   padding: 0;
@@ -471,7 +471,7 @@
   border-color: rgba(47, 211, 233, 0.22);
 }
 
-/* ===== Progetto ===== */
+/* --- Progetto --- */
 .section--project::before {
   content: '';
   position: absolute;
@@ -678,7 +678,7 @@ html.is-scrolling .project::after {
   background: rgba(47, 211, 233, 0.7);
 }
 
-/* ===== Screenshot del progetto ===== */
+/* --- Screenshot del progetto --- */
 .project__shots {
   width: min(100%, 36rem);
   height: 100%;
@@ -731,7 +731,7 @@ html.is-scrolling .project::after {
   object-position: top;
 }
 
-/* ===== Certificazioni ===== */
+/* --- Certificazioni --- */
 .certification-grid {
   align-items: stretch;
   gap: 0.68rem;
@@ -762,7 +762,7 @@ html.is-scrolling .project::after {
   font-size: 0.88rem;
 }
 
-/* ===== Contatti e footer ===== */
+/* --- Contatti e footer --- */
 .contact {
   text-align: center;
 }

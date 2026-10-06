@@ -1,4 +1,4 @@
-// ===== Memorizzazione della lingua scelta =====
+// --- Memorizzazione della lingua scelta ---
 const LANG_KEY = 'portfolio-language'
 
 export function storeLang(language) {

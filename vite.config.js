@@ -1,8 +1,8 @@
-// ===== Configurazione di Vite =====
+// --- Configurazione di Vite ---
 import { defineConfig } from 'vite'
 import preact from '@preact/preset-vite'
 
-// ===== Preload dei font visibili al primo caricamento =====
+// --- Preload dei font visibili al primo caricamento ---
 const PRELOAD_FONTS = [/sora-latin-400-normal-.*\.woff2$/, /sora-latin-700-normal-.*\.woff2$/, /cormorant-garamond-latin-600-italic-.*\.woff2$/]
 
 function preloadFonts() {
@@ -24,7 +24,7 @@ function preloadFonts() {
   }
 }
 
-// ===== <head> della pagina in sviluppo =====
+// --- <head> della pagina in sviluppo ---
 function devHead() {
   return {
     name: 'dev-head',
@@ -37,7 +37,7 @@ function devHead() {
   }
 }
 
-// ===== Configurazione =====
+// --- Configurazione ---
 export default defineConfig({
   base: '/',
   plugins: [preact(), preloadFonts(), devHead()],

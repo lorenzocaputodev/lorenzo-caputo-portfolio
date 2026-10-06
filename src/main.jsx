@@ -1,4 +1,4 @@
-// ===== Avvio dell'app nel browser =====
+// --- Avvio dell'app nel browser ---
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import App from './App'
@@ -15,7 +15,7 @@ const app = (
 if (container.firstElementChild) hydrateRoot(container, app)
 else createRoot(container).render(app)
 
-// ===== Stampa: carica subito le immagini differite =====
+// --- Stampa: carica subito le immagini differite ---
 window.addEventListener('beforeprint', () => {
   document.querySelectorAll('img[loading="lazy"]').forEach((image) => {
     image.loading = 'eager'

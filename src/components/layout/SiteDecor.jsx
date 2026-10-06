@@ -1,4 +1,4 @@
-// ===== Decorazioni: cursore e sfondo =====
+// --- Decorazioni: cursore e sfondo ---
 import { memo } from 'react'
 import { CURSOR_TRAIL_COUNT } from '../../hooks/useCustomCursor'
 

@@ -1,4 +1,4 @@
-// ===== Lingue e indirizzi delle pagine =====
+// --- Lingue e indirizzi delle pagine ---
 import { en } from './en'
 import { it } from './it'
 

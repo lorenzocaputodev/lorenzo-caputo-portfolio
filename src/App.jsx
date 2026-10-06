@@ -1,4 +1,4 @@
-// ===== Composizione della pagina =====
+// --- Composizione della pagina ---
 import { useCallback, useRef, useState } from 'react'
 import { content } from './content'
 import { SiteDecor } from './components/layout/SiteDecor'

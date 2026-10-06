@@ -1,4 +1,4 @@
-// ===== Generazione delle pagine per lingua, CSP e sitemap =====
+// --- Generazione delle pagine per lingua, CSP e sitemap ---
 import { execSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
@@ -14,7 +14,7 @@ const { languagePath, renderApp, renderHead, SITE_URL, supportedLanguages } = aw
   pathToFileURL(resolve(serverDir, 'entry-server.js')).href
 )
 
-// ===== Content Security Policy =====
+// --- Content Security Policy ---
 const inlineScripts = [...template.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(([, code]) => code)
 const scriptHashes = inlineScripts.map((code) => `'sha256-${createHash('sha256').update(code).digest('base64')}'`)
 
@@ -33,7 +33,7 @@ const contentSecurityPolicy = [
 
 const cspTag = `<meta http-equiv="Content-Security-Policy" content="${contentSecurityPolicy}" />`
 
-// ===== Pagine per lingua =====
+// --- Pagine per lingua ---
 for (const language of supportedLanguages) {
   const html = template
     .replace(/<html lang="[^"]*">/, `<html lang="${language}">`)
@@ -47,7 +47,7 @@ for (const language of supportedLanguages) {
   console.log(`prerendered ${languagePath(language)} -> ${outputFile.replace(`${root}/`, '')}`)
 }
 
-// ===== Sitemap =====
+// --- Sitemap ---
 function lastModified() {
   try {
     return execSync('git log -1 --format=%cs', { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim()

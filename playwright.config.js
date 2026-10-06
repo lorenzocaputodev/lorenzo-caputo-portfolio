@@ -1,4 +1,4 @@
-// ===== Configurazione dei test Playwright =====
+// --- Configurazione dei test Playwright ---
 import { defineConfig, devices } from '@playwright/test'
 
 const PORT = 4173

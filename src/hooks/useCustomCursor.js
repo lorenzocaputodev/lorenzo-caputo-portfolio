@@ -1,4 +1,4 @@
-// ===== Cursore personalizzato =====
+// --- Cursore personalizzato ---
 import { useEffect } from 'react'
 import { canUsePointerEffects } from '../utils/media'
 

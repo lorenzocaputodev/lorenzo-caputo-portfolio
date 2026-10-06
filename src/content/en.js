@@ -1,4 +1,4 @@
-// ===== Testi in inglese =====
+// --- Testi in inglese ---
 import {
   buildContactLinks,
   buildNavItems,

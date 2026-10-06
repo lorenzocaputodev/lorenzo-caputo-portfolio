@@ -1,4 +1,4 @@
-// ===== Scroll fluido (Lenis) =====
+// --- Scroll fluido (Lenis) ---
 import { useEffect } from 'react'
 import { canUsePointerEffects } from '../utils/media'
 
@@ -58,7 +58,7 @@ export function useLenisScroll() {
   }, [])
 }
 
-// ===== Avvio di Lenis e ciclo di animazione =====
+// --- Avvio di Lenis e ciclo di animazione ---
 function startLenis(Lenis, setScrolling, clearScrolling) {
   const lenis = new Lenis({
     duration: 0.78,

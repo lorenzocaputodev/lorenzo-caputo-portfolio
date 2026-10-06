@@ -1,4 +1,4 @@
-// ===== Effetto 3D sul ritratto =====
+// --- Effetto 3D sul ritratto ---
 import { useEffect } from 'react'
 import { canUsePointerEffects } from '../utils/media'
 

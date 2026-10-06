@@ -1,4 +1,4 @@
-// ===== Comparsa degli elementi allo scroll =====
+// --- Comparsa degli elementi allo scroll ---
 import { useEffect } from 'react'
 import { REVEAL_SELECTOR } from '../utils/reveal'
 import { prefersReducedMotion } from '../utils/media'
