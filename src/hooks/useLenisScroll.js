@@ -92,6 +92,7 @@ function startLenis(Lenis, setScrolling, clearScrolling) {
     }
 
     clearScrolling()
+    lenis.time = 0
     running = false
     raf = 0
   }
