@@ -7,7 +7,7 @@ export default defineConfig({
   testDir: './tests',
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
-  reporter: process.env.CI ? 'github' : 'list',
+  reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
   use: {
     baseURL: `http://localhost:${PORT}/`,
     launchOptions: process.env.PW_CHROMIUM_PATH
