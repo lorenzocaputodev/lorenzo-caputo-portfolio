@@ -9,7 +9,7 @@
       document.documentElement.classList.add('js')
       try {
         if (location.pathname === '/' && localStorage.getItem('portfolio-language') === 'en') {
-          location.replace('/en/' + location.hash)
+          location.replace('/en/' + location.search + location.hash)
         }
       } catch {}
     </script>
