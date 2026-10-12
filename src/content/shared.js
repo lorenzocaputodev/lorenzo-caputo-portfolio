@@ -1,13 +1,17 @@
 // --- Dati comuni a tutte le lingue ---
 import portrait from '../assets/images/lorenzo-portrait.webp'
 import appHome from '../assets/images/app_home.webp'
-import appGoals from '../assets/images/app_goals.webp'
-import appSettings from '../assets/images/app_settings.webp'
-import appHistory from '../assets/images/app_history.webp'
 import appHomeSmall from '../assets/images/app_home-360.webp'
+import appGoals from '../assets/images/app_goals.webp'
 import appGoalsSmall from '../assets/images/app_goals-360.webp'
-import appSettingsSmall from '../assets/images/app_settings-360.webp'
-import appHistorySmall from '../assets/images/app_history-360.webp'
+import allergyToday from '../assets/images/allergy_today.webp'
+import allergyTodaySmall from '../assets/images/allergy_today-360.webp'
+import allergyTrend from '../assets/images/allergy_trend.webp'
+import allergyTrendSmall from '../assets/images/allergy_trend-360.webp'
+import gresHero from '../assets/images/gres_hero.webp'
+import gresHeroSmall from '../assets/images/gres_hero-720.webp'
+import gresConfigurator from '../assets/images/gres_configurator.webp'
+import gresConfiguratorSmall from '../assets/images/gres_configurator-720.webp'
 import cvFile from '../assets/files/cv-caputo-lorenzo.pdf'
 
 export const sharedProfile = {
@@ -15,8 +19,6 @@ export const sharedProfile = {
   email: 'lorenzocaputo2002.lc@gmail.com',
   github: 'https://github.com/lorenzocaputodev',
   linkedin: 'https://www.linkedin.com/in/lorenzocaputodev/',
-  projectRepo: 'https://github.com/lorenzocaputodev/my_tracking_app',
-  projectRelease: 'https://github.com/lorenzocaputodev/my_tracking_app/releases/latest',
   portrait,
   portraitWidth: 511,
   portraitHeight: 512,
@@ -36,15 +38,62 @@ export const buildContactLinks = ({ github, linkedin, cv }) => [
   { label: linkedin, href: sharedProfile.linkedin, icon: 'linkedin' },
 ]
 
-// --- Screenshot del progetto ---
-const projectScreenshots = [
-  { title: { en: 'Home', it: 'Home' }, image: appHome, imageSmall: appHomeSmall, width: 718, height: 1596 },
-  { title: { en: 'Goals & badges', it: 'Obiettivi e badge' }, image: appGoals, imageSmall: appGoalsSmall, width: 718, height: 1596 },
-  { title: { en: 'Settings', it: 'Impostazioni' }, image: appSettings, imageSmall: appSettingsSmall, width: 718, height: 1596 },
-  { title: { en: 'History & statistics', it: 'Cronologia e statistiche' }, image: appHistory, imageSmall: appHistorySmall, width: 718, height: 1596 },
+// --- Progetti ---
+const phoneShot = (image, imageSmall, title, width, height) => ({ image, imageSmall, smallWidth: 360, title, width, height })
+const webShot = (image, imageSmall, title) => ({ image, imageSmall, smallWidth: 720, title, width: 1440, height: 900 })
+
+const projectData = [
+  {
+    id: 'my-tracking-app',
+    name: 'My Tracking App',
+    stack: 'Flutter · Android',
+    layout: 'phone',
+    links: [
+      { kind: 'repository', href: 'https://github.com/lorenzocaputodev/my_tracking_app' },
+      { kind: 'release', href: 'https://github.com/lorenzocaputodev/my_tracking_app/releases/latest' },
+    ],
+    screenshots: [
+      phoneShot(appHome, appHomeSmall, { en: 'Home', it: 'Home' }, 718, 1596),
+      phoneShot(appGoals, appGoalsSmall, { en: 'Goals & badges', it: 'Obiettivi e badge' }, 718, 1596),
+    ],
+  },
+  {
+    id: 'allergy-radar',
+    name: 'Allergy Radar',
+    stack: 'Flutter · Android',
+    layout: 'phone',
+    links: [
+      { kind: 'repository', href: 'https://github.com/lorenzocaputodev/allergy_radar' },
+      { kind: 'release', href: 'https://github.com/lorenzocaputodev/allergy_radar/releases/latest' },
+    ],
+    screenshots: [
+      phoneShot(allergyToday, allergyTodaySmall, { en: 'Today', it: 'Oggi' }, 540, 1199),
+      phoneShot(allergyTrend, allergyTrendSmall, { en: 'Trend', it: 'Andamento' }, 540, 1199),
+    ],
+  },
+  {
+    id: 'caputo-gres-design',
+    name: 'Caputo Gres Design',
+    stack: 'Vite · GSAP · CSS 3D',
+    layout: 'web',
+    links: [
+      { kind: 'live', href: 'https://caputogresdesign.pages.dev/' },
+      { kind: 'repository', href: 'https://github.com/lorenzocaputodev/caputogresdesign' },
+    ],
+    screenshots: [
+      webShot(gresHero, gresHeroSmall, { en: 'Opening', it: 'Apertura' }),
+      webShot(gresConfigurator, gresConfiguratorSmall, { en: 'Sink configurator', it: 'Componi il tuo lavandino' }),
+    ],
+  },
 ]
 
-export const buildScreenshots = (lang) => projectScreenshots.map((shot) => ({ ...shot, title: shot.title[lang] }))
+export const buildProjects = (lang, copy, linkLabels) =>
+  projectData.map((project) => ({
+    ...project,
+    ...copy[project.id],
+    links: project.links.map((link) => ({ ...link, label: linkLabels[link.kind] })),
+    screenshots: project.screenshots.map((shot) => ({ ...shot, title: shot.title[lang] })),
+  }))
 
 // --- Certificazioni ---
 export const certifications = {

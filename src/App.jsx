@@ -66,7 +66,7 @@ export default function App({ language }) {
         <AboutSection about={about} />
         <JourneySection journey={journey} />
         <SkillsSection skills={skills} />
-        <ProjectSection profile={profile} project={project} />
+        <ProjectSection project={project} />
         <ContactSection contact={contact} footer={footer} profile={profile} />
       </main>
     </div>

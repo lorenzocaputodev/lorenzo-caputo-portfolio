@@ -31,7 +31,8 @@
   .hero__actions,
   .contact__copy,
   .project__links,
-  .project__shots-hint,
+  .project-nav,
+  .project-dots,
   .contact__actions a[download],
   .hero::before,
   .section--project::before,
@@ -49,7 +50,6 @@
   .journey__label,
   .timeline__year,
   .certification-card__date,
-  .project__detail-label,
   .skill-row__index,
   .project__release-badge {
     color: #0b6b7a !important;
@@ -61,7 +61,7 @@
   }
 
   .hero__grid,
-  .project__grid {
+  .project-slide {
     grid-template-columns: 1fr;
   }
 
@@ -112,7 +112,7 @@
 
   .section-heading,
   .journey__label,
-  .project__detail-label {
+  .project-slide__title {
     break-after: avoid;
   }
 
@@ -122,28 +122,28 @@
 
   .project__shots {
     width: 100%;
-    height: auto;
     padding: 0;
     border: 0;
   }
 
-  .project__shot-list {
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    height: auto;
+  .project__shots--phone {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-track::after {
+    display: none;
+  }
+
+  .project-track {
+    display: grid;
+    gap: 1.4rem;
     overflow: visible;
   }
 
-  .project__shot-list > li {
-    flex: none;
+  .project-slide {
+    opacity: 1 !important;
   }
 
-  .project-shot,
-  .project-shot img {
-    height: auto;
-  }
-
-  .project-list li::before,
   .timeline__dot {
     background: #0b6b7a !important;
   }

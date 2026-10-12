@@ -17,7 +17,7 @@
 
   .hero__grid,
   .about__grid,
-  .project__grid {
+  .project-slide {
     grid-template-columns: 1fr;
   }
 
@@ -33,25 +33,13 @@
     width: min(100%, 460px);
   }
 
-  .project__content {
-    padding-right: 0;
+  .project-slide {
+    align-items: start;
   }
 
   .project__shots {
     width: 100%;
-    max-width: 720px;
-    height: auto;
-    justify-self: start;
-  }
-
-  .project__shot-list {
-    height: auto;
-    grid-auto-rows: auto;
-  }
-
-  .project-shot,
-  .project-shot img {
-    height: auto;
+    max-width: 640px;
   }
 
   .card-grid--three {
@@ -222,8 +210,7 @@
   .hero__note,
   .section-copy,
   .about__copy p,
-  .project__journey,
-  .project__narrative-copy {
+  .project-slide__summary {
     font-size: 0.97rem;
     line-height: 1.72;
   }
@@ -276,27 +263,28 @@
     grid-template-columns: 1fr;
   }
 
-  .project__shot-list {
-    display: flex;
-    gap: 0.8rem;
-    padding-bottom: 0.4rem;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
+  .project__proof-grid {
+    gap: 0.55rem;
   }
 
-  .project__shot-list > li {
-    flex: 0 0 72%;
-    scroll-snap-align: start;
+  .project-proof {
+    padding: 0.8rem 0.95rem;
   }
 
-  .project__shots-hint {
-    display: block;
-    margin: 0.7rem 0 0;
-    color: var(--muted-soft);
-    font-size: 0.82rem;
-    text-align: center;
+  .project-track {
+    gap: 1rem;
+  }
+
+  .project-track::after {
+    flex-basis: 1rem;
+  }
+
+  .project-slide {
+    flex-basis: calc(100% - 2rem);
+  }
+
+  .project__head {
+    align-items: flex-start;
   }
 
   .footer__inner {
@@ -363,8 +351,7 @@
     border-radius: 18px;
   }
 
-  .surface-card,
-  .project-proof {
+  .surface-card {
     padding: 1.1rem;
     border-radius: 20px;
   }
@@ -456,6 +443,20 @@
   .project:focus-within::after {
     animation: none;
     opacity: 0.2;
+  }
+
+  .project-slide,
+  .project-dots__dot::before,
+  .project-nav__arrow,
+  .project-proof,
+  .project-shot {
+    transition: none;
+  }
+
+  .project-nav__arrow:hover,
+  .project-proof:hover,
+  .project-shot:hover {
+    transform: none;
   }
 
   .hero::before {

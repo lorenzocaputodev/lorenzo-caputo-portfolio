@@ -23,31 +23,21 @@ Il sito racconta chi sono oggi:
 - attento all'ordine, alla qualità e ai dettagli
 - interessato sia al **software** sia all'**hardware**, ai sistemi e alla risoluzione dei problemi
 
-Al centro c'è **My Tracking App**, il progetto personale che mostra meglio il mio modo di lavorare.
+Al centro ci sono i miei progetti pubblicati, mostrati in un carosello nella stessa sezione.
 
 ### 🎯 Obiettivi
 
 - presentarmi in modo professionale ma autentico
-- mostrare un progetto reale, pubblicato e usato
+- mostrare progetti reali, pubblicati e usati
 - avere una presenza online ordinata e facile da leggere
 - un design curato ma sobrio
 - funzionare bene sia su computer sia su telefono
 
-### 🚀 Progetto in evidenza — My Tracking App
+### 🚀 Progetti in evidenza
 
-App Android sviluppata in Flutter per tenere traccia dei consumi quotidiani, pensata per essere **pratica, chiara e comoda da usare ogni giorno**.
-
-- più prodotti da seguire, con scorta e costi
-- schermata principale con il conteggio del giorno e gli ultimi 7 giorni
-- cronologia per giorni, settimane e mesi, con statistiche
-- obiettivi, badge e piano di riduzione
-- promemoria periodici
-- widget Android in tre dimensioni
-- backup CSV (esporta e importa)
-- tema scuro, chiaro o di sistema
-- nessun account: i dati restano sul telefono
-
-🔗 Repository progetto: [My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)
+- **[My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)**: app Android in Flutter per tenere traccia di abitudini e consumi quotidiani, con statistiche, obiettivi, widget e dati salvati sul telefono
+- **[Allergy Radar](https://github.com/lorenzocaputodev/allergy_radar)**: app Android in Flutter con i pollini della tua zona in tutta Italia, diario dei sintomi e avvisi, con dati Open-Meteo e ISPRA POLLnet
+- **[Caputo Gres Design](https://caputogresdesign.pages.dev/)**: sito vetrina di un laboratorio di lavandini su misura in gres porcellanato, con animazioni allo scroll e un lavandino 3D da comporre
 
 ### 🛠 Tecnologie
 
@@ -83,7 +73,7 @@ src/
 ├── main.jsx                # entry point nel browser (idrata l'HTML pre-generato)
 ├── entry-server.jsx        # rendering in fase di build: HTML e <head> per ogni lingua
 ├── content/                # testi e dati del sito
-│   ├── shared.js           # dati comuni (profilo, link, screenshot, certificazioni)
+│   ├── shared.js           # dati comuni (profilo, link, progetti, certificazioni)
 │   ├── en.js / it.js       # contenuti localizzati, stessa struttura
 │   └── index.js            # lingue supportate, lingua di default, URL delle pagine
 ├── components/
@@ -150,31 +140,21 @@ The site shows who I am today:
 - attentive to order, quality and details
 - interested in both **software** and **hardware**, systems and troubleshooting
 
-At its center is **My Tracking App**, the personal project that best shows how I work.
+At its center are my published projects, shown in a carousel within the same section.
 
 ### 🎯 Main Goals
 
 - present myself in a professional yet authentic way
-- show a real project, published and in use
+- show real projects, published and in use
 - have a tidy, easy-to-read online presence
 - a polished but restrained design
 - work well on both computers and phones
 
-### 🚀 Featured Project — My Tracking App
+### 🚀 Featured Projects
 
-An Android app built with Flutter to keep track of daily consumption, designed to be **practical, clear and easy to use every day**.
-
-- multiple products, with stock and costs
-- home screen with today's count and the last 7 days
-- history by day, week and month, with statistics
-- goals, badges and a reduction plan
-- periodic reminders
-- Android widgets in three sizes
-- CSV backup (export and import)
-- dark, light or system theme
-- no account: data stays on the phone
-
-🔗 Project repository: [My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)
+- **[My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)**: an Android app built with Flutter to track daily habits and consumption, with statistics, goals, widgets and data stored on the phone
+- **[Allergy Radar](https://github.com/lorenzocaputodev/allergy_radar)**: an Android app built with Flutter with local pollen levels across Italy, a symptom diary and alerts, based on Open-Meteo and ISPRA POLLnet data
+- **[Caputo Gres Design](https://caputogresdesign.pages.dev/)**: showcase website for a workshop making custom porcelain stoneware sinks, with scroll animations and a 3D sink you can configure
 
 ### 🛠 Tech Stack
 
