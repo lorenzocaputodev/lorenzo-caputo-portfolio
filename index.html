@@ -8,7 +8,8 @@
       // --- Prima del caricamento: animazioni attive e ritorno alla lingua scelta ---
       document.documentElement.classList.add('js')
       try {
-        if (location.pathname === '/' && localStorage.getItem('portfolio-language') === 'en') {
+        const fromThisSite = document.referrer.indexOf(location.origin + '/') === 0
+        if (location.pathname === '/' && !fromThisSite && localStorage.getItem('portfolio-language') === 'en') {
           location.replace('/en/' + location.search + location.hash)
         }
       } catch {}
@@ -24,21 +25,6 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Lorenzo Caputo",
-        "url": "https://lorenzocaputo.is-a.dev/",
-        "image": "https://lorenzocaputo.is-a.dev/social-preview-it.jpg",
-        "jobTitle": "Junior developer in training",
-        "address": { "@type": "PostalAddress", "addressLocality": "Lecce", "addressCountry": "IT" },
-        "sameAs": [
-          "https://github.com/lorenzocaputodev",
-          "https://www.linkedin.com/in/lorenzocaputodev/"
-        ]
-      }
-    </script>
   </head>
   <body>
     <div id="root"><!--app-html--></div>

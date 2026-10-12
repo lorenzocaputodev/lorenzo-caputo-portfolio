@@ -27,10 +27,8 @@ export const sharedProfile = {
 }
 
 // --- Navigazione e contatti ---
-const navSections = ['about', 'journey', 'skills', 'project', 'contact']
-
 export const buildNavItems = (labels) =>
-  labels.map((label, index) => ({ label, href: `#${navSections[index]}` }))
+  Object.entries(labels).map(([id, label]) => ({ label, href: `#${id}` }))
 
 export const buildContactLinks = ({ github, linkedin, cv }) => [
   { label: cv, href: cvFile, download: sharedProfile.cvDownloadName, icon: 'download' },

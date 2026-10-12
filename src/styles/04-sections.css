@@ -660,12 +660,11 @@ html.is-scrolling .project::after {
   gap: 2rem;
   align-items: center;
   scroll-snap-align: start;
-  opacity: 0.32;
   transition: opacity 420ms ease;
 }
 
-.project-slide.is-active {
-  opacity: 1;
+.js .project-slide:not(.is-active) {
+  opacity: 0.32;
 }
 
 .project-slide__content {

@@ -2,6 +2,7 @@
 import { memo, useEffect, useRef, useState } from 'react'
 import { ExternalLink } from '../ui/ExternalLink'
 import { SectionHeading } from '../ui/SectionHeading'
+import { padNumber } from '../../utils/format'
 import { prefersReducedMotion } from '../../utils/media'
 import { revealProps } from '../../utils/reveal'
 
@@ -10,8 +11,6 @@ const SHOT_SIZES = {
   web: '(max-width: 760px) 86vw, (max-width: 1080px) 680px, 520px',
 }
 
-const pad = (value) => String(value).padStart(2, '0')
-
 function ProjectSlide({ item, index, total, active, labels }) {
   return (
     <div
@@ -19,7 +18,6 @@ function ProjectSlide({ item, index, total, active, labels }) {
       role="group"
       aria-roledescription={labels.slideLabel}
       aria-label={`${index + 1} / ${total}: ${item.name}`}
-      inert={!active}
     >
       <div className="project-slide__content">
         <div className="project__release">
@@ -145,6 +143,13 @@ function ProjectSectionComponent({ project }) {
     }
   }, [])
 
+  useEffect(() => {
+    const slides = trackRef.current?.children ?? []
+    Array.from(slides).forEach((slide, index) => {
+      slide.inert = index !== activeIndex
+    })
+  }, [activeIndex])
+
   const goTo = (index) => {
     const track = trackRef.current
     if (!track) return
@@ -185,7 +190,7 @@ function ProjectSectionComponent({ project }) {
 
           <div className="project-nav" {...revealProps(120, { kind: 'copy', y: 16 })}>
             <p className="project-nav__count">
-              <strong>{pad(activeIndex + 1)}</strong> / {pad(total)}
+              <strong>{padNumber(activeIndex + 1)}</strong> / {padNumber(total)}
             </p>
             <button
               type="button"

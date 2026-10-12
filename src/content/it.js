@@ -42,7 +42,7 @@ export const it = {
     ctaProject: 'Guarda i progetti',
     ctaCv: 'Scarica CV',
   },
-  navItems: buildNavItems(['Chi sono', 'Percorso', 'Competenze', 'Progetti', 'Contatti']),
+  navItems: buildNavItems({ about: 'Chi sono', journey: 'Percorso', skills: 'Competenze', project: 'Progetti', contact: 'Contatti' }),
   about: {
     eyebrow: 'Chi sono',
     title: 'Dal lavoro con il pubblico allo sviluppo software',

@@ -36,13 +36,13 @@ function ContactSectionComponent({ contact, footer, profile }) {
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(profile.email)
-      setCopyState('copied')
+      setCopyState({ kind: 'copied' })
     } catch {
-      setCopyState('failed')
+      setCopyState({ kind: 'failed' })
     }
   }
 
-  const copyLabel = { copied: contact.emailCopied, failed: contact.copyFailed }[copyState] ?? contact.copyEmail
+  const copyLabel = { copied: contact.emailCopied, failed: contact.copyFailed }[copyState?.kind] ?? contact.copyEmail
 
   return (
     <section className="section section--contact" id="contact" aria-labelledby="contact-title">

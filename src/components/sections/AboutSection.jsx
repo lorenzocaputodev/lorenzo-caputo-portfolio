@@ -1,6 +1,7 @@
 // --- Sezione Chi sono ---
 import { memo } from 'react'
 import { SectionHeading } from '../ui/SectionHeading'
+import { padNumber } from '../../utils/format'
 import { revealProps } from '../../utils/reveal'
 
 function AboutSectionComponent({ about }) {
@@ -33,7 +34,7 @@ function AboutSectionComponent({ about }) {
             {about.principles.map((item, index) => (
               <div key={item.title} {...revealProps(index * 70 + 120, { kind: 'card', y: 24 })}>
                 <article className="surface-card principle-card">
-                  <span className="surface-card__index">0{index + 1}</span>
+                  <span className="surface-card__index">{padNumber(index + 1)}</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </article>

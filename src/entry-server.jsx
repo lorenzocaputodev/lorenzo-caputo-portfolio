@@ -18,11 +18,22 @@ export function renderApp(language) {
 }
 
 export function renderHead(language) {
-  const { meta } = content[language]
+  const { meta, profile } = content[language]
   const url = `${SITE_URL}${languagePath(language)}`
   const otherLocales = supportedLanguages
     .filter((item) => item !== language)
     .map((item) => content[item].meta.ogLocale)
+
+  const person = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: profile.name,
+    url,
+    image: `${SITE_URL}${meta.image}`,
+    jobTitle: profile.role,
+    address: { '@type': 'PostalAddress', addressLocality: 'Lecce', addressCountry: 'IT' },
+    sameAs: [profile.github, profile.linkedin],
+  }
 
   const tags = [
     `<title>${escapeHtml(meta.title)}</title>`,
@@ -44,6 +55,7 @@ export function renderHead(language) {
     `<meta name="twitter:title" content="${escapeHtml(meta.twitterTitle)}" />`,
     `<meta name="twitter:description" content="${escapeHtml(meta.twitterDescription)}" />`,
     `<meta name="twitter:image" content="${SITE_URL}${meta.image}" />`,
+    `<script type="application/ld+json">${JSON.stringify(person).replace(/</g, '\\u003c')}</script>`,
   ]
 
   return tags.join('\n    ')

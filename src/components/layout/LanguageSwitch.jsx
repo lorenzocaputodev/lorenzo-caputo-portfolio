@@ -14,6 +14,7 @@ export function LanguageSwitch({ language, ariaLabel, className = '' }) {
           lang={item}
           aria-current={language === item ? 'true' : undefined}
           onClick={() => storeLang(item)}
+          onAuxClick={() => storeLang(item)}
         >
           {item.toUpperCase()}
         </a>

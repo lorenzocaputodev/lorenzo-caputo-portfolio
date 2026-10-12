@@ -59,6 +59,7 @@ function lastModified() {
 const lastmod = lastModified()
 const alternates = supportedLanguages
   .map((language) => `    <xhtml:link rel="alternate" hreflang="${language}" href="${SITE_URL}${languagePath(language)}" />`)
+  .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />`)
   .join('\n')
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

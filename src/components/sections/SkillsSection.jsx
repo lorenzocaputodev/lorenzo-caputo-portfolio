@@ -1,6 +1,7 @@
 // --- Sezione Competenze ---
 import { memo } from 'react'
 import { SectionHeading } from '../ui/SectionHeading'
+import { padNumber } from '../../utils/format'
 import { revealProps } from '../../utils/reveal'
 
 function SkillsSectionComponent({ skills }) {
@@ -20,7 +21,7 @@ function SkillsSectionComponent({ skills }) {
               className="skill-row"
               {...revealProps(index * 55 + 60, { kind: 'copy', y: 18 })}
             >
-              <span className="skill-row__index">0{index + 1}</span>
+              <span className="skill-row__index">{padNumber(index + 1)}</span>
               <h3 className="skill-row__title">{group.title}</h3>
               <ul className="skill-row__summary skill-tags">
                 {group.items.map((item) => (
