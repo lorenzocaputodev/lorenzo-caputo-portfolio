@@ -35,7 +35,7 @@ Al centro ci sono i miei progetti pubblicati, mostrati in un carosello nella ste
 
 ### 🚀 Progetti in evidenza
 
-- **[My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)**: app Android in Flutter per tenere traccia di abitudini e consumi quotidiani, con statistiche, obiettivi, widget e dati salvati sul telefono
+- **[My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)**: app Android in Flutter per tenere traccia di abitudini e consumi quotidiani, con statistiche, obiettivi, widget e dati salvati sul telefono, in italiano e in inglese
 - **[Allergy Radar](https://github.com/lorenzocaputodev/allergy_radar)**: app Android in Flutter con i pollini della tua zona in tutta Italia, diario dei sintomi e avvisi, con dati Open-Meteo e ISPRA POLLnet
 - **[Caputo Gres Design](https://caputogresdesign.pages.dev/)**: sito vetrina di un laboratorio di lavandini su misura in gres porcellanato, con animazioni allo scroll e un lavandino 3D da comporre
 
@@ -152,7 +152,7 @@ At its center are my published projects, shown in a carousel within the same sec
 
 ### 🚀 Featured Projects
 
-- **[My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)**: an Android app built with Flutter to track daily habits and consumption, with statistics, goals, widgets and data stored on the phone
+- **[My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)**: an Android app built with Flutter to track daily habits and consumption, with statistics, goals, widgets and data stored on the phone, in English and Italian
 - **[Allergy Radar](https://github.com/lorenzocaputodev/allergy_radar)**: an Android app built with Flutter with local pollen levels across Italy, a symptom diary and alerts, based on Open-Meteo and ISPRA POLLnet data
 - **[Caputo Gres Design](https://caputogresdesign.pages.dev/)**: showcase website for a workshop making custom porcelain stoneware sinks, with scroll animations and a 3D sink you can configure
 

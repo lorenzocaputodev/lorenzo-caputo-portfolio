@@ -137,7 +137,7 @@ export const en = {
     items: buildProjects('en', {
       'my-tracking-app': {
         status: 'Public releases on GitHub',
-        summary: 'My first published app: an Android app built with Flutter to track daily habits and consumption, with statistics, goals and data stored on the phone.',
+        summary: 'My first published app: an Android app built with Flutter to track daily habits and consumption, with statistics, goals and data stored on the phone, in English and Italian.',
         highlights: [
           { title: 'Android widgets', text: 'Three sizes (small, medium, large) to log usage straight from the home screen.' },
           { title: 'Statistics and goals', text: 'History by day, week and month, unlockable badges and a reduction plan for each product.' },

@@ -4,6 +4,10 @@ import appHome from '../assets/images/app_home.webp'
 import appHomeSmall from '../assets/images/app_home-360.webp'
 import appGoals from '../assets/images/app_goals.webp'
 import appGoalsSmall from '../assets/images/app_goals-360.webp'
+import appHomeEn from '../assets/images/app_home_en.webp'
+import appHomeEnSmall from '../assets/images/app_home_en-360.webp'
+import appGoalsEn from '../assets/images/app_goals_en.webp'
+import appGoalsEnSmall from '../assets/images/app_goals_en-360.webp'
 import allergyToday from '../assets/images/allergy_today.webp'
 import allergyTodaySmall from '../assets/images/allergy_today-360.webp'
 import allergyTrend from '../assets/images/allergy_trend.webp'
@@ -51,8 +55,8 @@ const projectData = [
       { kind: 'release', href: 'https://github.com/lorenzocaputodev/my_tracking_app/releases/latest' },
     ],
     screenshots: [
-      phoneShot(appHome, appHomeSmall, { en: 'Home', it: 'Home' }, 718, 1596),
-      phoneShot(appGoals, appGoalsSmall, { en: 'Goals & badges', it: 'Obiettivi e badge' }, 718, 1596),
+      phoneShot({ it: appHome, en: appHomeEn }, { it: appHomeSmall, en: appHomeEnSmall }, { en: 'Home', it: 'Home' }, 718, 1596),
+      phoneShot({ it: appGoals, en: appGoalsEn }, { it: appGoalsSmall, en: appGoalsEnSmall }, { en: 'Achievements & badges', it: 'Obiettivi e badge' }, 718, 1596),
     ],
   },
   {
@@ -90,7 +94,12 @@ export const buildProjects = (lang, copy, linkLabels) =>
     ...project,
     ...copy[project.id],
     links: project.links.map((link) => ({ ...link, label: linkLabels[link.kind] })),
-    screenshots: project.screenshots.map((shot) => ({ ...shot, title: shot.title[lang] })),
+    screenshots: project.screenshots.map((shot) => ({
+      ...shot,
+      image: shot.image[lang] ?? shot.image,
+      imageSmall: shot.imageSmall[lang] ?? shot.imageSmall,
+      title: shot.title[lang],
+    })),
   }))
 
 // --- Certificazioni ---

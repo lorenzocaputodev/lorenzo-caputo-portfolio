@@ -137,7 +137,7 @@ export const it = {
     items: buildProjects('it', {
       'my-tracking-app': {
         status: 'Versioni pubbliche su GitHub',
-        summary: "La mia prima app pubblicata: un'app Android in Flutter per tenere traccia di abitudini e consumi quotidiani, con statistiche, obiettivi e dati salvati sul telefono.",
+        summary: "La mia prima app pubblicata: un'app Android in Flutter per tenere traccia di abitudini e consumi quotidiani, con statistiche, obiettivi e dati salvati sul telefono, in italiano e in inglese.",
         highlights: [
           { title: 'Widget Android', text: 'Tre dimensioni (piccola, media, grande) per registrare un utilizzo direttamente dalla Home.' },
           { title: 'Statistiche e obiettivi', text: 'Cronologia per giorni, settimane e mesi, badge sbloccabili e un piano di riduzione per ogni prodotto.' },
