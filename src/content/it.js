@@ -46,7 +46,7 @@ export const it = {
   about: {
     eyebrow: 'Chi sono',
     title: 'Dal lavoro con il pubblico allo sviluppo software',
-    lead: "Vengo da anni di lavoro a contatto con il pubblico e da una passione di lunga data per l'hardware: oggi li unisco nel percorso da sviluppatore.",
+    lead: "Vengo da esperienze di lavoro a contatto con il pubblico e da una passione di lunga data per l'hardware: oggi le unisco nel percorso da sviluppatore.",
     paragraphs: [
       "All'ITS Academy studio Java e Spring, OOP, database SQL e NoSQL, Git e architetture cloud. In sala e al front-office ho imparato a gestire la pressione, comunicare con chiarezza e lavorare in squadra.",
       'Nei progetti porto tutte e due: codice ordinato e attenzione a chi lo userà.',
@@ -90,9 +90,9 @@ export const it = {
     experience: [
       {
         period: '2014 – oggi',
-        title: 'Supporto tecnico e hardware',
-        place: 'Freelance',
-        text: 'Diagnostica e riparazione di PC e dispositivi mobili, assemblaggio di workstation, configurazione di reti locali e ottimizzazione dei sistemi operativi.',
+        title: 'Supporto tecnico informale',
+        place: 'Amici e parenti',
+        text: 'Da ragazzo, per passione, ho iniziato ad aiutare amici e parenti con PC e dispositivi mobili: riparazioni hardware, assemblaggio di computer, configurazione di reti locali e ottimizzazione dei sistemi operativi.',
       },
       {
         period: 'giu – set 2025',

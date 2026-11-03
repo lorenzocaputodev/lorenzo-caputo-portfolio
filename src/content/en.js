@@ -46,7 +46,7 @@ export const en = {
   about: {
     eyebrow: 'About',
     title: 'From working with people to building software',
-    lead: 'I come from years of customer-facing work and a long-standing passion for hardware: today I bring both into my path as a developer.',
+    lead: 'I come from customer-facing jobs and a long-standing passion for hardware: today I bring both into my path as a developer.',
     paragraphs: [
       'At ITS Academy I study Java and Spring, OOP, SQL and NoSQL databases, Git and cloud architectures. Front-of-house and front-office work taught me to handle pressure, communicate clearly and work as a team.',
       'I bring both into my projects: tidy code and attention to the people who will use it.',
@@ -90,9 +90,9 @@ export const en = {
     experience: [
       {
         period: '2014 – present',
-        title: 'Technical Support & Hardware',
-        place: 'Freelance',
-        text: 'Diagnosis and repair of PCs and mobile devices, custom workstation builds, local network setup and operating system tuning.',
+        title: 'Informal Tech Support',
+        place: 'Friends & family',
+        text: 'I started as a kid, out of passion, helping friends and family with PCs and mobile devices: hardware repairs, custom PC builds, local network setup and operating system tuning.',
       },
       {
         period: 'Jun – Sep 2025',
