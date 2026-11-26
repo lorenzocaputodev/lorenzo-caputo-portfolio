@@ -16,6 +16,14 @@ import gresHero from '../assets/images/gres_hero.webp'
 import gresHeroSmall from '../assets/images/gres_hero-720.webp'
 import gresConfigurator from '../assets/images/gres_configurator.webp'
 import gresConfiguratorSmall from '../assets/images/gres_configurator-720.webp'
+import sincroNexus from '../assets/images/sincro_nexus.webp'
+import sincroNexusSmall from '../assets/images/sincro_nexus-360.webp'
+import sincroScenario from '../assets/images/sincro_scenario.webp'
+import sincroScenarioSmall from '../assets/images/sincro_scenario-360.webp'
+import mhenaTitle from '../assets/images/mhena_title.webp'
+import mhenaTitleSmall from '../assets/images/mhena_title-844.webp'
+import mhenaPlay from '../assets/images/mhena_play.webp'
+import mhenaPlaySmall from '../assets/images/mhena_play-844.webp'
 import cvFile from '../assets/files/cv-caputo-lorenzo.pdf'
 
 export const sharedProfile = {
@@ -42,7 +50,7 @@ export const buildContactLinks = ({ github, linkedin, cv }) => [
 
 // --- Progetti ---
 const phoneShot = (image, imageSmall, title, width, height) => ({ image, imageSmall, smallWidth: 360, title, width, height })
-const webShot = (image, imageSmall, title) => ({ image, imageSmall, smallWidth: 720, title, width: 1440, height: 900 })
+const webShot = (image, imageSmall, title, width = 1440, height = 900) => ({ image, imageSmall, smallWidth: width / 2, title, width, height })
 
 const projectData = [
   {
@@ -93,7 +101,10 @@ const projectData = [
     stack: 'Flutter · Supabase · Android',
     layout: 'phone',
     links: [],
-    screenshots: [],
+    screenshots: [
+      phoneShot(sincroNexus, sincroNexusSmall, { en: 'Nexus', it: 'Nexus' }, 720, 1560),
+      phoneShot(sincroScenario, sincroScenarioSmall, { en: 'Scenario of the day', it: 'Scenario del giorno' }, 720, 1560),
+    ],
   },
   {
     id: 'mhena-meh',
@@ -101,7 +112,10 @@ const projectData = [
     stack: 'JavaScript · Canvas · Cloudflare',
     layout: 'web',
     links: [],
-    screenshots: [],
+    screenshots: [
+      webShot(mhenaTitle, mhenaTitleSmall, { en: 'Title screen', it: 'Schermata iniziale' }, 1688, 780),
+      webShot(mhenaPlay, mhenaPlaySmall, { en: 'Boss fight', it: 'Scontro con il boss' }, 1688, 780),
+    ],
   },
 ]
 
