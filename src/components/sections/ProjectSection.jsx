@@ -12,9 +12,10 @@ const SHOT_SIZES = {
 }
 
 function ProjectSlide({ item, index, total, active, labels }) {
+  const hasShots = item.screenshots.length > 0
   return (
     <div
-      className={`project-slide${active ? ' is-active' : ''}`}
+      className={`project-slide${hasShots ? '' : ' project-slide--text'}${active ? ' is-active' : ''}`}
       role="group"
       aria-roledescription={labels.slideLabel}
       aria-label={`${index + 1} / ${total}: ${item.name}`}
@@ -36,20 +37,22 @@ function ProjectSlide({ item, index, total, active, labels }) {
           ))}
         </ul>
 
-        <div className="project__links">
-          {item.links.map((link, linkIndex) => (
-            <ExternalLink
-              key={link.href}
-              className={`button ${linkIndex === 0 ? 'button--project' : 'button--ghost'}`}
-              href={link.href}
-            >
-              {link.label}
-            </ExternalLink>
-          ))}
-        </div>
+        {item.links.length > 0 && (
+          <div className="project__links">
+            {item.links.map((link, linkIndex) => (
+              <ExternalLink
+                key={link.href}
+                className={`button ${linkIndex === 0 ? 'button--project' : 'button--ghost'}`}
+                href={link.href}
+              >
+                {link.label}
+              </ExternalLink>
+            ))}
+          </div>
+        )}
       </div>
 
-      <ul className={`project__shots project__shots--${item.layout}`} aria-label={labels.screenshotsAria}>
+      {hasShots && <ul className={`project__shots project__shots--${item.layout}`} aria-label={labels.screenshotsAria}>
         {item.screenshots.map((shot) => (
           <li key={shot.title}>
             <figure className="project-shot">
@@ -64,6 +67,27 @@ function ProjectSlide({ item, index, total, active, labels }) {
                 decoding="async"
               />
             </figure>
+          </li>
+        ))}
+      </ul>}
+    </div>
+  )
+}
+
+function ProjectTools({ tools }) {
+  return (
+    <div className="project-tools">
+      <h3 className="project-tools__title" {...revealProps(40, { kind: 'heading', y: 14 })}>{tools.title}</h3>
+      <p className="project-tools__intro" {...revealProps(80, { kind: 'copy', y: 14 })}>{tools.intro}</p>
+      <ul className="project-tools__grid">
+        {tools.items.map((tool, index) => (
+          <li key={tool.id} {...revealProps(index * 45 + 100, { kind: 'card', y: 20 })}>
+            <ExternalLink className="project-tool" href={tool.href}>
+              <span className="project-tool__language">{tool.language}</span>
+              <h4>{tool.name}</h4>
+              <p>{tool.text}</p>
+              <span className="project-tool__link">GitHub <span aria-hidden="true">↗</span></span>
+            </ExternalLink>
           </li>
         ))}
       </ul>
@@ -238,6 +262,8 @@ function ProjectSectionComponent({ project }) {
             />
           ))}
         </div>
+
+        <ProjectTools tools={project.tools} />
       </div>
     </section>
   )

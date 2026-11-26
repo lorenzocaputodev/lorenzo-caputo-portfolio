@@ -29,6 +29,26 @@ test.describe('portfolio', () => {
     }
   })
 
+  test('shows every project and the Windows tools', async ({ page }) => {
+    await page.goto('./')
+
+    const slides = page.locator('.project-slide')
+    await expect(slides).toHaveCount(5)
+    await expect(slides.locator('.project-slide__title')).toHaveText([
+      'My Tracking App',
+      'Allergy Radar',
+      'Caputo Gres Design',
+      'Sincro',
+      'Mhèna meh!',
+    ])
+
+    const tools = page.locator('.project-tool')
+    await expect(tools).toHaveCount(5)
+    for (const tool of await tools.all()) {
+      await expect(tool).toHaveAttribute('href', /^https:\/\/github\.com\/lorenzocaputodev\//)
+    }
+  })
+
   test('switches language by URL and remembers an explicit choice', async ({ page, isMobile }) => {
     await page.goto('./')
 

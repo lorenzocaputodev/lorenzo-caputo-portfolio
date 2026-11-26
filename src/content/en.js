@@ -3,6 +3,7 @@ import {
   buildContactLinks,
   buildNavItems,
   buildProjects,
+  buildTools,
   certifications,
   sharedProfile,
 } from './shared'
@@ -37,7 +38,7 @@ export const en = {
     headlineLead: 'I build software with',
     headlineAccent: 'care',
     headlineTrail: 'and method, one step at a time',
-    intro: "I'm Lorenzo, a junior developer in training at ITS Academy Apulia Digital Maker. I build real projects and take them all the way to release: two Android apps in Flutter and a website are already live.",
+    intro: "I'm Lorenzo, a junior developer in training at ITS Academy Apulia Digital Maker. I build real projects and take them all the way to release: three Android apps in Flutter, a website and a web game are already live.",
     introNote: 'I work across frontend, Java backend and hardware: I like understanding how a project works end to end.',
     ctaProject: 'See the projects',
     ctaCv: 'Download CV',
@@ -126,7 +127,7 @@ export const en = {
   project: {
     eyebrow: 'Projects',
     title: "What I've built",
-    summary: 'Two Android apps and a website, each one taken all the way to release.',
+    summary: 'Three Android apps, a website and a web game, each one taken all the way to release.',
     carouselLabel: 'carousel',
     slideLabel: 'project',
     previousLabel: 'Previous project',
@@ -165,7 +166,38 @@ export const en = {
           { title: 'Accessible', text: 'Keyboard navigation and full respect for the Reduce motion setting.' },
         ],
       },
+      sincro: {
+        status: 'In use · private repository',
+        summary: 'An Android app for couples: a daily game for two. Every day each partner picks how to react to a scenario and tries to guess what the other will choose; once both have answered, the Collision reveals both choices, which move forward a story written together.',
+        highlights: [
+          { title: 'Made for two', text: 'Each couple has its own space, with a “Thinking of you” tap that reaches the other, even from the widget.' },
+          { title: 'Encrypted notes', text: 'Notes and messages are encrypted on the phone: the server only sees unreadable data.' },
+          { title: 'Many games in one', text: 'Daily scenarios, one-minute challenges, a shared pixel canvas and 100-day seasons.' },
+          { title: 'Works offline too', text: 'Answers and messages are sent as soon as the connection is back; releases are built by GitHub Actions.' },
+        ],
+      },
+      'mhena-meh': {
+        status: 'Live · for the group only · private repository',
+        summary: 'A chapter-based action web game made for my group of friends, who are its characters: played in pairs on a phone in landscape, it tells the story of the group’s trip from Ugento to a secret destination.',
+        highlights: [
+          { title: 'Ten chapters and a finale', text: 'Each chapter has a “home” and an “away” version, with three difficulty levels.' },
+          { title: 'Ten playable pairs', text: 'The twenty friends are the characters, with a skill tree, costumes and secrets to discover.' },
+          { title: 'Online leaderboard and saves', text: 'A small server on Cloudflare (Functions and KV) keeps each pair’s progress on all their phones.' },
+          { title: 'Like an app', text: 'It installs from the home screen and works offline too.' },
+        ],
+      },
     }, { repository: 'Repository', release: 'Latest version', live: 'Live site' }),
+    tools: {
+      title: 'Windows tools',
+      intro: 'Small tools born from real problems, on my own PCs and on those of friends and family, published on GitHub.',
+      items: buildTools({
+        'windows-vm-advisor': 'Checks whether the PC is ready for virtual machines, suggests which systems to install and prepares the settings for VMware or VirtualBox.',
+        'windows-log-toolkit': 'Before a repair it saves system logs, crash files and PC information; then, if needed, it clears the Event Viewer.',
+        'remove-vcredist': 'Removes every version of Microsoft Visual C++ Redistributable from Windows 10 and 11.',
+        'java-uninstaller': 'Completely uninstalls Java from Windows 10 and 11.',
+        'fix-lightshot-fn': 'Makes Lightshot open with the PrtScn key even with Fn Lock on and the Snipping Tool removed.',
+      }),
+    },
   },
   contact: {
     eyebrow: 'Contact',

@@ -87,7 +87,34 @@ const projectData = [
       webShot(gresConfigurator, gresConfiguratorSmall, { en: 'Sink configurator', it: 'Componi il tuo lavandino' }),
     ],
   },
+  {
+    id: 'sincro',
+    name: 'Sincro',
+    stack: 'Flutter · Supabase · Android',
+    layout: 'phone',
+    links: [],
+    screenshots: [],
+  },
+  {
+    id: 'mhena-meh',
+    name: 'Mhèna meh!',
+    stack: 'JavaScript · Canvas · Cloudflare',
+    layout: 'web',
+    links: [],
+    screenshots: [],
+  },
 ]
+
+// --- Strumenti per Windows ---
+const toolData = [
+  { id: 'windows-vm-advisor', name: 'Windows VM Advisor', language: 'PowerShell', href: 'https://github.com/lorenzocaputodev/Windows-VM-Advisor' },
+  { id: 'windows-log-toolkit', name: 'Windows Log Toolkit', language: 'Batch', href: 'https://github.com/lorenzocaputodev/windows-log-toolkit' },
+  { id: 'remove-vcredist', name: 'Remove VC++ Redist', language: 'PowerShell', href: 'https://github.com/lorenzocaputodev/remove-vcredist' },
+  { id: 'java-uninstaller', name: 'Java Uninstaller', language: 'PowerShell', href: 'https://github.com/lorenzocaputodev/java-uninstaller' },
+  { id: 'fix-lightshot-fn', name: 'Fix Lightshot Fn', language: 'Batch', href: 'https://github.com/lorenzocaputodev/fix-lightshot-fn' },
+]
+
+export const buildTools = (copy) => toolData.map((tool) => ({ ...tool, text: copy[tool.id] }))
 
 export const buildProjects = (lang, copy, linkLabels) =>
   projectData.map((project) => ({

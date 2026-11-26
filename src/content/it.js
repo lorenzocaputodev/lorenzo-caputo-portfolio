@@ -3,6 +3,7 @@ import {
   buildContactLinks,
   buildNavItems,
   buildProjects,
+  buildTools,
   certifications,
   sharedProfile,
 } from './shared'
@@ -37,7 +38,7 @@ export const it = {
     headlineLead: 'Sviluppo software con',
     headlineAccent: 'cura',
     headlineTrail: 'e metodo, un passo alla volta',
-    intro: "Sono Lorenzo, junior developer in formazione all'ITS Academy Apulia Digital Maker. Costruisco progetti reali e li porto fino alla pubblicazione: due app Android in Flutter e un sito sono già online.",
+    intro: "Sono Lorenzo, junior developer in formazione all'ITS Academy Apulia Digital Maker. Costruisco progetti reali e li porto fino alla pubblicazione: tre app Android in Flutter, un sito e un gioco web sono già online.",
     introNote: 'Lavoro su frontend, backend Java e hardware: mi piace capire come funziona un progetto per intero.',
     ctaProject: 'Guarda i progetti',
     ctaCv: 'Scarica CV',
@@ -126,7 +127,7 @@ export const it = {
   project: {
     eyebrow: 'Progetti',
     title: 'Cosa ho realizzato',
-    summary: 'Due app Android e un sito, ognuno portato fino alla pubblicazione.',
+    summary: 'Tre app Android, un sito e un gioco web, ognuno portato fino alla pubblicazione.',
     carouselLabel: 'carosello',
     slideLabel: 'progetto',
     previousLabel: 'Progetto precedente',
@@ -165,7 +166,38 @@ export const it = {
           { title: 'Accessibile', text: 'Navigabile da tastiera e rispettoso dell’impostazione «Riduci movimento».' },
         ],
       },
+      sincro: {
+        status: 'In uso · repository privato',
+        summary: "App Android per coppie: un gioco quotidiano a due. Ogni giorno ciascuno sceglie come reagire a uno scenario e prova a indovinare cosa sceglierà l'altro; appena hanno risposto tutti e due, la Collisione rivela le scelte di entrambi, che fanno andare avanti una storia scritta insieme.",
+        highlights: [
+          { title: 'Pensata per due', text: 'Ogni coppia ha il suo spazio, con un tocco «Ti penso» che arriva all’altro anche dal widget.' },
+          { title: 'Note cifrate', text: 'Note e messaggi sono cifrati sul telefono: il server vede solo dati illeggibili.' },
+          { title: 'Tanti giochi in uno', text: 'Scenari quotidiani, sfide da un minuto, una tela in pixel condivisa e stagioni da 100 giorni.' },
+          { title: 'Anche senza rete', text: 'Risposte e messaggi partono appena torna la connessione; le release le costruisce GitHub Actions.' },
+        ],
+      },
+      'mhena-meh': {
+        status: 'Online · riservato al gruppo · repository privato',
+        summary: "Gioco web d'azione a capitoli per il mio gruppo di amici, che ne sono i protagonisti: si gioca in coppia sul telefono in orizzontale e racconta il viaggio del gruppo da Ugento a una meta segreta.",
+        highlights: [
+          { title: 'Dieci capitoli e un finale', text: 'Ogni capitolo in versione «in casa» e «da ospiti», con tre livelli di difficoltà.' },
+          { title: 'Dieci coppie giocabili', text: 'I venti amici sono i personaggi, con albero delle abilità, costumi e segreti da scoprire.' },
+          { title: 'Classifica e salvataggi online', text: 'Un piccolo server su Cloudflare (Functions e KV) tiene i progressi di ogni coppia su tutti i suoi telefoni.' },
+          { title: "Come un'app", text: 'Si installa dalla schermata Home e funziona anche senza rete.' },
+        ],
+      },
     }, { repository: 'Repository', release: 'Ultima versione', live: 'Sito online' }),
+    tools: {
+      title: 'Strumenti per Windows',
+      intro: 'Piccoli strumenti nati da problemi veri, sui miei PC e su quelli di amici e parenti, pubblicati su GitHub.',
+      items: buildTools({
+        'windows-vm-advisor': 'Controlla se il PC è adatto alle macchine virtuali, consiglia quali sistemi installarci e prepara le impostazioni per VMware o VirtualBox.',
+        'windows-log-toolkit': 'Prima di una riparazione salva i registri di sistema, i file dei crash e le informazioni del PC; poi, se serve, svuota il Visualizzatore eventi.',
+        'remove-vcredist': 'Rimuove tutte le versioni di Microsoft Visual C++ Redistributable da Windows 10 e 11.',
+        'java-uninstaller': 'Disinstalla Java da Windows 10 e 11 in modo completo.',
+        'fix-lightshot-fn': 'Fa aprire Lightshot con il tasto Stamp anche con il blocco Fn attivo e senza lo Strumento di cattura.',
+      }),
+    },
   },
   contact: {
     eyebrow: 'Contatti',

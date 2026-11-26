@@ -42,7 +42,8 @@
     max-width: 640px;
   }
 
-  .card-grid--three {
+  .card-grid--three,
+  .project-tools__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -259,7 +260,8 @@
 
   .card-grid--three,
   .project__proof-grid,
-  .project__links {
+  .project__links,
+  .project-tools__grid {
     grid-template-columns: 1fr;
   }
 
@@ -449,12 +451,14 @@
   .project-dots__dot::before,
   .project-nav__arrow,
   .project-proof,
+  .project-tool,
   .project-shot {
     transition: none;
   }
 
   .project-nav__arrow:hover,
   .project-proof:hover,
+  .project-tool:hover,
   .project-shot:hover {
     transform: none;
   }

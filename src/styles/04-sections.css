@@ -750,6 +750,104 @@ html.is-scrolling .project::after {
   gap: 0.8rem;
 }
 
+/* --- Progetti senza screenshot --- */
+.project-slide--text {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-slide--text .project-slide__content {
+  max-width: 860px;
+}
+
+/* --- Strumenti per Windows --- */
+.project-tools {
+  margin-top: clamp(2.2rem, 4vw, 3rem);
+  padding-top: clamp(1.8rem, 3vw, 2.4rem);
+  border-top: 1px solid rgba(47, 211, 233, 0.1);
+}
+
+.project-tools__title {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.project-tools__intro {
+  margin: 0.6rem 0 1.2rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.project-tools__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tools__grid > li {
+  display: flex;
+}
+
+.project-tool {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(47, 211, 233, 0.12);
+  border-radius: 20px;
+  background: rgba(47, 211, 233, 0.04);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 220ms ease, border-color 200ms ease;
+}
+
+.project-tool:hover {
+  transform: translateY(-2px);
+  border-color: rgba(47, 211, 233, 0.28);
+}
+
+.project-tool:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.project-tool__language {
+  color: rgba(47, 211, 233, 0.72);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.project-tool h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: #d9f8fc;
+}
+
+.project-tool p {
+  flex: 1;
+  margin: 0;
+  color: #8fc4ca;
+  font-size: 0.86rem;
+  line-height: 1.58;
+}
+
+.project-tool__link {
+  margin-top: 0.35rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
 /* --- Screenshot dei progetti --- */
 .project__shots {
   display: grid;

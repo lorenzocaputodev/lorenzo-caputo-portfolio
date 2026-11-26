@@ -38,6 +38,9 @@ Al centro ci sono i miei progetti pubblicati, mostrati in un carosello nella ste
 - **[My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)**: app Android in Flutter per tenere traccia di abitudini e consumi quotidiani, con statistiche, obiettivi, widget e dati salvati sul telefono, in italiano e in inglese
 - **[Allergy Radar](https://github.com/lorenzocaputodev/allergy_radar)**: app Android in Flutter con i pollini della tua zona in tutta Italia, diario dei sintomi e avvisi, con dati Open-Meteo e ISPRA POLLnet
 - **[Caputo Gres Design](https://caputogresdesign.pages.dev/)**: sito vetrina di un laboratorio di lavandini su misura in gres porcellanato, con animazioni allo scroll e un lavandino 3D da comporre
+- **Sincro** (repository privato): app Android per coppie in Flutter e Supabase, un gioco quotidiano a due con note cifrate
+- **Mhèna meh!** (repository privato): gioco web a capitoli per il mio gruppo di amici, con classifica e salvataggi online su Cloudflare
+- **Strumenti per Windows**: [Windows VM Advisor](https://github.com/lorenzocaputodev/Windows-VM-Advisor), [Windows Log Toolkit](https://github.com/lorenzocaputodev/windows-log-toolkit), [Remove VC++ Redist](https://github.com/lorenzocaputodev/remove-vcredist), [Java Uninstaller](https://github.com/lorenzocaputodev/java-uninstaller), [Fix Lightshot Fn](https://github.com/lorenzocaputodev/fix-lightshot-fn)
 
 ### 🛠 Tecnologie
 
@@ -155,6 +158,9 @@ At its center are my published projects, shown in a carousel within the same sec
 - **[My Tracking App](https://github.com/lorenzocaputodev/my_tracking_app)**: an Android app built with Flutter to track daily habits and consumption, with statistics, goals, widgets and data stored on the phone, in English and Italian
 - **[Allergy Radar](https://github.com/lorenzocaputodev/allergy_radar)**: an Android app built with Flutter with local pollen levels across Italy, a symptom diary and alerts, based on Open-Meteo and ISPRA POLLnet data
 - **[Caputo Gres Design](https://caputogresdesign.pages.dev/)**: showcase website for a workshop making custom porcelain stoneware sinks, with scroll animations and a 3D sink you can configure
+- **Sincro** (private repository): an Android app for couples built with Flutter and Supabase, a daily game for two with encrypted notes
+- **Mhèna meh!** (private repository): a chapter-based web game for my group of friends, with an online leaderboard and saves on Cloudflare
+- **Windows tools**: [Windows VM Advisor](https://github.com/lorenzocaputodev/Windows-VM-Advisor), [Windows Log Toolkit](https://github.com/lorenzocaputodev/windows-log-toolkit), [Remove VC++ Redist](https://github.com/lorenzocaputodev/remove-vcredist), [Java Uninstaller](https://github.com/lorenzocaputodev/java-uninstaller), [Fix Lightshot Fn](https://github.com/lorenzocaputodev/fix-lightshot-fn)
 
 ### 🛠 Tech Stack
 
