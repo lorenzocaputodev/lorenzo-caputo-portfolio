@@ -79,7 +79,7 @@ export const en = {
         period: 'Jan 2026 – present',
         title: 'ITS Academy Apulia Digital Maker',
         place: 'Higher Technician in Software Development (EQF 5)',
-        text: '1,800 hours on Java and Spring (OOP), SQL and NoSQL databases, Git/GitHub, cloud architectures and AI integration, with hands-on coding and debugging labs.',
+        text: '1,800 hours on Java and Spring (OOP), SQL and NoSQL databases, Git/GitHub, cloud architectures and AI integration, with hands-on coding and debugging labs. Company internship from early 2027.',
       },
       {
         period: '2022',

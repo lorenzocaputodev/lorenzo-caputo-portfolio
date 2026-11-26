@@ -79,7 +79,7 @@ export const it = {
         period: 'gen 2026 – oggi',
         title: 'ITS Academy Apulia Digital Maker',
         place: 'Tecnico Superiore Developer (EQF 5)',
-        text: '1.800 ore su Java e Spring (OOP), database SQL e NoSQL, Git/GitHub, architetture cloud e integrazione AI, con laboratori pratici di codifica e debugging.',
+        text: '1.800 ore su Java e Spring (OOP), database SQL e NoSQL, Git/GitHub, architetture cloud e integrazione AI, con laboratori pratici di codifica e debugging. Stage in azienda da inizio 2027.',
       },
       {
         period: '2022',
