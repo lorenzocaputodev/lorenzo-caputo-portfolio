@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "check": "npm run lint && npm run build",
+    "pretest:e2e": "npm run build",
     "test:e2e": "playwright test",
     "social-preview": "node scripts/social-preview/render.js"
   },

@@ -145,6 +145,7 @@ test.describe('portfolio', () => {
     await expect(button).toHaveText('Copia email')
     await button.click()
     await expect(button).toHaveText('Email copiata')
+    await expect(button).toHaveClass(/\bis-copied\b/)
     expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('lorenzocaputo2002.lc@gmail.com')
     await expect(button).toHaveText('Copia email', { timeout: 4000 })
   })
@@ -170,7 +171,7 @@ test.describe('prerendered pages', () => {
 
     await page.goto('./')
     await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute('content', 'it_IT')
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /social-preview-it\.jpg$/)
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /social-preview-it\.jpg\?v=[0-9a-f]{8}$/)
   })
 
   test('ship a Content Security Policy and a generated sitemap', async ({ page, request }) => {

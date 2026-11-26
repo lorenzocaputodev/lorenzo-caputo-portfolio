@@ -19,7 +19,7 @@ export default defineConfig({
     { name: 'mobile', use: { ...devices['Pixel 7'], locale: 'it-IT' } },
   ],
   webServer: {
-    command: `${process.env.CI ? '' : 'npm run build && '}npm run preview -- --port ${PORT} --strictPort`,
+    command: `npm run preview -- --port ${PORT} --strictPort`,
     url: `http://localhost:${PORT}/`,
     reuseExistingServer: !process.env.CI,
   },

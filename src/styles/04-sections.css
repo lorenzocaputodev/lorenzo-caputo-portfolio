@@ -750,15 +750,6 @@ html.is-scrolling .project::after {
   gap: 0.8rem;
 }
 
-/* --- Progetti senza screenshot --- */
-.project-slide--text {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.project-slide--text .project-slide__content {
-  max-width: 860px;
-}
-
 /* --- Strumenti per Windows --- */
 .project-tools {
   margin-top: clamp(2.2rem, 4vw, 3rem);

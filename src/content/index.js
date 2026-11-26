@@ -1,14 +1,15 @@
 // --- Lingue e indirizzi delle pagine ---
 import { en } from './en'
 import { it } from './it'
+import { DEFAULT_LANGUAGE, LANGUAGES } from './languages'
 
-export const DEFAULT_LANGUAGE = 'it'
+export { DEFAULT_LANGUAGE }
 
 export const SITE_URL = 'https://lorenzocaputo.is-a.dev'
 
 export const content = { en, it }
 
-export const supportedLanguages = Object.keys(content)
+export const supportedLanguages = LANGUAGES
 
 export const languagePath = (language) => (language === DEFAULT_LANGUAGE ? '/' : `/${language}/`)
 

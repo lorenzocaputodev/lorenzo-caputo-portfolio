@@ -33,12 +33,26 @@ const contentSecurityPolicy = [
 
 const cspTag = `<meta http-equiv="Content-Security-Policy" content="${contentSecurityPolicy}" />`
 
+// --- Versione delle anteprime social ---
+const PREVIEW_IMAGE = /\/(social-preview-[\w-]+\.jpg)/g
+const previewVersions = new Map()
+
+async function versionPreviews(head) {
+  for (const [, name] of head.matchAll(PREVIEW_IMAGE)) {
+    if (previewVersions.has(name)) continue
+    const hash = createHash('sha256').update(await readFile(resolve(distDir, name))).digest('hex').slice(0, 8)
+    previewVersions.set(name, hash)
+  }
+  return head.replace(PREVIEW_IMAGE, (match, name) => `${match}?v=${previewVersions.get(name)}`)
+}
+
 // --- Pagine per lingua ---
 for (const language of supportedLanguages) {
+  const head = await versionPreviews(renderHead(language))
   const html = template
     .replace(/<html lang="[^"]*">/, `<html lang="${language}">`)
     .replace('<meta charset="UTF-8" />', `<meta charset="UTF-8" />\n    ${cspTag}`)
-    .replace('<!--app-head-->', () => renderHead(language))
+    .replace('<!--app-head-->', () => head)
     .replace('<!--app-html-->', () => renderApp(language))
 
   const outputFile = resolve(distDir, `.${languagePath(language)}`, 'index.html')

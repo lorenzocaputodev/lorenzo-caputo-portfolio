@@ -60,7 +60,7 @@ npm install
 npm run dev      # server di sviluppo (http://localhost:5173/ e /en/)
 npm run check    # lint + build di produzione con le pagine pre-generate
 npm run preview  # anteprima della build in dist/
-npm run test:e2e # test end-to-end Playwright (desktop + mobile)
+npm run test:e2e # build + test end-to-end Playwright (desktop + mobile)
 npm run social-preview # rigenera le immagini di anteprima social (IT ed EN)
 ```
 
@@ -78,7 +78,8 @@ src/
 ├── content/                # testi e dati del sito
 │   ├── shared.js           # dati comuni (profilo, link, progetti, certificazioni)
 │   ├── en.js / it.js       # contenuti localizzati, stessa struttura
-│   └── index.js            # lingue supportate, lingua di default, URL delle pagine
+│   ├── languages.js        # lingue supportate e lingua di default
+│   └── index.js            # contenuti per lingua e URL delle pagine
 ├── components/
 │   ├── layout/             # Topbar, LanguageSwitch, SkipLink, SiteDecor
 │   ├── sections/           # una sezione della pagina per file
@@ -180,7 +181,7 @@ npm install
 npm run dev      # dev server (http://localhost:5173/ and /en/)
 npm run check    # lint + production build with prerendered pages
 npm run preview  # preview the build in dist/
-npm run test:e2e # Playwright end-to-end tests (desktop + mobile)
+npm run test:e2e # build + Playwright end-to-end tests (desktop + mobile)
 npm run social-preview # regenerate the social preview images (IT and EN)
 ```
 

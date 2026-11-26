@@ -1,10 +1,10 @@
 // --- Comportamento del menu mobile ---
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
 const MOBILE_BREAKPOINT = 760
 
 export function useMobileMenuBehavior(mobileMenuOpen, closeMenu, mobileNavRef) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!mobileMenuOpen) return
 
     const previousOverflow = document.body.style.overflow

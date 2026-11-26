@@ -12,10 +12,9 @@ const SHOT_SIZES = {
 }
 
 function ProjectSlide({ item, index, total, active, labels }) {
-  const hasShots = item.screenshots.length > 0
   return (
     <div
-      className={`project-slide${hasShots ? '' : ' project-slide--text'}${active ? ' is-active' : ''}`}
+      className={`project-slide${active ? ' is-active' : ''}`}
       role="group"
       aria-roledescription={labels.slideLabel}
       aria-label={`${index + 1} / ${total}: ${item.name}`}
@@ -52,7 +51,7 @@ function ProjectSlide({ item, index, total, active, labels }) {
         )}
       </div>
 
-      {hasShots && <ul className={`project__shots project__shots--${item.layout}`} aria-label={labels.screenshotsAria}>
+      <ul className={`project__shots project__shots--${item.layout}`} aria-label={labels.screenshotsAria}>
         {item.screenshots.map((shot) => (
           <li key={shot.title}>
             <figure className="project-shot">
@@ -69,7 +68,7 @@ function ProjectSlide({ item, index, total, active, labels }) {
             </figure>
           </li>
         ))}
-      </ul>}
+      </ul>
     </div>
   )
 }
@@ -201,66 +200,67 @@ function ProjectSectionComponent({ project }) {
       className="section section--project"
       id="project"
       aria-labelledby="project-title"
-      aria-roledescription={project.carouselLabel}
     >
       <div ref={projectRef} className="container project">
-        <div className="project__head">
-          <SectionHeading
-            eyebrow={project.eyebrow}
-            title={project.title}
-            body={project.summary}
-            id="project-title"
-          />
+        <div role="group" aria-roledescription={project.carouselLabel} aria-labelledby="project-title">
+          <div className="project__head">
+            <SectionHeading
+              eyebrow={project.eyebrow}
+              title={project.title}
+              body={project.summary}
+              id="project-title"
+            />
 
-          <div className="project-nav" {...revealProps(120, { kind: 'copy', y: 16 })}>
-            <p className="project-nav__count">
-              <strong>{padNumber(activeIndex + 1)}</strong> / {padNumber(total)}
-            </p>
-            <button
-              type="button"
-              className="project-nav__arrow"
-              aria-label={project.previousLabel}
-              onClick={() => step(-1)}
-            >
-              <span aria-hidden="true">←</span>
-            </button>
-            <button
-              type="button"
-              className="project-nav__arrow"
-              aria-label={project.nextLabel}
-              onClick={() => step(1)}
-            >
-              <span aria-hidden="true">→</span>
-            </button>
+            <div className="project-nav" {...revealProps(120, { kind: 'copy', y: 16 })}>
+              <p className="project-nav__count">
+                <strong>{padNumber(activeIndex + 1)}</strong> / {padNumber(total)}
+              </p>
+              <button
+                type="button"
+                className="project-nav__arrow"
+                aria-label={project.previousLabel}
+                onClick={() => step(-1)}
+              >
+                <span aria-hidden="true">←</span>
+              </button>
+              <button
+                type="button"
+                className="project-nav__arrow"
+                aria-label={project.nextLabel}
+                onClick={() => step(1)}
+              >
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div {...revealProps(80, { kind: 'card', y: 24 })}>
-          <div ref={trackRef} className="project-track" tabIndex={0} onKeyDown={handleKeyDown}>
+          <div {...revealProps(80, { kind: 'card', y: 24 })}>
+            <div ref={trackRef} className="project-track" tabIndex={0} onKeyDown={handleKeyDown}>
+              {project.items.map((item, index) => (
+                <ProjectSlide
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  total={total}
+                  active={index === activeIndex}
+                  labels={project}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="project-dots">
             {project.items.map((item, index) => (
-              <ProjectSlide
+              <button
                 key={item.id}
-                item={item}
-                index={index}
-                total={total}
-                active={index === activeIndex}
-                labels={project}
+                type="button"
+                className={`project-dots__dot${index === activeIndex ? ' is-active' : ''}`}
+                aria-label={`${project.goToLabel} ${index + 1}: ${item.name}`}
+                aria-current={index === activeIndex ? 'true' : undefined}
+                onClick={() => goTo(index)}
               />
             ))}
           </div>
-        </div>
-
-        <div className="project-dots">
-          {project.items.map((item, index) => (
-            <button
-              key={item.id}
-              type="button"
-              className={`project-dots__dot${index === activeIndex ? ' is-active' : ''}`}
-              aria-label={`${project.goToLabel} ${index + 1}: ${item.name}`}
-              aria-current={index === activeIndex ? 'true' : undefined}
-              onClick={() => goTo(index)}
-            />
-          ))}
         </div>
 
         <ProjectTools tools={project.tools} />

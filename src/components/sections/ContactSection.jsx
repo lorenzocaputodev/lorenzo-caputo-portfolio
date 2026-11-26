@@ -65,7 +65,7 @@ function ContactSectionComponent({ contact, footer, profile }) {
             {profile.email}
           </ExternalLink>
           <button
-            className={copyState ? `contact__copy is-${copyState}` : 'contact__copy'}
+            className={copyState ? `contact__copy is-${copyState.kind}` : 'contact__copy'}
             type="button"
             aria-live="polite"
             onClick={copyEmail}

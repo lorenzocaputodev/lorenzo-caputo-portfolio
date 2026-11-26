@@ -1,6 +1,25 @@
 // --- Configurazione di Vite ---
 import { defineConfig } from 'vite'
 import preact from '@preact/preset-vite'
+import { DEFAULT_LANGUAGE, LANGUAGES } from './src/content/languages.js'
+import { LANG_KEY } from './src/utils/language.js'
+
+// --- Costanti delle lingue nello script di index.html ---
+function languageConstants() {
+  const values = {
+    __LANG_KEY__: LANG_KEY,
+    __DEFAULT_LANGUAGE__: DEFAULT_LANGUAGE,
+    __LANGUAGES__: JSON.stringify(LANGUAGES),
+  }
+
+  return {
+    name: 'language-constants',
+    transformIndexHtml: {
+      order: 'pre',
+      handler: (html) => html.replace(/__[A-Z_]+__/g, (token) => values[token] ?? token),
+    },
+  }
+}
 
 // --- Preload dei font visibili al primo caricamento ---
 const PRELOAD_FONTS = [/sora-latin-400-normal-.*\.woff2$/, /sora-latin-700-normal-.*\.woff2$/, /cormorant-garamond-latin-600-italic-.*\.woff2$/]
@@ -40,5 +59,5 @@ function devHead() {
 // --- Configurazione ---
 export default defineConfig({
   base: '/',
-  plugins: [preact(), preloadFonts(), devHead()],
+  plugins: [preact(), languageConstants(), preloadFonts(), devHead()],
 })
