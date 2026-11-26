@@ -11,13 +11,13 @@ const root = resolve(here, '../..')
 const previews = {
   it: {
     output: 'public/social-preview-it.jpg',
-    headline: ['Junior developer', 'in formazione'],
+    headline: ['Junior full stack', 'developer in formazione'],
     subtitle: ['Appassionato di software e hardware.', 'Imparo, costruisco e miglioro ogni giorno.'],
     tagline: ['Codice pulito.', 'UI curata.', 'Impatto reale.'],
   },
   en: {
     output: 'public/social-preview-en.jpg',
-    headline: ['Junior developer', 'in training'],
+    headline: ['Junior full stack', 'developer in training'],
     subtitle: ['Passionate about software and hardware.', 'I learn, build, and improve every day.'],
     tagline: ['Clean code.', 'Great UI.', 'Real impact.'],
   },
@@ -67,9 +67,11 @@ const page = ({ headline, subtitle, tagline }) => `<!doctype html>
         transform-origin: 0 0;
       }
       .stage > * { position: absolute; margin: 0; white-space: nowrap; }
-      .headline { left: 92px; font: 600 86px/1 Inter, sans-serif; letter-spacing: -0.005em; color: #f4f3f3; }
-      .headline.first { top: 247px; }
-      .headline.second { top: 338px; color: #01f4fd; }
+      .headline { left: 92px; font: 600 78px/1 Inter, sans-serif; letter-spacing: -0.005em; color: #f4f3f3; }
+      .headline.first { top: 252px; }
+      .headline.second { top: 336px; color: #01f4fd; }
+      .role { left: 1356px; top: 355px; width: 304px; padding-left: 3px; background: #010a11; font: 400 16px/28px Mono, monospace; color: #00f0f0; }
+      .role span { color: #c9ccd1; }
       .subtitle { left: 93px; font: 500 24.6px/1 Inter, sans-serif; color: #afb5ba; }
       .subtitle.first { top: 458px; }
       .subtitle.second { top: 499px; }
@@ -100,6 +102,7 @@ const page = ({ headline, subtitle, tagline }) => `<!doctype html>
   </head>
   <body>
     <div class="stage">
+      <p class="role">"Junior Full Stack Developer"<span>;</span></p>
       <p class="headline first">${headline[0]}</p>
       <p class="headline second">${headline[1]}</p>
       <p class="subtitle first">${subtitle[0]}</p>

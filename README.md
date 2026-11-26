@@ -18,7 +18,7 @@ Non vuole essere un semplice biglietto da visita, ma un posto ordinato dove most
 
 Il sito racconta chi sono oggi:
 
-- **junior developer in formazione** all'ITS Academy Apulia Digital Maker
+- **junior full stack developer in formazione** all'ITS Academy Apulia Digital Maker
 - con la voglia di costruire progetti concreti
 - attento all'ordine, alla qualità e ai dettagli
 - interessato sia al **software** sia all'**hardware**, ai sistemi e alla risoluzione dei problemi
@@ -138,7 +138,7 @@ It isn't meant to be a simple business card, but a tidy place to show **who I am
 
 The site shows who I am today:
 
-- **junior developer in training** at ITS Academy Apulia Digital Maker
+- **junior full stack developer in training** at ITS Academy Apulia Digital Maker
 - keen on building concrete projects
 - attentive to order, quality and details
 - interested in both **software** and **hardware**, systems and troubleshooting
