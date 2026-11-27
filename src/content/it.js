@@ -118,7 +118,7 @@ export const it = {
       { title: 'Frontend e UI', items: ['React', 'Vite', 'GSAP', 'Flutter', 'UX/UI con Figma'] },
       { title: 'Backend', items: ['Spring Boot', 'REST API', 'Microservizi', 'Jakarta EE', 'JUnit', 'Supabase'] },
       { title: 'Dati', items: ['SQL', 'PostgreSQL', 'SQLite', 'NoSQL'] },
-      { title: 'Sviluppo con l’AI', items: ['Claude Code', 'Codex CLI', 'Antigravity', 'Prompt engineering', 'AI generativa', 'Integrazione AI'] },
+      { title: "Sviluppo con l'AI", items: ['Claude Code', 'Codex CLI', 'Antigravity', 'Prompt engineering', 'AI generativa', 'Integrazione AI'] },
       { title: 'Strumenti', items: ['Git', 'GitHub', 'GitHub Actions', 'Docker', 'Cloudflare Pages', 'Playwright', 'UML'] },
       { title: 'Sistemi e hardware', items: ['Diagnostica hardware', 'Reti locali', 'Sistemi operativi', 'Script PowerShell e Batch', 'Robotica e stampa 3D'] },
       { title: 'Lingue', items: ['Italiano (madrelingua)', 'Inglese B2', 'Francese e tedesco (base)'] },
@@ -152,7 +152,7 @@ export const it = {
         highlights: [
           { title: 'Previsione, misura o stima', text: 'Quindici allergeni in tutta Italia, e ogni valore dice da dove arriva.' },
           { title: 'Diario dei sintomi', text: "Dieci secondi al giorno, con i farmaci più usati, il sonno e le ore all'aperto." },
-          { title: 'Avvisi e widget', text: 'I pollini di oggi, l’allerta per domani e un widget per la Home.' },
+          { title: 'Avvisi e widget', text: "I pollini di oggi, l'allerta per domani e un widget per la Home." },
           { title: "Report per l'allergologo", text: 'PDF, diario in CSV, backup e ripristino. Senza account e senza pubblicità.' },
         ],
       },
@@ -163,17 +163,17 @@ export const it = {
           { title: 'Animazione allo scroll', text: 'Una lastra di gres si taglia, si piega e diventa un lavandino mentre scorri.' },
           { title: 'Configuratore 3D', text: 'Forma, superficie, scarico e rubinetto su un lavandino da girare, in solo CSS 3D.' },
           { title: 'Contatto su WhatsApp', text: "Ogni idea diventa un messaggio già pronto, modificabile prima dell'invio." },
-          { title: 'Accessibile', text: 'Navigabile da tastiera e rispettoso dell’impostazione «Riduci movimento».' },
+          { title: 'Accessibile', text: "Navigabile da tastiera e rispettoso dell'impostazione «Riduci movimento»." },
         ],
       },
       sincro: {
         status: 'In uso · repository privato',
         summary: "App Android per coppie: un gioco quotidiano a due. Ogni giorno ciascuno sceglie come reagire a uno scenario e prova a indovinare cosa sceglierà l'altro. Quando hanno risposto tutti e due, la Collisione rivela le due scelte, che fanno andare avanti una storia scritta insieme.",
         highlights: [
-          { title: 'Pensata per due', text: 'Ogni coppia ha il suo spazio, con un tocco «Ti penso» che arriva all’altro anche dal widget.' },
+          { title: 'Pensata per due', text: "Ogni coppia ha il suo spazio, con un tocco «Ti penso» che arriva all'altro anche dal widget." },
           { title: 'Note cifrate', text: 'Note e messaggi sono cifrati sul telefono: il server vede solo dati illeggibili.' },
           { title: 'Tanti giochi in uno', text: 'Scenari quotidiani, sfide da un minuto, una tela in pixel condivisa e stagioni da 100 giorni.' },
-          { title: 'Anche senza rete', text: 'Risposte e messaggi partono appena torna la connessione; le release le costruisce GitHub Actions.' },
+          { title: 'Rete e aggiornamenti', text: 'Risposte e messaggi partono appena torna la connessione; ogni nuova versione la costruisce GitHub Actions.' },
         ],
       },
       'mhena-meh': {
