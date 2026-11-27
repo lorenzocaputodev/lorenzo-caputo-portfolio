@@ -70,7 +70,7 @@ function TopbarComponent({
           </div>
         </div>
 
-        <div className="mobile-nav" id="mobile-nav" hidden={!mobileMenuOpen}>
+        <div className={mobileMenuOpen ? 'mobile-nav is-open' : 'mobile-nav'} id="mobile-nav">
           <nav className="mobile-nav__panel" aria-label={ui.mobileNavAria}>
             <ul className="mobile-nav__links">
               {navItems.map((item) => (
