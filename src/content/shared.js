@@ -151,7 +151,7 @@ export const certifications = {
     { title: 'Robotics, 3D Printing & Laser Cutting', issuer: 'The Qube – Molo12', date: 'Jul 2023' },
     { title: 'Google Analytics for Beginners', issuer: 'Google Analytics Academy', date: 'May 2022' },
     { title: 'Cambridge English B2 First', issuer: 'Cambridge', date: 'Nov 2021' },
-    { title: 'Worker Safety Training', issuer: 'Accordo Stato-Regioni', date: 'Nov 2019' },
+    { title: 'Worker Safety Training (State-Regions Agreement)', issuer: 'I.I.S.S. "G.C. Vanini" – Casarano', date: 'Nov 2019' },
   ],
   it: [
     { title: 'Exploring in AI', issuer: 'IBM SkillsBuild', date: 'mar 2026' },
@@ -159,6 +159,6 @@ export const certifications = {
     { title: 'Robotics, 3D Printing & Laser Cutting', issuer: 'The Qube – Molo12', date: 'lug 2023' },
     { title: 'Google Analytics for Beginners', issuer: 'Google Analytics Academy', date: 'mag 2022' },
     { title: 'Cambridge English B2 First', issuer: 'Cambridge', date: 'nov 2021' },
-    { title: 'Formazione per Lavoratori', issuer: 'Accordo Stato-Regioni', date: 'nov 2019' },
+    { title: 'Formazione per Lavoratori (Accordo Stato-Regioni)', issuer: 'I.I.S.S. "G.C. Vanini" – Casarano', date: 'nov 2019' },
   ],
 }
