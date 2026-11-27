@@ -150,7 +150,7 @@ export const it = {
         status: 'Versioni pubbliche su GitHub',
         summary: 'App Android in Flutter con i pollini della tua zona in tutta Italia, diario dei sintomi e avvisi, con dati Open-Meteo e ISPRA POLLnet.',
         highlights: [
-          { title: 'Previsione, misura o stima', text: 'Dieci allergeni in tutta Italia, e ogni valore dice da dove arriva.' },
+          { title: 'Previsione, misura o stima', text: 'Quindici allergeni in tutta Italia, e ogni valore dice da dove arriva.' },
           { title: 'Diario dei sintomi', text: "Dieci secondi al giorno, con i farmaci più usati, il sonno e le ore all'aperto." },
           { title: 'Avvisi e widget', text: 'I pollini di oggi, l’allerta per domani e un widget per la Home.' },
           { title: "Report per l'allergologo", text: 'PDF, diario in CSV, backup e ripristino. Senza account e senza pubblicità.' },

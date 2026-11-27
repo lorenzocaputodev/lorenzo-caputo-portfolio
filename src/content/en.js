@@ -150,7 +150,7 @@ export const en = {
         status: 'Public releases on GitHub',
         summary: 'An Android app built with Flutter with local pollen levels across Italy, a symptom diary and alerts, based on Open-Meteo and ISPRA POLLnet data.',
         highlights: [
-          { title: 'Forecast, measurement or estimate', text: 'Ten allergens across Italy, and every value says where it comes from.' },
+          { title: 'Forecast, measurement or estimate', text: 'Fifteen allergens across Italy, and every value says where it comes from.' },
           { title: 'Symptom diary', text: 'Ten seconds a day, with common medicines, sleep and time spent outdoors.' },
           { title: 'Alerts and widget', text: 'Today’s pollen, an alert for tomorrow and a widget for the home screen.' },
           { title: 'Report for the allergist', text: 'PDF report, CSV diary, backup and restore. No account and no ads.' },

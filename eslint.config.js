@@ -6,7 +6,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 
 export default [
   {
-    ignores: ['dist/**', 'dist-ssr/**', 'playwright-report/**', 'test-results/**'],
+    ignores: ['dist/**', 'dist-ssr/**', 'playwright-report/**', 'test-results/**', 'docs/**'],
   },
   js.configs.recommended,
   {
