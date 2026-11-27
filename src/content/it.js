@@ -47,7 +47,7 @@ export const it = {
   about: {
     eyebrow: 'Chi sono',
     title: 'Dal lavoro con il pubblico allo sviluppo software',
-    lead: "Vengo da esperienze di lavoro a contatto con il pubblico e da una passione di lunga data per l'hardware: oggi le unisco nel percorso da sviluppatore.",
+    lead: "Vengo da lavori a contatto con il pubblico e da una passione di lunga data per l'hardware; oggi mi sto formando come sviluppatore.",
     paragraphs: [
       "All'ITS Academy studio Java e Spring, OOP, database SQL e NoSQL, Git e architetture cloud. In sala e al front-office ho imparato a gestire la pressione, comunicare con chiarezza e lavorare in squadra.",
       'Nei progetti porto tutte e due: codice ordinato e attenzione a chi lo userà.',
@@ -142,7 +142,7 @@ export const it = {
         highlights: [
           { title: 'Widget Android', text: 'Tre dimensioni (piccola, media, grande) per registrare un utilizzo direttamente dalla Home.' },
           { title: 'Statistiche e obiettivi', text: 'Cronologia per giorni, settimane e mesi, badge sbloccabili e un piano di riduzione per ogni prodotto.' },
-          { title: 'Backup CSV', text: "Esporta e importa i dati in CSV: restano sempre sotto il controllo dell'utente." },
+          { title: 'Backup CSV', text: 'Esporta e importa i dati in CSV, per tenerne una copia dove preferisci.' },
           { title: 'Dati sul telefono', text: 'Nessun account e nessun server: i dati restano sul dispositivo.' },
         ],
       },
@@ -168,7 +168,7 @@ export const it = {
       },
       sincro: {
         status: 'In uso · repository privato',
-        summary: "App Android per coppie: un gioco quotidiano a due. Ogni giorno ciascuno sceglie come reagire a uno scenario e prova a indovinare cosa sceglierà l'altro; appena hanno risposto tutti e due, la Collisione rivela le scelte di entrambi, che fanno andare avanti una storia scritta insieme.",
+        summary: "App Android per coppie: un gioco quotidiano a due. Ogni giorno ciascuno sceglie come reagire a uno scenario e prova a indovinare cosa sceglierà l'altro. Quando hanno risposto tutti e due, la Collisione rivela le due scelte, che fanno andare avanti una storia scritta insieme.",
         highlights: [
           { title: 'Pensata per due', text: 'Ogni coppia ha il suo spazio, con un tocco «Ti penso» che arriva all’altro anche dal widget.' },
           { title: 'Note cifrate', text: 'Note e messaggi sono cifrati sul telefono: il server vede solo dati illeggibili.' },

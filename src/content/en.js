@@ -47,7 +47,7 @@ export const en = {
   about: {
     eyebrow: 'About',
     title: 'From working with people to building software',
-    lead: 'I come from customer-facing jobs and a long-standing passion for hardware: today I bring both into my path as a developer.',
+    lead: 'I come from customer-facing jobs and a long-standing passion for hardware, and now I am training as a developer.',
     paragraphs: [
       'At ITS Academy I study Java and Spring, OOP, SQL and NoSQL databases, Git and cloud architectures. Front-of-house and front-office work taught me to handle pressure, communicate clearly and work as a team.',
       'I bring both into my projects: tidy code and attention to the people who will use it.',
@@ -83,7 +83,7 @@ export const en = {
       },
       {
         period: '2022',
-        title: 'Scientific-Linguistic High School Diploma',
+        title: 'Scientific-linguistic high school diploma',
         place: 'I.I.S.S. "G.C. Vanini" – Casarano',
         text: 'Logic, mathematics, physics and foreign languages; Cambridge English B2 First certification.',
       },
@@ -91,21 +91,21 @@ export const en = {
     experience: [
       {
         period: '2014 – present',
-        title: 'Informal Tech Support',
+        title: 'Informal tech support',
         place: 'Friends & family',
         text: 'I started as a kid, out of passion, helping friends and family with PCs and mobile devices: hardware repairs, custom PC builds, local network setup and operating system tuning.',
       },
       {
         period: 'Jun – Sep 2025',
-        title: 'Hospitality & Team Coordination',
+        title: 'Waiting tables and team coordination',
         place: 'Pizzeria Trattoria "Nicolò"',
-        text: 'Managing a section at peak times, digital orders on handheld devices and coordination between floor and kitchen.',
+        text: 'Waiting tables at peak times, taking orders on handheld devices and coordinating the floor with the kitchen.',
       },
       {
         period: 'Jul 2017 – Sep 2019',
-        title: 'Front-of-House & Front-Office',
+        title: 'Front of house and front office',
         place: 'Ristorante Pizzeria "Il Gambero Rosso"',
-        text: 'Welcoming international guests, handling payments at the till and bar service, with many tasks running in parallel.',
+        text: 'Welcoming international guests, taking payments at the till and serving at the bar, often juggling several tasks at once.',
       },
     ],
     certifications: certifications.en,
@@ -142,7 +142,7 @@ export const en = {
         highlights: [
           { title: 'Android widgets', text: 'Three sizes (small, medium, large) to log usage straight from the home screen.' },
           { title: 'Statistics and goals', text: 'History by day, week and month, unlockable badges and a reduction plan for each product.' },
-          { title: 'CSV backup', text: 'Export and import data as CSV: it always stays under the user’s control.' },
+          { title: 'CSV backup', text: 'Export and import data as CSV and keep a copy wherever you like.' },
           { title: 'Data on the phone', text: 'No account and no server: all data stays on the device.' },
         ],
       },
@@ -163,12 +163,12 @@ export const en = {
           { title: 'Scroll animation', text: 'A stoneware slab is cut, folds and turns into a sink as you scroll.' },
           { title: '3D configurator', text: 'Shape, surface, drain and tap on a sink you can rotate, in pure CSS 3D.' },
           { title: 'WhatsApp contact', text: 'Every idea becomes a ready-made message, editable before sending.' },
-          { title: 'Accessible', text: 'Keyboard navigation and full respect for the Reduce motion setting.' },
+          { title: 'Accessible', text: 'Works from the keyboard and follows the Reduce motion setting.' },
         ],
       },
       sincro: {
         status: 'In use · private repository',
-        summary: 'An Android app for couples: a daily game for two. Every day each partner picks how to react to a scenario and tries to guess what the other will choose; once both have answered, the Collision reveals both choices, which move forward a story written together.',
+        summary: 'An Android app for couples: a daily game for two. Every day each partner picks how to react to a scenario and tries to guess what the other will choose. Once both have answered, the Collision reveals the two choices, which move a shared story forward.',
         highlights: [
           { title: 'Made for two', text: 'Each couple has its own space, with a “Thinking of you” tap that reaches the other, even from the widget.' },
           { title: 'Encrypted notes', text: 'Notes and messages are encrypted on the phone: the server only sees unreadable data.' },
@@ -189,7 +189,7 @@ export const en = {
     }, { repository: 'Repository', release: 'Latest version', live: 'Live site' }),
     tools: {
       title: 'Windows tools',
-      intro: 'Small tools born from real problems, on my own PCs and on those of friends and family, published on GitHub.',
+      intro: 'Small tools I wrote to fix real problems on my own PCs and those of friends and family, all published on GitHub.',
       items: buildTools({
         'windows-vm-advisor': 'Checks whether the PC is ready for virtual machines, suggests which systems to install and prepares the settings for VMware or VirtualBox.',
         'windows-log-toolkit': 'Before a repair it saves system logs, crash files and PC information; then, if needed, it clears the Event Viewer.',
@@ -204,7 +204,7 @@ export const en = {
     titleLead: 'Looking for my',
     titleAccent: 'first opportunity',
     titleTrail: 'in software',
-    lead: 'Open to internships, jobs and collaborations: write to me, I’m happy to reply.',
+    lead: 'I’m open to internships, jobs and collaborations. Write to me and I’ll get back to you.',
     copyEmail: 'Copy email',
     emailCopied: 'Email copied',
     copyFailed: 'Copy failed',
