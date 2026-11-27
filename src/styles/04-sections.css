@@ -472,16 +472,6 @@
 }
 
 /* --- Progetto --- */
-.section--project::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 55% 45% at 80% 20%, rgba(47, 211, 233, 0.08), transparent 55%),
-    radial-gradient(ellipse 45% 35% at 20% 80%, rgba(47, 211, 233, 0.04), transparent 55%);
-}
-
 .project {
   position: relative;
   padding: clamp(2rem, 4vw, 2.8rem);

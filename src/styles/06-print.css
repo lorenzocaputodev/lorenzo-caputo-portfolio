@@ -35,7 +35,6 @@
   .project-dots,
   .contact__actions a[download],
   .hero::before,
-  .section--project::before,
   .project::after {
     display: none !important;
   }
